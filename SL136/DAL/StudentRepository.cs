@@ -18,6 +18,7 @@
         private const string GetStudentInfoProcedure = "spGetStudentInfo";
         private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
+        private const string RequestGradeChangeProcedure = "addRequest";
 
         public void InsertStudent(Student student, ref List<string> errors)
         {
