@@ -21,5 +21,7 @@
         void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors);
 
         List<Enrollment> GetEnrollments(string studentId);
+
+        void SendStudentRequest(string studentId, int schduleId, string request, ref List<string> errors);
     }
 }
