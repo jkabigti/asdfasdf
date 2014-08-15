@@ -63,5 +63,97 @@
 
             return courseList;
         }
+
+
+        public void AddPrereq(Course course, Course prereq, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            try
+            {
+                var adapter = new SqlDataAdapter(addPrereq, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    }
+                };
+
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@course_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@prereq_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@course_id"].Value = course.CourseId;
+                adapter.SelectCommand.Parameters["@prereq_id"].Value = prereq.CourseId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error in addPrereq in CourseRepository.cs!!:\t" + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
+        public void DeletePrereq(Course course, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            try
+            {
+                var adapter = new SqlDataAdapter(deletePrereq, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@course_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@course_id"].Value = course.CourseId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Errors in DeletePrereq in CourseRepository.cs!!:\t" + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
+        public void EditPrereq(Course course, Course prereq, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            try
+            {
+                var adapter = new SqlDataAdapter(EditPrereq, conn)
+                {
+                    SelectCommand = { CommandType = CommandType.StoredProcedure }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@course_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@prereq_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@course_id"].Value = course.CourseId;
+                adapter.SelectCommand.Parameters["@prereq_id"].Value = prereq.CourseId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Errors in EditPrereq in CourseRepository.cs!!:\t" + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
+
+    
 }
