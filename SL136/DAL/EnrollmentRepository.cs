@@ -12,7 +12,7 @@
     {
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
 
-                public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
+        public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             var enrollmentList = new List<Enrollment>();
@@ -22,7 +22,8 @@
                 var adapter = new SqlDataAdapter(GetEnrolledStudentProcedure, conn);
 
 
-                if (scheduleId > 0) {
+                if (scheduleId > 0)
+                {
                     adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
                     adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
                 }
@@ -47,15 +48,17 @@
 
                     };
                     enrollmentList.Add(enrollment);
-                }}
-                catch (Exception e)
-                {
-                    errors.Add("Error: " + e);
                 }
-                finally{
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
                 conn.Dispose();
             }
-            
+
 
             return enrollmentList;
         }
