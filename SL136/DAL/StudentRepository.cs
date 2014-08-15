@@ -333,5 +333,42 @@
             //// Not implemented yet. 136 TODO:
             throw new Exception();
         }
+
+        public void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+
+            try
+            {
+                var adapter = new SqlDataAdapter(RequestGradeChangeProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType
+                            =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@request", SqlDbType.VarChar, -1));
+
+                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
+                adapter.SelectCommand.Parameters["@request"].Value = request;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }
