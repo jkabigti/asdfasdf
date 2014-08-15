@@ -70,7 +70,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(addPrereq, conn)
+                var adapter = new SqlDataAdapter("addPrereq", conn)
                 {
                     SelectCommand =
                     {
@@ -102,7 +102,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(deletePrereq, conn)
+                var adapter = new SqlDataAdapter("deletePrereq", conn)
                 {
                     SelectCommand =
                     {
@@ -131,7 +131,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(EditPrereq, conn)
+                var adapter = new SqlDataAdapter("editPrereq", conn)
                 {
                     SelectCommand = { CommandType = CommandType.StoredProcedure }
                 };

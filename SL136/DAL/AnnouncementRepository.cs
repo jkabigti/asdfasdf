@@ -30,8 +30,8 @@ namespace Repository
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@text", SqlDbType.VarChar, -1));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@date", SqlDbType.DateTime));
 
-                adapter.SelectCommand.Parameters["@text"].Value = announcement.text;
-                adapter.SelectCommand.Parameters["@date"].Value = announcement.date;
+                adapter.SelectCommand.Parameters["@text"].Value = announcement.Text;
+                adapter.SelectCommand.Parameters["@date"].Value = announcement.Date;
                 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
@@ -45,7 +45,6 @@ namespace Repository
                 conn.Dispose();
             }
         }
-
 
         public void DeleteAnnouncement(int id, ref List<string> errors)
         {
@@ -79,7 +78,6 @@ namespace Repository
             }
         }
 
-
         public List<Announcement> GetAnnouncements(ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
@@ -107,7 +105,7 @@ namespace Repository
                 {
                     var announcement = new Announcement
                                       {
-                                          ID = dataSet.Tables[0].Rows[i]["id"].ToString(),
+                                          ID = (int)dataSet.Tables[0].Rows[i]["id"],
                                           Text = dataSet.Tables[0].Rows[i]["text"].ToString(),
                                           Date = dataSet.Tables[0].Rows[i]["date"].ToString(),
                                       };
@@ -125,6 +123,5 @@ namespace Repository
 
             return announcementList;
         }
-
     }
 }

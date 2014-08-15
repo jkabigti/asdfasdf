@@ -12,7 +12,7 @@ namespace Repository
     public class InstructorRepository : BaseRepository, InterfaceInstructorRepository
     {
         private const string EditGradeProcedure = "editGrades";
-        private const string getRequestProcedure = "getRequests";
+        private const string GetRequestProcedure = "getRequests";
         private const string DropStudentProcedure = "dropEnrolledStudent";
         private const string AddTutorProcedure = "addTutor";
         private const string AssignTutorProcedure = "editTutor";
@@ -51,7 +51,6 @@ namespace Repository
             }
         }
 
-
         public List<Request> GetRequests(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
@@ -80,7 +79,7 @@ namespace Repository
                     var request = new Request
                                       {
                                           StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
-                                          ScheduleId = dataSet.Tables[0].Rows[i]["schedule_id"].ToString(),
+                                          ScheduleId = (int)dataSet.Tables[0].Rows[i]["schedule_id"],
                                           Text = dataSet.Tables[0].Rows[i]["request"].ToString(),
                                       };
                     requestList.Add(request);
@@ -97,7 +96,6 @@ namespace Repository
 
             return requestList;
         }
-
 
         public void DropStudent(int scheduleId, string studentId, ref List<string> errors)
         {
@@ -133,8 +131,7 @@ namespace Repository
             }
         }
 
-
-        public void AddTutor(int taId, int schedule_id, string firstName, string lastName, ref List<string> errors)
+        public void AddTutor(int taId, int scheduleId, string firstName, string lastName, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             try
@@ -169,8 +166,7 @@ namespace Repository
             }
         }
 
-
-        public void AssignTutor(int taId, int schedule_id, ref List<string> errors)
+        public void AssignTutor(int taId, int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             try
@@ -200,7 +196,6 @@ namespace Repository
                 conn.Dispose();
             }
         }
-
 
         public void DeleteTutor(int taId, ref List<string> errors)
         {

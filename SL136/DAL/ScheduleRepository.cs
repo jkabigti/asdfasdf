@@ -79,7 +79,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(addCourseSchedule, conn)
+                var adapter = new SqlDataAdapter("addCourseSchedule", conn)
                 {
                     SelectCommand =
                     {
@@ -123,7 +123,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(deleteCourseSchedule, conn)
+                var adapter = new SqlDataAdapter("deleteCourseSchedule", conn)
                 {
                     SelectCommand =
                     {
@@ -153,7 +153,7 @@
             var conn = new SqlConnection(ConnectionString);
             try
             {
-                var adapter = new SqlDataAdapter(editCourseSchedule, conn)
+                var adapter = new SqlDataAdapter("editCourseSchedule", conn)
                 {
                     SelectCommand =
                     {

@@ -1,4 +1,6 @@
-﻿namespace POCO
+﻿using System;
+
+namespace POCO
 {
     public class Announcement
     {
@@ -6,9 +8,7 @@
 
         public string Text { get; set; }
 
-        public DateTime Date { get; set; }
-
-
+        public string Date { get; set; }
 
     }
 

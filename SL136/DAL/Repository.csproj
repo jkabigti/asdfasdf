@@ -48,7 +48,9 @@
     <Compile Include="AuthorizeRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="CourseRepository.cs" />
-    <Compile Include="InstructorRepository.cs" />
+    <Compile Include="InstructorRepository.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="ScheduleRepository.cs" />
     <Compile Include="StudentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
