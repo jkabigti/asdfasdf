@@ -18,7 +18,7 @@ namespace Repository
         private const string AssignTutorProcedure = "editTutor";
         private const string DeleteTutorProcedure = "deleteTutor";
 
-        public void EditGrades(int scheduleId, string studentId, string grade, ref List<string> errors)
+        public void EditGrade(int scheduleId, string studentId, string grade, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             try

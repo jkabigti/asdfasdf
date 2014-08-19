@@ -6,10 +6,10 @@ namespace IRepository
 
 	public interface IAnnouncementRepository
 	{
-		void AddAnnouncement(string text, string date);
+		void AddAnnouncement(Announcement announcement, ref List<string> errors);
 
-		void DeleteAnnouncement(int id);
+		void DeleteAnnouncement(int id, ref List<string> errors);
 
-		List<Announcement> GetAnnouncements();
+		List<Announcement> GetAnnouncements(ref List<string> errors);
 	}
 }
