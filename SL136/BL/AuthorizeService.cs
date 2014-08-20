@@ -16,6 +16,7 @@
 
         public Logon Authenticate(string email, string password, ref List<string> errors)
         {
+            //// check for email's regular expression.
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 errors.Add("Invalid email or password.");
