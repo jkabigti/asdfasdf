@@ -7,9 +7,9 @@ namespace Service
 
 	public class InstructorService
 	{
-		private readonly IAnnouncementRepository repository;
+		private readonly InterfaceInstructorRepository repository;
 
-		public InstructorService(IAuthorizeRepository repository)
+		public InstructorService(InterfaceInstructorRepository repository)
 		{
 			this.repository = repository;
 		}
@@ -106,7 +106,7 @@ namespace Service
 				throw new ArgumentException();
 			}
 
-			this.repository.AssignTutor(taId, courseId, ref errors);
+			this.repository.DeleteTutor(taId, ref errors);
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace Service
 	{
 		private readonly IAnnouncementRepository repository;
 
-		public AuthorizeService(IAuthorizeRepository repository)
+		public AnnouncementService(IAnnouncementRepository repository)
 		{
 			this.repository = repository;
 		}
