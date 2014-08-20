@@ -142,5 +142,29 @@
 
             return sum / enrollments.Count;
         }
+
+        public void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors)
+        {
+            if (string.IsNullOrEmpty(studentId))
+            {
+                errors.Add("Invalid student id");
+                throw new ArgumentException();
+            }
+
+            if (scheduleId == null)
+            {
+                errors.Add("Invalid schedule id");
+                throw new ArgumentException();
+            }
+
+            if (string.IsNullOrEmpty(request))
+            {
+                errors.Add("Invalid request");
+                throw new ArgumentException();
+            }
+
+            this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);
+
+        }
     }
 }

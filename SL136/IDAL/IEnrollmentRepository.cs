@@ -4,7 +4,7 @@
 
     using POCO;
 
-    class IEnrollmentRepository
+    public interface IEnrollmentRepository
     {
         List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors);
     }
