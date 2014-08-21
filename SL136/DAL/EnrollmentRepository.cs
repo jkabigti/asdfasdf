@@ -13,7 +13,8 @@
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
         private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
-
+	private const string GetCourseProcedure = "getCourse";
+	private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
         public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
@@ -134,6 +135,71 @@
                 conn.Dispose();
             }
         }
+	
+	public void GetCourse(int sch_id, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
 
+            try
+            {
+                var adapter = new SqlDataAdapter(GetCourseProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType
+                            =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = sch_id;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
+	public void GetEnrolledSchedules(int student_id, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+
+            try
+            {
+                var adapter = new SqlDataAdapterGetEnrolledSchedulesProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType
+                            =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = student_id;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }

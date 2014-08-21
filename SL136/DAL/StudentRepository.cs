@@ -336,39 +336,6 @@
             throw new Exception();
         }
 
-        public void GetCourse(int sch_id, ref List<string> errors)
-        {
-            var conn = new SqlConnection(ConnectionString);
-
-            try
-            {
-                var adapter = new SqlDataAdapter(GetCourseProcedure, conn)
-                {
-                    SelectCommand =
-                    {
-                        CommandType
-                            =
-                            CommandType
-                            .StoredProcedure
-                    }
-                };
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
-
-                adapter.SelectCommand.Parameters["@schedule_id"].Value = sch_id;
-
-                var dataSet = new DataSet();
-                adapter.Fill(dataSet);
-            }
-            catch (Exception e)
-            {
-                errors.Add("Error: " + e);
-            }
-            finally
-            {
-                conn.Dispose();
-            }
-        }
-
         public void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
