@@ -96,6 +96,7 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void CalculateGpaWithEnrollmentTest()
         {
             //// Arrange
@@ -116,6 +117,22 @@
             //// Assert
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(true, gap > 3.2f && gap < 3.3f);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void SendStudentRequestTest()
+        {
+            var errors = new List<string>();
+            var mockRepository = new Mock<IStudentRepository>();
+            var studentService = new StudentService(mockRepository.Object);
+            Request r = new Request { StudentId = string.Empty, ScheduleId = 1, Text = string.Empty };
+            //// Act
+            studentService.SendStudentRequest(r, ref errors);
+
+            //// Assert
+            Assert.AreEqual(1, errors.Count);
+
         }
     }
 }
