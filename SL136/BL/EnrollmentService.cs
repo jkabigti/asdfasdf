@@ -16,7 +16,7 @@
 
         public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
-            return this.repository.GetEnrollments(scheduleId, ref errors);
+            return this.repository.GetEnrolledStudents(scheduleId, ref errors);
         }
 
         public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
@@ -30,12 +30,17 @@
             List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
             int courseId = this.repository.GetCourse(scheduleId, ref errors);
 
-            for (Enrollment e in enrolled)
+            foreach (Enrollment e in enrolled)
             {
                 int id = this.repository.GetCourse(e.ScheduleId);
+                if (courseId = id)
+                {
+                    this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
+                }
             }
 
-            this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
+            errors.Add("Student does not have required prereq.");
+            throw new ArgumentException();
         }
 
         public void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors)
