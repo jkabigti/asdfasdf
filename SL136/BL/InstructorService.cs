@@ -2,6 +2,7 @@ namespace Service
 {
 	using System;
 	using System.Collections.Generic;
+    using System.Text.RegularExpressions;
 	using IRepository;
 	using POCO;
 
@@ -16,7 +17,7 @@ namespace Service
 
 		public void EditGrade(int scheduleId, string studentId, string grade, ref List<string> errors)
 		{
-			if (scheduleId == null) {
+			if (scheduleId < 0) {
 				errors.Add("Schedule ID cannot be null");
 				throw new ArgumentException();
 			}
@@ -31,12 +32,19 @@ namespace Service
 				throw new ArgumentException();
 			}
 
+            Match m = Regex.Match(grade, @"^[ABCDF](?[+-])$");
+            if (!m.Success)
+            {
+                errors.Add("Grade is formatted incorrectly");
+                throw new ArgumentException();
+            }
+
 			this.repository.EditGrade(scheduleId, studentId, grade, ref errors);
 		}
 
 		public List<Request> GetRequests(int scheduleId, ref List<string> errors)
 		{
-			if (scheduleId == null) {
+			if (scheduleId < 0) {
 				errors.Add("Schedule ID cannot be null");
 				throw new ArgumentException();
 			}
@@ -46,7 +54,7 @@ namespace Service
 
 		public void DropStudent(int scheduleId, string studentId, ref List<string> errors)
 		{
-			if (scheduleId == null) {
+			if (scheduleId < 0) {
 				errors.Add("Schedule ID cannot be null");
 				throw new ArgumentException();
 			}
@@ -61,12 +69,12 @@ namespace Service
 
 		public void AddTutor(int taId, int courseId, string firstName, string lastName, ref List<string> errors)
 		{
-			if (taId == null) {
+			if (taId < 0) {
 				errors.Add("TA ID cannot be null");
 				throw new ArgumentException();
 			}
 
-			if (courseId == null) {
+			if (courseId < 0) {
 				errors.Add("Course ID cannot be null");
 				throw new ArgumentException();
 			}
@@ -86,12 +94,12 @@ namespace Service
 
 		public void AssignTutor(int taId, int courseId, ref List<string> errors)
 		{
-			if (taId == null) {
+			if (taId < 0) {
 				errors.Add("TA ID cannot be null");
 				throw new ArgumentException();
 			}
 
-			if (courseId == null) {
+			if (courseId < 0) {
 				errors.Add("Course ID cannot be null");
 				throw new ArgumentException();
 			}
@@ -101,7 +109,7 @@ namespace Service
 
 		public void DeleteTutor(int taId, ref List<string> errors)
 		{
-			if (taId == null) {
+			if (taId < 0) {
 				errors.Add("TA ID cannot be null");
 				throw new ArgumentException();
 			}
