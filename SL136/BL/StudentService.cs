@@ -79,29 +79,7 @@
         public List<Student> GetStudentList(ref List<string> errors)
         {
             return this.repository.GetStudentList(ref errors);
-        }
-
-        public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
-        {
-            if (string.IsNullOrEmpty(studentId) || scheduleId < 0)
-            {
-                errors.Add("Invalid student id or schedule id");
-                throw new ArgumentException();
-            }
-
-            this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
-        }
-
-        public void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors)
-        {
-            if (string.IsNullOrEmpty(studentId) || scheduleId < 0)
-            {
-                errors.Add("Invalid student id or schedule id");
-                throw new ArgumentException();
-            }
-
-            this.repository.DropEnrolledSchedule(studentId, scheduleId, ref errors);
-        }
+        }s
 
         public List<Enrollment> GetEnrollments(string studentId, ref List<string> errors)
         {
