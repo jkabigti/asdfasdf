@@ -4,6 +4,8 @@
 
     using System.Collections.Generic;
 
+    using System.Text.RegularExpressions;
+
     using IRepository;
 
     using POCO;
@@ -90,10 +92,19 @@
 
         private void checkCourse(Course course, ref List<string> errors, string state)
         {
-            if (course.CourseId == null || course.CourseId.Length == 0)
+            if (course.CourseId == null)
             {
                 errors.Add(state + "Invalid course ID");
                 throw new ArgumentException();
+            }
+            else
+            {
+                Match m = Regex.Match(course.CourseId, @"^[0-9]+$");
+                if (!m.Success)
+                {
+                    errors.Add(state + "Coure ID is formatted incorrectly");
+                    throw new ArgumentException();
+                }
             }
             if (course.Title == null || course.Title.Length == 0)
             {
