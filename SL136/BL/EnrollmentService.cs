@@ -54,5 +54,22 @@
             this.repository.DropEnrolledSchedule(studentId, scheduleId, ref errors);
         }
 
+        public void GetCourse(int sch_id, ref List<string> errors)
+        {
+            if (sch_id < 0)
+            {
+                errors.Add("Invalid schedule id");
+                throw new ArgumentException();
+            }
+        }
+
+        public void GetEnrolledSchedules(string student_id, ref List<string> errors)
+        {
+            if (string.IsNullOrEmpty(student_id))
+            {
+                errors.Add("Invalid student id");
+                throw new ArgumentException();
+            }
+        }
     }
 }
