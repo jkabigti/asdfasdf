@@ -8,7 +8,7 @@
     using IRepository;
 
     using POCO;
-    class EnrollmentRepository : BaseRepository, IEnrollmentRepository
+    public class EnrollmentRepository : BaseRepository, IEnrollmentRepository
     {
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
 
