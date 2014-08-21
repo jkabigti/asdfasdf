@@ -16,8 +16,6 @@
         private const string DeleteStudentInfoProcedure = "spDeleteStudentInfo";
         private const string GetStudentListProcedure = "spGetStudentList";
         private const string GetStudentInfoProcedure = "spGetStudentInfo";
-        private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
-        private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
         private const string RequestGradeChangeProcedure = "addRequest";
 
         public void InsertStudent(Student student, ref List<string> errors)
@@ -257,82 +255,6 @@
             }
 
             return studentList;
-        }
-
-        public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
-        {
-            var conn = new SqlConnection(ConnectionString);
-
-            try
-            {
-                var adapter = new SqlDataAdapter(InsertStudentScheduleProcedure, conn)
-                                  {
-                                      SelectCommand =
-                                          {
-                                              CommandType
-                                                  =
-                                                  CommandType
-                                                  .StoredProcedure
-                                          }
-                                  };
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
-
-                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
-                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
-
-                var dataSet = new DataSet();
-                adapter.Fill(dataSet);
-            }
-            catch (Exception e)
-            {
-                errors.Add("Error: " + e);
-            }
-            finally
-            {
-                conn.Dispose();
-            }
-        }
-
-        public void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors)
-        {
-            var conn = new SqlConnection(ConnectionString);
-
-            try
-            {
-                var adapter = new SqlDataAdapter(DeleteStudentScheduleProcedure, conn)
-                                  {
-                                      SelectCommand =
-                                          {
-                                              CommandType
-                                                  =
-                                                  CommandType
-                                                  .StoredProcedure
-                                          }
-                                  };
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
-
-                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
-                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
-
-                var dataSet = new DataSet();
-                adapter.Fill(dataSet);
-            }
-            catch (Exception e)
-            {
-                errors.Add("Error: " + e);
-            }
-            finally
-            {
-                conn.Dispose();
-            }
-        }
-
-        public List<Enrollment> GetEnrollments(string studentId)
-        {
-            //// Not implemented yet. 136 TODO:
-            throw new Exception();
         }
 
         public void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors)

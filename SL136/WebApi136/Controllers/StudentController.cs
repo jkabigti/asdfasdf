@@ -59,5 +59,11 @@
         {
             this.service.DropEnrolledSchedule(studentId, scheduleId, ref this.errors);
         }
+
+        [HttpPost]
+        public void SendStudentRequest(string studentId, int scheduleId, string request)
+        {
+            this.service.SendStudentRequest(studentId, scheduleId, request, ref this.errors);
+        }
     }
 }

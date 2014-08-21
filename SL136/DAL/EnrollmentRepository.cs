@@ -11,6 +11,8 @@
     public class EnrollmentRepository : BaseRepository, IEnrollmentRepository
     {
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
+        private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
+        private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
 
         public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
         {
@@ -61,6 +63,76 @@
 
 
             return enrollmentList;
+        }
+
+        public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+
+            try
+            {
+                var adapter = new SqlDataAdapter(InsertStudentScheduleProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType
+                            =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
+        public void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+
+            try
+            {
+                var adapter = new SqlDataAdapter(DeleteStudentScheduleProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType
+                            =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
         }
 
     }
