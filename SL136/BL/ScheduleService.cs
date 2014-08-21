@@ -113,6 +113,25 @@
                 errors.Add(state + "Invalid Schedule ID");
                 throw new ArgumentException();
             }
+            Match m = Regex.Match(sch.Year, @"^\d{4}$");
+            if( !m.Success )
+            {
+                errors.Add(state + "Year is formatted incorrectly");
+                throw new ArgumentException();
+            }
+
+            m = Regex.Match(sch.Quarter, @"^Fall|Winter|Spring|(Summer\x20[12])$");
+            if( !m.Success )
+            {
+                errors.Add(state + "Quarter is formatted incorrectly");
+                throw new ArgumentException();
+            }
+            m = Regex.Match(sch.Session, @"^[ABCD]\d{2}$");
+            if( !m.Success )
+            {
+                errors.Add(state + "Sessions is formatted incorrectly");
+                throw new ArgumentException();
+            }
             // Check Year, Quarter, and Session with REGEX--------------
             if (sch.Course == null)
             {
@@ -128,10 +147,19 @@
 
         private void checkCourse(Course course, ref List<string> errors, string state)
         {
-            if (course.CourseId == null || course.CourseId.Length == 0)
+            if (course.CourseId == null)
             {
                 errors.Add(state + "Invalid course ID");
                 throw new ArgumentException();
+            }
+            else
+            {
+                Match m = Regex.Match(course.CourseId, @"^[0-9]+$");
+                if (!m.Success)
+                {
+                    errors.Add(state + "Coure ID is formatted incorrectly");
+                    throw new ArgumentException();
+                }
             }
             if (course.Title == null || course.Title.Length == 0)
             {
