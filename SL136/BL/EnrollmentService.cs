@@ -27,6 +27,14 @@
                 throw new ArgumentException();
             }
 
+            List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
+            int courseId = this.repository.GetCourse(scheduleId, ref errors);
+
+            for (Enrollment e in enrolled)
+            {
+                int id = this.repository.GetCourse(e.ScheduleId);
+            }
+
             this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
         }
 
