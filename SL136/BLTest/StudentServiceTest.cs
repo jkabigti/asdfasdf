@@ -97,38 +97,13 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void CalculateGpaWithEnrollmentTest()
-        {
-            //// Arrange
-            var errors = new List<string>();
-
-            var mockRepository = new Mock<IStudentRepository>();
-            var studentService = new StudentService(mockRepository.Object);
-            var enrollments = new List<Enrollment>();
-            enrollments.Add(new Enrollment { Grade = "A", GradeValue = 4.0f, ScheduleId = 1, StudentId = "testId" });
-            enrollments.Add(new Enrollment { Grade = "B", GradeValue = 3.0f, ScheduleId = 2, StudentId = "testId" });
-            enrollments.Add(new Enrollment { Grade = "C+", GradeValue = 2.7f, ScheduleId = 3, StudentId = "testId" });
-
-            mockRepository.Setup(x => x.GetEnrollments("testId")).Returns(enrollments);
-
-            //// Act
-            var gap = studentService.CalculateGpa("testId", enrollments, ref errors);
-
-            //// Assert
-            Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(true, gap > 3.2f && gap < 3.3f);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void SendStudentRequestTest()
         {
             var errors = new List<string>();
             var mockRepository = new Mock<IStudentRepository>();
             var studentService = new StudentService(mockRepository.Object);
-            Request r = new Request { StudentId = string.Empty, ScheduleId = 1, Text = string.Empty };
             //// Act
-            studentService.SendStudentRequest(r, ref errors);
+            studentService.SendStudentRequest(string.Empty, 1, string.Empty, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);

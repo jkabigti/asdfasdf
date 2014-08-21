@@ -137,10 +137,10 @@
             }
         }
 	
-	    public void GetCourse(int sch_id, ref List<string> errors)
+	    public int GetCourse(int sch_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
-
+            int courseId = -1;
             try
             {
                 var adapter = new SqlDataAdapter(GetCourseProcedure, conn)
@@ -159,6 +159,9 @@
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
+
+                courseId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["course_id"].ToString());
+
             }
             catch (Exception e)
             {
@@ -168,6 +171,8 @@
             {
                 conn.Dispose();
             }
+
+            return courseId;
         }
 
 	    public List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors)
@@ -177,7 +182,7 @@
 
             try
             {
-                var adapter = new SqlDataAdapter( GetEnrolledSchedulesProcedure, conn)
+                var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn)
 
                 {
                     SelectCommand =
