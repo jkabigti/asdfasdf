@@ -138,6 +138,19 @@
         }
 
         [TestMethod]
+        public void SendStudentRequestTest()
+        {
+            var errors = new List<string>();
+            var mockRepository = new Mock<IStudentRepository>();
+            var studentService = new StudentService(mockRepository.Object);
+            var requests = new List<Requests>();
+            requests.Add(new Request { StudentId = string.Empty, ScheduleId = 1, Request = string.Empty });
+            //// Act
+            studentService.SendStudentRequest(requests, ref errors);
 
+            //// Assert
+            Assert.AreEqual(1, errors.Count);
+
+        }
     }
 }
