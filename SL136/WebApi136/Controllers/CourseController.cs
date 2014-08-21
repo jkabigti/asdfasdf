@@ -11,6 +11,10 @@
 
     public class CourseController : ApiController
     {
+        private readonly CourseService service = new CourseService(new CourseRepository());
+
+        private List<string> errors = new List<string>();
+
         [HttpGet]
         public List<Course> GetCourseList()
         {
@@ -21,6 +25,26 @@
             return service.GetCourseList(ref errors);
         }
 
+        [HttpPost]
+        public string AddPrereq(Course course, Course prereq)
+        {
+            this.service.AddPrereq(course, prereq, ref this.errors);
+            return this.errors.Count == 0 ? "ok" : "Error occurred";
+        }
+
+        [HttpPost]
+        public string EditPreqreq(Course course, Course prereq)
+        {
+            this.service.EditPrereq(course, prereq, ref this.errors);
+            return this.errors.Count == 0 ? "ok" : "Error occurred";
+        }
+
+        [HttpPost]
+        public string DeletePrereq(Course prereq)
+        {
+            this.service.DeletePrereq(prereq, ref this.errors);
+            return this.errors.Count == 0 ? "ok" : "Error occurred";
+        }
         //// you can add more [HttpGet] and [HttpPost] methods as you need
     }
 }
