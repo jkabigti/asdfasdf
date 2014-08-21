@@ -2,6 +2,7 @@ namespace Service
 {
 	using System;
 	using System.Collections.Generic;
+    using System.Text.RegularExpressions;
 	using IRepository;
 	using POCO;
 
@@ -40,6 +41,11 @@ namespace Service
 
 		public void DeleteAnnouncement(int id, ref List<string> errors) 
 		{
+            if (id < 0)
+            {
+                errors.Add("Announcement ID cannot be negative");
+                throw new ArgumentException();
+            }
 			this.repository.DeleteAnnouncement(id, ref errors);
 		}
 
