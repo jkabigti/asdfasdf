@@ -170,9 +170,10 @@
             }
         }
 
-	    public void GetEnrolledSchedules(string student_id, ref List<string> errors)
+	    public List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
+            var enrollmentList = new List<Enrollment>();
 
             try
             {
@@ -193,6 +194,23 @@
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    var enrollment = new Enrollment
+                    {
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
+                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
+
+                    };
+                    enrollmentList.Add(enrollment);
+                }
             }
             catch (Exception e)
             {
