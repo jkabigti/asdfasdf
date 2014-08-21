@@ -137,7 +137,7 @@
             }
         }
 	
-	public void GetCourse(int sch_id, ref List<string> errors)
+	    public void GetCourse(int sch_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
 
@@ -170,13 +170,14 @@
             }
         }
 
-	public void GetEnrolledSchedules(int student_id, ref List<string> errors)
+	    public void GetEnrolledSchedules(string student_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
 
             try
             {
                 var adapter = new SqlDataAdapter( GetEnrolledSchedulesProcedure, conn)
+
                 {
                     SelectCommand =
                     {
@@ -186,9 +187,9 @@
                             .StoredProcedure
                     }
                 };
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
 
-                adapter.SelectCommand.Parameters["@schedule_id"].Value = student_id;
+                adapter.SelectCommand.Parameters["@student_id"].Value = sch_id;
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
