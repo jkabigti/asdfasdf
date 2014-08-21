@@ -16,7 +16,7 @@ namespace WebApi136.Controllers
         private List<string> errors = new List<string>();
 
         [HttpPost]
-        public string AddAnnoucnement(Announcement announcement)
+        public string AddAnnouncement(Announcement announcement)
         {
             this.service.AddAnnouncement(announcement, ref this.errors);
             return this.errors.Count == 0 ? "ok" : "Error occurred";
