@@ -14,7 +14,7 @@
             this.repository = repository;
         }
 
-        public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
+        public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
             return this.repository.GetEnrollments(scheduleId, ref errors);
         }

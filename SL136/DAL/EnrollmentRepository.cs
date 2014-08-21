@@ -14,7 +14,7 @@
         private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
 
-        public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
+        public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             var enrollmentList = new List<Enrollment>();

@@ -14,7 +14,7 @@ namespace ServiceTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void GetEnrollments()
+        public void GetEnrolledStudents()
         {
             //// Arrange
             var errors = new List<string>();
