@@ -188,7 +188,7 @@
                 };
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
 
-                adapter.SelectCommand.Parameters["@student_id"].Value = sch_id;
+                adapter.SelectCommand.Parameters["@student_id"].Value = student_id;
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
