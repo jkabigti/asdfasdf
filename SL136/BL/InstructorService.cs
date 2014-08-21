@@ -31,6 +31,13 @@ namespace Service
 				throw new ArgumentException();
 			}
 
+            Match m = Regex.Match(grade, @"^[ABCDF][+-]$");
+            if (!m.Success)
+            {
+                errors.Add("Grade is formatted incorrectly");
+                throw new ArgumentException();
+            }
+
 			this.repository.EditGrade(scheduleId, studentId, grade, ref errors);
 		}
 
