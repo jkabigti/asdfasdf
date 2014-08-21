@@ -176,7 +176,7 @@
 
             try
             {
-                var adapter = new SqlDataAdapterGetEnrolledSchedulesProcedure, conn)
+                var adapter = new SqlDataAdapter( GetEnrolledSchedulesProcedure, conn)
                 {
                     SelectCommand =
                     {

@@ -18,7 +18,19 @@ namespace WebApi136.Controllers
         [HttpPost]
         public List<Enrollment> GetEnrolledStudents(int scheduleId)
         {
-            return this.service.GetEnrollments(scheduleId, ref this.errors);
+            return this.service.GetEnrolledStudents(scheduleId, ref this.errors);
+        }
+
+        [HttpPost]
+        public void EnrollSchedule(string studentId, int scheduleId)
+        {
+            this.service.EnrollSchedule(studentId, scheduleId, ref this.errors);
+        }
+
+        [HttpPost]
+        public void DropEnrolledSchedule(string studentId, int scheduleId)
+        {
+            this.service.DropEnrolledSchedule(studentId, scheduleId, ref this.errors);
         }
 
     }

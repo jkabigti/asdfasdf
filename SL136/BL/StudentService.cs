@@ -79,17 +79,6 @@
         public List<Student> GetStudentList(ref List<string> errors)
         {
             return this.repository.GetStudentList(ref errors);
-        }s
-
-        public List<Enrollment> GetEnrollments(string studentId, ref List<string> errors)
-        {
-            if (string.IsNullOrEmpty(studentId))
-            {
-                errors.Add("Invalid student id");
-                throw new ArgumentException();
-            }
-
-            return this.repository.GetEnrollments(studentId);
         }
 
         public float CalculateGpa(string studentId, List<Enrollment> enrollments, ref List<string> errors)

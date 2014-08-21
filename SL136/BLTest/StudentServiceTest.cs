@@ -96,25 +96,6 @@
         }
 
         [TestMethod]
-        public void CalculateGpaNoEnrollmentTest()
-        {
-            //// Arrange
-            var errors = new List<string>();
-
-            var mockRepository = new Mock<IStudentRepository>();
-            var studentService = new StudentService(mockRepository.Object);
-            mockRepository.Setup(x => x.GetEnrollments("testId")).Returns(new List<Enrollment>());
-
-            //// Act
-            var enrollments = studentService.GetEnrollments("testId", ref errors);
-            var gap = studentService.CalculateGpa("testId", enrollments, ref errors);
-
-            //// Assert
-            Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(0.0f, gap);
-        }
-
-        [TestMethod]
         public void CalculateGpaWithEnrollmentTest()
         {
             //// Arrange
@@ -136,8 +117,5 @@
             Assert.AreEqual(0, errors.Count);
             Assert.AreEqual(true, gap > 3.2f && gap < 3.3f);
         }
-
-        [TestMethod]
-
     }
 }
