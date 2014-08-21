@@ -13,9 +13,10 @@
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
         private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
-	private const string GetCourseProcedure = "getCourse";
-	private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
-        public List<Enrollment> GetEnrollments(int scheduleId, ref List<string> errors)
+	    private const string GetCourseProcedure = "getCourse";
+	    private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
+
+        public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             var enrollmentList = new List<Enrollment>();
