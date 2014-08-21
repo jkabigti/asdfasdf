@@ -12,7 +12,7 @@
 
         void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors);
 
-        void GetCourse(int sch_id, ref List<string> errors);
+        int GetCourse(int sch_id, ref List<string> errors);
 
         List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors);
     }

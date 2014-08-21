@@ -32,8 +32,8 @@
 
             foreach (Enrollment e in enrolled)
             {
-                int id = this.repository.GetCourse(e.ScheduleId);
-                if (courseId = id)
+                int id = this.repository.GetCourse(e.ScheduleId, ref errors);
+                if (courseId == id)
                 {
                     this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
                 }

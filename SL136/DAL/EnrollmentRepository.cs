@@ -225,6 +225,8 @@
             {
                 conn.Dispose();
             }
+
+            return enrollmentList;
         }
     }
 }
