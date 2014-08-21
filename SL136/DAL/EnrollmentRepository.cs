@@ -170,7 +170,7 @@
             }
         }
 
-	    public void GetEnrolledSchedules(int student_id, ref List<string> errors)
+	    public void GetEnrolledSchedules(string student_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
 
@@ -186,7 +186,7 @@
                             .StoredProcedure
                     }
                 };
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
 
                 adapter.SelectCommand.Parameters["@student_id"].Value = sch_id;
 

@@ -11,5 +11,9 @@
         void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors);
 
         void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors);
+
+        void GetCourse(int sch_id, ref List<string> errors);
+
+        void GetEnrolledSchedules(string student_id, ref List<string> errors);
     }
 }
