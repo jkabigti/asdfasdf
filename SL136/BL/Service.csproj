@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementService.cs" />
     <Compile Include="Award\Award.cs" />
     <Compile Include="Award\AwardClient.cs" />
     <Compile Include="Award\IRanking.cs" />
@@ -61,6 +62,8 @@
     <Compile Include="Award\Resolver.cs" />
     <Compile Include="AuthorizeService.cs" />
     <Compile Include="CourseService.cs" />
+    <Compile Include="EnrollmentService.cs" />
+    <Compile Include="InstructorService.cs" />
     <Compile Include="ScheduleService.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="ErrorLog\AsynchLog.cs" />
