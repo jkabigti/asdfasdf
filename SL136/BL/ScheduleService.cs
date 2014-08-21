@@ -4,6 +4,8 @@
 
     using System.Collections.Generic;
 
+    using System.Text.RegularExpressions;
+
     using IRepository;
 
     using POCO;
@@ -24,25 +26,30 @@
 
         public void AddSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors)
         {
-            if( sch == null)
+            if(sch == null)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule information");
                 throw new ArgumentException();
             }
-            if(sch_day_id == null)
+            else
+            {
+                checkSchedule(sch, ref errors, "Add Unsuccessful: ");
+            }
+            
+            if(sch_day_id == null || sch_day_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Day ID");
                 throw new ArgumentException();
             }
-            if(sch_time_id == null)
+            if(sch_time_id == null || sch_time_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Time ID");
                 throw new ArgumentException();
             }
-            if(instr_id == null)
+            if(instr_id == null || instr_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Instructor ID");
@@ -58,6 +65,10 @@
                 errors.Add("Delete Unsuccessful: Invalid schedule information");
                 throw new ArgumentException();
             }
+            else
+            {
+                checkSchedule(sch, ref errors, "Delete Unsuccessful: ");
+            }
             this.repository.DeleteSchedule(sch, ref errors);
         }
 
@@ -69,25 +80,74 @@
                 errors.Add("Edit Unsuccessful: Invalid Schedule information");
                 throw new ArgumentException();
             }
-            if (sch_day_id == null)
+            else
+            {
+                checkSchedule(sch, ref errors, "Edit Unsuccessful: ");
+            }
+            if (sch_day_id == null || sch_day_id < 0)
             {
                 // Throw Errror
                 errors.Add("Edit Unsuccessful: Invalid Schedule Day ID");
                 throw new ArgumentException();
             }
-            if (sch_time_id == null)
+            if (sch_time_id == null || sch_time_id < 0)
             {
                 // Throw Errror
                 errors.Add("Edit Unsuccessful: Invalid Schedule Time ID");
                 throw new ArgumentException();
             }
-            if (instr_id == null)
+            if (instr_id == null || instr_id < 0)
             {
                 // Throw Errror
                 errors.Add("Edit Unsuccessful: Invalid Instructor ID");
                 throw new ArgumentException();
             }
             this.repository.EditSchedule(sch, sch_day_id, sch_time_id, instr_id, ref errors);
+        }
+
+        private void checkSchedule(Schedule sch, ref List<string> errors, string state)
+        {
+            if (sch.ScheduleId == null || sch.ScheduleId < 0)
+            {
+                // Throw Error
+                errors.Add(state + "Invalid Schedule ID");
+                throw new ArgumentException();
+            }
+            // Check Year, Quarter, and Session with REGEX--------------
+            if (sch.Course == null)
+            {
+                //Throw Error
+                errors.Add(state + "Invalid Course in Schedule Object");
+                throw new ArgumentException();
+            }
+            else
+            {
+                checkCourse(sch.Course, ref errors, state);
+            }
+        }
+
+        private void checkCourse(Course course, ref List<string> errors, string state)
+        {
+            if (course.CourseId == null || course.CourseId.Length == 0)
+            {
+                errors.Add(state + "Invalid course ID");
+                throw new ArgumentException();
+            }
+            if (course.Title == null || course.Title.Length == 0)
+            {
+                errors.Add(state + "Invalid Title");
+                throw new ArgumentException();
+            }
+            if (course.CourseLevel == null)
+            {
+                errors.Add(state + "Invalid CourseLevel");
+                throw new ArgumentException();
+            }
+            if (course.Description == null || course.Description.Length == 0)
+            {
+                errors.Add(state + "Invalid Course Description");
+                throw new ArgumentException();
+            }
         }
     }
 }
