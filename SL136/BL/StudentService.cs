@@ -29,7 +29,7 @@
                 return;
             }
 
-            if (validateStudent(student, ref errors))
+            if (this.ValidateStudent(student, ref errors))
             {
                 this.repository.InsertStudent(student, ref errors);
             }
@@ -55,7 +55,7 @@
                 return;
             }
 
-            if (validateStudent(student, ref errors))
+            if (this.ValidateStudent(student, ref errors))
             {
                 this.repository.UpdateStudent(student, ref errors);
             }
@@ -125,7 +125,7 @@
                 return;
             }
 
-            if (scheduleId < 0)
+            if (scheduleId <= 0)
             {
                 errors.Add("Invalid schedule id");
                 return;
@@ -138,10 +138,9 @@
             }
 
             this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);
-
         }
 
-        private bool validateStudent(Student s, ref List<string> errors)
+        private bool ValidateStudent(Student s, ref List<string> errors)
         {
             Match m1 = Regex.Match(s.SSN, @"^\d{3}-\d{2}-\d{4}$");
             if (!m1.Success)
@@ -159,12 +158,12 @@
                 errors.Add("Invalid first name");
                 return false;
             }
+
             if (!m3.Success)
             {
                 errors.Add("Invalid last name");
                 return false;
             }
-
 
             return true;
         }

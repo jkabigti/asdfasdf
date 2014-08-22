@@ -44,6 +44,7 @@ namespace Service
             if (id < 0)
             {
                 errors.Add("Announcement ID cannot be negative");
+
                 return;
             }
 

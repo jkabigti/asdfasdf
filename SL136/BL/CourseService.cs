@@ -34,7 +34,7 @@
             }
             else
             {
-                checkCourse(course, ref errors, "Add Unsuccessful: ");
+                this.CheckCourse(course, ref errors, "Add Unsuccessful: ");
             }
 
             if (prereq == null)
@@ -45,7 +45,7 @@
             }
             else
             {
-                checkCourse(prereq, ref errors, "Add Unsuccessful: ");
+                this.CheckCourse(prereq, ref errors, "Add Unsuccessful: ");
             }
 
             this.repository.AddPrereq(course, prereq, ref errors);
@@ -61,7 +61,7 @@
             }
             else
             {
-                checkCourse(course, ref errors, "Edit Unsuccessful: ");
+                this.CheckCourse(course, ref errors, "Edit Unsuccessful: ");
             }
 
             if (prereq == null)
@@ -72,7 +72,7 @@
             }
             else
             {
-                checkCourse(prereq, ref errors, "Edit Unsuccessful: ");
+                this.CheckCourse(prereq, ref errors, "Edit Unsuccessful: ");
             }
 
             this.repository.EditPrereq(course, prereq, ref errors);
@@ -88,13 +88,13 @@
             }
             else
             {
-                checkCourse(course, ref errors, "Delete Unsuccessful: ");
+                this.CheckCourse(course, ref errors, "Delete Unsuccessful: ");
             }
 
             this.repository.DeletePrereq(course, ref errors);
         }
 
-        private void checkCourse(Course course, ref List<string> errors, string state)
+        private void CheckCourse(Course course, ref List<string> errors, string state)
         {
             if (course.CourseId == null)
             {
