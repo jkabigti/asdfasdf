@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace POCO
+﻿namespace POCO
 {
+    using System;
+
     public class Announcement
     {
         public int ID { get; set; }
@@ -9,7 +9,5 @@ namespace POCO
         public string Text { get; set; }
 
         public string Date { get; set; }
-
     }
-
 }

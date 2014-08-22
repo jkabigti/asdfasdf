@@ -33,44 +33,25 @@
                 errors.Add("Add Unsuccessful: Invalid Schedule information");
                 return;
             }
-<<<<<<< HEAD
-            else
-            {
-                checkSchedule(sch, ref errors, "Add Unsuccessful: ");
-            }
-
-            if (sch_day_id == null || sch_day_id < 0)
-=======
-
 
             checkSchedule(sch, ref errors, "Add Unsuccessful: ");
 
             if (errors.Count > 0) return;
 
-
             if (sch_day_id <= 0)
->>>>>>> origin/master
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Day ID");
                 return;
             }
-<<<<<<< HEAD
-            if (sch_time_id == null || sch_time_id < 0)
-=======
 
             if (sch_time_id <= 0)
->>>>>>> origin/master
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Time ID");
                 return;
             }
-<<<<<<< HEAD
-            if (instr_id == null || instr_id < 0)
-=======
             if (instr_id <= 0)
->>>>>>> origin/master
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Instructor ID");

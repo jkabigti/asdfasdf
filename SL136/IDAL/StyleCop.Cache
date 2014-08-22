@@ -271,9 +271,6 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="-951989138">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="IAnnouncementRepository.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
@@ -336,4 +333,7 @@
       </violation>
     </violations>
   </sourcecode>
+  <project key="-951989138">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

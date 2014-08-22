@@ -19,6 +19,7 @@
             if (scheduleId < 0)
             {
                 errors.Add("Invalid schedule id");
+                return new List<int>();
             }
             return this.repository.GetEnrolledStudents(scheduleId, ref errors);
         }
@@ -28,6 +29,7 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
+                return new List<Enrollment>();
             }
             return this.repository.GetEnrolledSchedules(studentId, ref errors);
         }
@@ -37,6 +39,7 @@
             if (string.IsNullOrEmpty(studentId) || scheduleId < 0)
             {
                 errors.Add("Invalid student id or schedule id");
+                return;
             }
 
             List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
@@ -59,6 +62,7 @@
             if (string.IsNullOrEmpty(studentId) || scheduleId < 0)
             {
                 errors.Add("Invalid student id or schedule id");
+                return;
             }
 
             this.repository.DropEnrolledSchedule(studentId, scheduleId, ref errors);
@@ -69,6 +73,7 @@
             if (sch_id < 0)
             {
                 errors.Add("Invalid schedule id");
+                return 0;
             }
 
             return this.repository.GetCourse(sch_id, ref errors);
