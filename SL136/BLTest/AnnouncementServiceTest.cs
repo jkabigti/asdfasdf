@@ -13,6 +13,7 @@ namespace ServiceTest
     public class AnnouncementServiceTest
     {
         [TestMethod]
+        ////[ExpectedException(typeof(ArgumentException))]
         public void AddAnnouncementErrorTest()
         {
             //// Arrange
