@@ -13,7 +13,6 @@ namespace ServiceTest
     public class EnrollmentServiceTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetEnrolledStudentsTest()
         {
             //// Arrange
@@ -29,7 +28,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetEnrolledSchedulesTest()
         {
             //// Arrange
@@ -45,7 +43,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void EnrollScheduleTest()
         {
             //// Arrange
@@ -61,7 +58,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DropEnrolledScheduleTest()
         {
             //// Arrange
@@ -77,7 +73,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetCourseErrorTest()
         {
             //// Arrange
