@@ -13,7 +13,6 @@
     public class StudentServiceTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void InsertStudentErrorTest()
         {
             //// Arrange
@@ -29,7 +28,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void InsertStudentErrorTest2()
         {
             //// Arranage
@@ -46,7 +44,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void StudentErrorTest()
         {
             //// Arranage
@@ -62,7 +59,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DeleteStudentErrorTest()
         {
             //// Arrange
@@ -79,7 +75,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void CalculateGpaErrorTest()
         {
             //// Arrange
@@ -96,7 +91,6 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void SendStudentRequestTest()
         {
             var errors = new List<string>();

@@ -13,7 +13,6 @@ namespace ServiceTest
     public class AnnouncementServiceTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddAnnouncementErrorTest()
         {
             //// Arrange
@@ -29,7 +28,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddAnnouncementErrorTest2()
         {
             //// Arranage
@@ -46,7 +44,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddAnnouncementErrorTest3()
         {
             //// Arranage
@@ -63,7 +60,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DeleteAnnouncementErrorTest()
         {
             //// Arrange
