@@ -39,10 +39,11 @@ namespace WebApi136.Controllers
             this.service.DropEnrolledSchedule(studentId, scheduleId, ref this.errors);
         }
 
-        [HttpPost]
-        public int GetCourse(int sch_id)
+        public int GetCourse(int scheduleId)
         {
-            this.service.GetCourse(sch_id, ref this.errors);
+            return this.service.GetCourse(scheduleId, ref this.errors);
         }
+
+>>>>>>> origin/master
     }
 }
