@@ -43,7 +43,5 @@ namespace WebApi136.Controllers
         {
             return this.service.GetCourse(scheduleId, ref this.errors);
         }
-
->>>>>>> origin/master
     }
 }
