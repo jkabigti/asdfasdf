@@ -30,7 +30,7 @@
         }
 
         [TestMethod]
-        public void AuthTest()
+        public void AuthTest_Failed()
         {
             //// Arrange
             var errors = new List<string>();
@@ -47,7 +47,7 @@
 
             //// Assert
             Assert.AreEqual(logon.ToString(), logonReturned.ToString());
-            Assert.AreEqual(0, errors.Count);
+            Assert.AreEqual(1, errors.Count);
             mockRepository.Verify(x => x.Authenticate(It.IsAny<string>(), It.IsAny<string>(), ref errors), Times.Once);
         }
     }

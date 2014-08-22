@@ -20,22 +20,16 @@
             if (student == null)
             {
                 errors.Add("Student cannot be null");
-                throw new ArgumentException();
             }
 
             if (student.StudentId.Length < 5)
             {
                 errors.Add("Invalid student ID");
-                throw new ArgumentException();
             }
 
             if (validateStudent(student, ref errors))
             {
                 this.repository.InsertStudent(student, ref errors);
-            }
-            else
-            {
-                throw new ArgumentException();
             }
         }
 
@@ -44,28 +38,21 @@
             if (student == null)
             {
                 errors.Add("Student cannot be null");
-                throw new ArgumentException();
             }
 
             if (string.IsNullOrEmpty(student.StudentId))
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             if (student.StudentId.Length < 5)
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             if (validateStudent(student, ref errors)) 
             {
                 this.repository.UpdateStudent(student, ref errors);
-            }
-            else
-            {
-                throw new ArgumentException();
             }
         }
 
@@ -74,7 +61,6 @@
             if (string.IsNullOrEmpty(id))
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             return this.repository.GetStudentDetail(id, ref errors);
@@ -85,7 +71,6 @@
             if (string.IsNullOrEmpty(id))
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             this.repository.DeleteStudent(id, ref errors);
@@ -101,13 +86,11 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             if (enrollments == null)
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();                
             }
 
             if (enrollments.Count == 0)
@@ -130,19 +113,16 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
-                throw new ArgumentException();
             }
 
             if (scheduleId == null)
             {
                 errors.Add("Invalid schedule id");
-                throw new ArgumentException();
             }
 
             if (string.IsNullOrEmpty(request))
             {
                 errors.Add("Invalid request");
-                throw new ArgumentException();
             }
 
             this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);
