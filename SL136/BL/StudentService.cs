@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
     using IRepository;
     using POCO;
 
@@ -28,7 +29,14 @@
                 throw new ArgumentException();
             }
 
-            this.repository.InsertStudent(student, ref errors);
+            if (validateStudent(student, ref errors))
+            {
+                this.repository.InsertStudent(student, ref errors);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public void UpdateStudent(Student student, ref List<string> errors)
@@ -51,7 +59,14 @@
                 throw new ArgumentException();
             }
 
-            this.repository.UpdateStudent(student, ref errors);
+            if (validateStudent(student, ref errors)) 
+            {
+                this.repository.UpdateStudent(student, ref errors);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public Student GetStudent(string id, ref List<string> errors)
@@ -132,6 +147,32 @@
 
             this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);
 
+        }
+
+        private bool validateStudent(Student s, ref List<string> errors)
+        {
+            Match m1 = Regex.Match(s.SSN, @"^\d{3}-\d{2}-\d{4}$");
+            if(!m1.Success)
+            {
+                errors.Add("Invalid SSN");
+                return false;
+            }
+
+            Match m2 = Regex.Match(s.FirstName, @"^[a-zA-Z''-'\s]{1,40}$");
+            Match m3 = Regex.Match(s.LastName, @"^[a-zA-Z''-'\s]{1,40}$");
+            if(!m2.Success)
+            {
+                errors.Add("Invalid first name");
+                return false;
+            }
+            if(!m3.Success)
+            {
+                errors.Add("Invalid last name");
+                return false;
+            }
+
+
+            return true;
         }
     }
 }
