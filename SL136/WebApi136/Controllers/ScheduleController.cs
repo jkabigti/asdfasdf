@@ -44,6 +44,5 @@
             this.service.DeleteSchedule(sch, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
-
     }
 }

@@ -37,29 +37,27 @@ namespace WebApi136.Controllers
         }
 
         [HttpPost]
-        public string AddTutor(int taId, int courseId, string firstName, string lastName)
+        public string AddTutor(int tutorId, int courseId, string firstName, string lastName)
         {
             List<string> errors = new List<string>();
-            this.service.AddTutor(taId, courseId, firstName, lastName, ref errors);
+            this.service.AddTutor(tutorId, courseId, firstName, lastName, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
-        public string AssignTutor(int taId, int courseId)
+        public string AssignTutor(int tutorId, int courseId)
         {
             List<string> errors = new List<string>();
-            this.service.AssignTutor(taId, courseId, ref errors);
+            this.service.AssignTutor(tutorId, courseId, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
-        public string DeleteTutor(int taId)
+        public string DeleteTutor(int tutorId)
         {
             List<string> errors = new List<string>();
-            this.service.DeleteTutor(taId, ref errors);
+            this.service.DeleteTutor(tutorId, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
-
-
     }
 }

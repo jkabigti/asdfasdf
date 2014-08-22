@@ -125,7 +125,7 @@
                 return;
             }
 
-            if (scheduleId <= 0)
+            if (scheduleId < 0)
             {
                 errors.Add("Invalid schedule id");
                 return;
