@@ -4,9 +4,9 @@
 
     public class BaseRepository
     {
-        public static string ConnectionString 
+        public static string ConnectionString
         {
-            get 
+            get
             {
                 return ConfigurationManager.AppSettings["dsn"];
             }

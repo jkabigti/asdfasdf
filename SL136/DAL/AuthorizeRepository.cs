@@ -13,7 +13,7 @@
     {
         private const string GetLoginInfoProcedure = "spGetLoginInfo";
 
-       public Logon Authenticate(string email, string password, ref List<string> errors)
+        public Logon Authenticate(string email, string password, ref List<string> errors)
         {
             var logon = new Logon { Id = string.Empty, Role = "invalid" };
 

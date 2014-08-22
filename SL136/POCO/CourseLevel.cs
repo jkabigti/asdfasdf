@@ -2,8 +2,8 @@
 {
     public enum CourseLevel
     {
-        lower = 0, 
-        upper = 1, 
+        lower = 0,
+        upper = 1,
         grad = 2
     }
 }

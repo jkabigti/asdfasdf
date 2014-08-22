@@ -32,7 +32,7 @@ namespace Repository
 
                 adapter.SelectCommand.Parameters["@text"].Value = announcement.Text;
                 adapter.SelectCommand.Parameters["@date"].Value = announcement.Date;
-                
+
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
             }

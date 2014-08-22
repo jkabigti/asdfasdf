@@ -16,8 +16,8 @@
         private const string DeleteStudentInfoProcedure = "spDeleteStudentInfo";
         private const string GetStudentListProcedure = "spGetStudentList";
         private const string GetStudentInfoProcedure = "spGetStudentInfo";
-	    private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
-	    private const string DeleteStudentScheduleProcedure = "spDeleteStudentScheudle";
+        private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
+        private const string DeleteStudentScheduleProcedure = "spDeleteStudentScheudle";
         private const string RequestGradeChangeProcedure = "addRequest";
         private const string GetCourseProcedure = "getCourse";
 

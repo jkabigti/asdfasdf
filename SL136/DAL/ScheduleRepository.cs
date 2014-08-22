@@ -48,15 +48,15 @@
                 {
                     var schedule = new Schedule
                     {
-                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()), 
-                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(), 
-                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(), 
-                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(), 
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
+                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
                         Course = new Course
                         {
-                            CourseId = dataSet.Tables[0].Rows[i]["course_id"].ToString(), 
-                            Title = dataSet.Tables[0].Rows[i]["course_title"].ToString(), 
-                            Description = dataSet.Tables[0].Rows[i]["course_description"].ToString(), 
+                            CourseId = dataSet.Tables[0].Rows[i]["course_id"].ToString(),
+                            Title = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                            Description = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
                         }
                     };
                     scheduleList.Add(schedule);
@@ -132,7 +132,7 @@
                 };
 
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
-                
+
                 adapter.SelectCommand.Parameters["@schedule_id"].Value = sch.ScheduleId;
 
                 var dataSet = new DataSet();

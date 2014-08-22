@@ -1,12 +1,12 @@
 namespace IRepository
 {
-	using System.Collections.Generic;
+    using System.Collections.Generic;
 
-	using POCO;
+    using POCO;
 
-	public interface InterfaceInstructorRepository
-	{
-		void EditGrade(int scheduleId, string studentId, string grade, ref List<string> errors);
+    public interface InterfaceInstructorRepository
+    {
+        void EditGrade(int scheduleId, string studentId, string grade, ref List<string> errors);
 
         List<Request> GetRequests(int scheduleId, ref List<string> errors);
 
@@ -17,5 +17,5 @@ namespace IRepository
         void AssignTutor(int taId, int courseId, ref List<string> errors);
 
         void DeleteTutor(int taId, ref List<string> errors);
-	}
+    }
 }

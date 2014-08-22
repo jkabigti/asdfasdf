@@ -35,7 +35,7 @@
             {
                 checkCourse(course, ref errors, "Add Unsuccessful: ");
             }
-            if(prereq == null)
+            if (prereq == null)
             {
                 // Throw error message
                 errors.Add("Add Unsuccessful: Invalid Prereq course");
@@ -50,7 +50,7 @@
 
         public void EditPrereq(Course course, Course prereq, ref List<string> errors)
         {
-            if(course == null)
+            if (course == null)
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid course");
@@ -59,7 +59,7 @@
             {
                 checkCourse(course, ref errors, "Edit Unsuccessful: ");
             }
-            if(prereq == null)
+            if (prereq == null)
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid Prereq course");
@@ -73,7 +73,7 @@
 
         public void DeletePrereq(Course course, ref List<string> errors)
         {
-            if( course == null )
+            if (course == null)
             {
                 // Throw error message
                 errors.Add("Delete Unsuccessful: Invalid course");

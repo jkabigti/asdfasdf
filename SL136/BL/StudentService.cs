@@ -50,7 +50,7 @@
                 errors.Add("Invalid student id");
             }
 
-            if (validateStudent(student, ref errors)) 
+            if (validateStudent(student, ref errors))
             {
                 this.repository.UpdateStudent(student, ref errors);
             }
@@ -132,7 +132,7 @@
         private bool validateStudent(Student s, ref List<string> errors)
         {
             Match m1 = Regex.Match(s.SSN, @"^\d{3}-\d{2}-\d{4}$");
-            if(!m1.Success)
+            if (!m1.Success)
             {
                 errors.Add("Invalid SSN");
                 return false;
@@ -142,12 +142,12 @@
 
             Match m2 = Regex.Match(s.FirstName, @regularExpression);
             Match m3 = Regex.Match(s.LastName, @regularExpression);
-            if(!m2.Success)
+            if (!m2.Success)
             {
                 errors.Add("Invalid first name");
                 return false;
             }
-            if(!m3.Success)
+            if (!m3.Success)
             {
                 errors.Add("Invalid last name");
                 return false;

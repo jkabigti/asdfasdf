@@ -37,7 +37,7 @@ namespace Repository
                 adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
                 adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
                 adapter.SelectCommand.Parameters["@grade"].Value = grade;
-                
+
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
             }

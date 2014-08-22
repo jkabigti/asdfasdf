@@ -26,7 +26,7 @@
 
         public void AddSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors)
         {
-            if(sch == null)
+            if (sch == null)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule information");
@@ -35,18 +35,18 @@
             {
                 checkSchedule(sch, ref errors, "Add Unsuccessful: ");
             }
-            
-            if(sch_day_id == null || sch_day_id < 0)
+
+            if (sch_day_id == null || sch_day_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Day ID");
             }
-            if(sch_time_id == null || sch_time_id < 0)
+            if (sch_time_id == null || sch_time_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Schedule Time ID");
             }
-            if(instr_id == null || instr_id < 0)
+            if (instr_id == null || instr_id < 0)
             {
                 // Throw Errror
                 errors.Add("Add Unsuccessful: Invalid Instructor ID");
@@ -56,7 +56,7 @@
 
         public void DeleteSchedule(Schedule sch, ref List<string> errors)
         {
-            if( sch == null )
+            if (sch == null)
             {
                 errors.Add("Delete Unsuccessful: Invalid schedule information");
             }
@@ -104,18 +104,18 @@
                 errors.Add(state + "Invalid Schedule ID");
             }
             Match m = Regex.Match(sch.Year, @"^\d{4}$");
-            if( !m.Success )
+            if (!m.Success)
             {
                 errors.Add(state + "Year is formatted incorrectly");
             }
 
             m = Regex.Match(sch.Quarter, @"^Fall|Winter|Spring|(Summer\x20[12])$");
-            if( !m.Success )
+            if (!m.Success)
             {
                 errors.Add(state + "Quarter is formatted incorrectly");
             }
             m = Regex.Match(sch.Session, @"^[ABCD]\d{2}$");
-            if( !m.Success )
+            if (!m.Success)
             {
                 errors.Add(state + "Sessions is formatted incorrectly");
             }

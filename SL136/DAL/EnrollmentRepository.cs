@@ -13,8 +13,8 @@
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
         private const string InsertStudentScheduleProcedure = "spInsertStudentSchedule";
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
-	    private const string GetCourseProcedure = "getCourse";
-	    private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
+        private const string GetCourseProcedure = "getCourse";
+        private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
 
         public List<int> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
@@ -130,8 +130,8 @@
                 conn.Dispose();
             }
         }
-	
-	    public int GetCourse(int sch_id, ref List<string> errors)
+
+        public int GetCourse(int sch_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             int courseId = -1;
@@ -169,7 +169,7 @@
             return courseId;
         }
 
-	    public List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors)
+        public List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             var enrollmentList = new List<Enrollment>();
