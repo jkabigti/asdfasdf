@@ -13,7 +13,6 @@ namespace ServiceTest
     public class InstructorServiceTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void EditGradeErrorTest()
         {
             //// Arrange
@@ -29,7 +28,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void EditGradeErrorTest2()
         {
             //// Arrange
@@ -45,7 +43,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void EditGradeErrorTest3()
         {
             //// Arrange
@@ -61,7 +58,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetRequestsErrorTest()
         {
             //// Arranage
@@ -77,7 +73,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DropStudentErrorTest()
         {
             //// Arranage
@@ -93,7 +88,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DropStudentErrorTest2()
         {
             //// Arranage
@@ -109,7 +103,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddTutorErrorTest()
         {
             //// Arrange
@@ -125,7 +118,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddTutorErrorTest2()
         {
             //// Arrange
@@ -141,7 +133,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddTutorErrorTest3()
         {
             //// Arrange
@@ -157,7 +148,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AddTutorErrorTest4()
         {
             //// Arrange
@@ -173,7 +163,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AssignTutorErrorTest()
         {
             //// Arrange
@@ -189,7 +178,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AssignTutorErrorTest2()
         {
             //// Arrange
@@ -205,7 +193,6 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void DeleteTutorErrorTest()
         {
             //// Arrange
