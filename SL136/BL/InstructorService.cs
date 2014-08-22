@@ -32,8 +32,8 @@ namespace Service
                 return;
 			}
 
-            Match m = Regex.Match(grade, @"^[ABCDF](?[+-])$");
-            if (!m.Success)
+            bool b = Regex.IsMatch(grade, @"^[ABCDF]?[+-]$");
+            if (!b)
             {
                 errors.Add("Grade is formatted incorrectly");
                 return;

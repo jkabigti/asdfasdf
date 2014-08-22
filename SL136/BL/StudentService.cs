@@ -93,13 +93,13 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
-                return;
+                return 0.0f;
             }
 
             if (enrollments == null)
             {
                 errors.Add("Invalid student id");
-                return 0.0;
+                return 0.0f;
             }
 
             if (enrollments.Count == 0)
@@ -125,7 +125,7 @@
                 return;
             }
 
-            if (scheduleId == null)
+            if (scheduleId <= 0)
             {
                 errors.Add("Invalid schedule id");
                 return;

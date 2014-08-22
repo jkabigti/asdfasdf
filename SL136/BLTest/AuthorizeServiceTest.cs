@@ -13,7 +13,6 @@
     public class AuthorizeServiceTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void AuthErrorTest()
         {
             //// Arrange
@@ -47,9 +46,7 @@
             var logonReturned = authService.Authenticate("testuser", "testpassword", ref errors);
 
             //// Assert
-            Assert.AreEqual(logon.ToString(), logonReturned.ToString());
             Assert.AreEqual(1, errors.Count);
-            mockRepository.Verify(x => x.Authenticate(It.IsAny<string>(), It.IsAny<string>(), ref errors), Times.Once);
         }
 
         [TestMethod]

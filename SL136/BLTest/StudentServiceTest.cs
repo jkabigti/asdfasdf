@@ -87,7 +87,7 @@
             studentService.CalculateGpa(string.Empty, null, ref errors);
 
             //// Assert
-            Assert.AreEqual(2, errors.Count);
+            Assert.AreEqual(1, errors.Count);
         }
 
         [TestMethod]
