@@ -14,7 +14,7 @@ namespace ServiceTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void GetEnrolledStudents()
+        public void GetEnrolledStudentsTest()
         {
             //// Arrange
             var errors = new List<string>();
@@ -22,7 +22,39 @@ namespace ServiceTest
             var enrollmentService = new EnrollmentService(mockRepository.Object);
 
             //// Act
-            enrollmentService.GetEnrollments(-1, ref errors);
+            enrollmentService.GetEnrolledStudents(-1, ref errors);
+
+            //// Assert
+            Assert.AreEqual(1, errors.Count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void EnrollScheduleTest()
+        {
+            //// Arrange
+            var errors = new List<string>();
+            var mockRepository = new Mock<IEnrollmentRepository>();
+            var enrollmentService = new EnrollmentService(mockRepository.Object);
+
+            //// Act
+            enrollmentService.EnrollSchedule(string.Empty, -1, ref errors);
+
+            //// Assert
+            Assert.AreEqual(1, errors.Count);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void DropEnrolledScheduleTest()
+        {
+            //// Arrange
+            var errors = new List<string>();
+            var mockRepository = new Mock<IEnrollmentRepository>();
+            var enrollmentService = new EnrollmentService(mockRepository.Object);
+
+            //// Act
+            enrollmentService.EnrollSchedule(string.Empty, -1, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
