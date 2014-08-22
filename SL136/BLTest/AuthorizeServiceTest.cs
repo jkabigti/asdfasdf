@@ -30,7 +30,7 @@
         }
 
         [TestMethod]
-        public void AuthTest()
+        public void AuthTestError()
         {
             //// Arrange
             var errors = new List<string>();
@@ -44,6 +44,28 @@
 
             //// Act
             var logonReturned = authService.Authenticate("testuser", "testpassword", ref errors);
+
+            //// Assert
+            Assert.AreEqual(logon.ToString(), logonReturned.ToString());
+            Assert.AreEqual(0, errors.Count);
+            mockRepository.Verify(x => x.Authenticate(It.IsAny<string>(), It.IsAny<string>(), ref errors), Times.Once);
+        }
+
+        [TestMethod]
+        public void AuthTest()
+        {
+            //// Arrange
+            var errors = new List<string>();
+            var logon = new Logon { Id = "1", Role = "TestRole" };
+
+            var mockRepository = new Mock<IAuthorizeRepository>();
+            mockRepository.Setup(x => x.Authenticate("testuser@ucsd.edu", "testpassword", ref errors))
+                .Returns(logon);
+
+            var authService = new AuthorizeService(mockRepository.Object);
+
+            //// Act
+            var logonReturned = authService.Authenticate("testuser@ucsd.edu", "testpassword", ref errors);
 
             //// Assert
             Assert.AreEqual(logon.ToString(), logonReturned.ToString());
