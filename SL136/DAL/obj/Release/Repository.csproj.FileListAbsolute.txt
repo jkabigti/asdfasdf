@@ -1,0 +1,9 @@
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\136Repository.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\136Repository.pdb
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\136IRepository.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\POCO.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\136IRepository.pdb
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\bin\Release\POCO.pdb
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\obj\Release\Repository.csprojResolveAssemblyReference.cache
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\obj\Release\136Repository.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\DAL\obj\Release\136Repository.pdb

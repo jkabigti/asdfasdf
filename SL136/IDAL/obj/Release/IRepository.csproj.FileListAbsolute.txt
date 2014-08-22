@@ -1,0 +1,7 @@
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\bin\Release\136IRepository.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\bin\Release\136IRepository.pdb
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\bin\Release\POCO.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\bin\Release\POCO.pdb
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\obj\Release\IRepository.csprojResolveAssemblyReference.cache
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\obj\Release\136IRepository.dll
+C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\IDAL\obj\Release\136IRepository.pdb
