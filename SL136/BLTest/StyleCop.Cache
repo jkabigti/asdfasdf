@@ -55,9 +55,6 @@
   <project key="182328869">
     <configuration>DEBUG;TRACE</configuration>
   </project>
-  <project key="-1486908435">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="AnnouncementServiceTest.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
@@ -173,11 +170,14 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="-1486908435">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="StudentServiceTest.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/08/20 16:45:29.554</settingsFile>
-      <sourceFile>2014/08/21 19:24:19.997</sourceFile>
+      <sourceFile>2014/08/21 19:29:39.903</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>

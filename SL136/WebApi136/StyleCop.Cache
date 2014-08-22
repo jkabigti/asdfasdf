@@ -630,11 +630,14 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <sourcecode name="ScheduleController.cs" parser="StyleCop.CSharp.CsParser">
+  <project key="1344060545">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="InstructorController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/08/20 16:45:34.289</settingsFile>
-      <sourceFile>2014/08/21 19:25:26.511</sourceFile>
+      <sourceFile>2014/08/21 19:29:40.255</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -653,14 +656,11 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="1344060545">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
-  <sourcecode name="InstructorController.cs" parser="StyleCop.CSharp.CsParser">
+  <sourcecode name="ScheduleController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/08/20 16:45:34.289</settingsFile>
-      <sourceFile>2014/08/21 19:28:52.531</sourceFile>
+      <sourceFile>2014/08/21 19:29:40.257</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
