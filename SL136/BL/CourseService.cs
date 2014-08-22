@@ -36,6 +36,7 @@
             {
                 checkCourse(course, ref errors, "Add Unsuccessful: ");
             }
+
             if (prereq == null)
             {
                 // Throw error message
@@ -62,6 +63,7 @@
             {
                 checkCourse(course, ref errors, "Edit Unsuccessful: ");
             }
+
             if (prereq == null)
             {
                 // Throw error message
@@ -72,6 +74,7 @@
             {
                 checkCourse(prereq, ref errors, "Edit Unsuccessful: ");
             }
+
             this.repository.EditPrereq(course, prereq, ref errors);
         }
 
@@ -87,6 +90,7 @@
             {
                 checkCourse(course, ref errors, "Delete Unsuccessful: ");
             }
+
             this.repository.DeletePrereq(course, ref errors);
         }
 
@@ -106,6 +110,7 @@
                     return;
                 }
             }
+
             if (course.Title == null || course.Title.Length == 0)
             {
                 errors.Add(state + "Invalid Title");

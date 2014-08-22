@@ -46,6 +46,7 @@ namespace Service
                 errors.Add("Announcement ID cannot be negative");
                 return;
             }
+
             this.repository.DeleteAnnouncement(id, ref errors);
         }
 
