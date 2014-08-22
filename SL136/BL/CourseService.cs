@@ -30,7 +30,6 @@
             {
                 // Throw error message
                 errors.Add("Add Unsuccessful: Invalid course");
-                throw new ArgumentException();
             }
             else
             {
@@ -40,7 +39,6 @@
             {
                 // Throw error message
                 errors.Add("Add Unsuccessful: Invalid Prereq course");
-                throw new ArgumentException();
             }
             else
             {
@@ -56,7 +54,6 @@
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid course");
-                throw new ArgumentException();
             }
             else
             {
@@ -66,7 +63,6 @@
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid Prereq course");
-                throw new ArgumentException();
             }
             else
             {
@@ -81,7 +77,6 @@
             {
                 // Throw error message
                 errors.Add("Delete Unsuccessful: Invalid course");
-                throw new ArgumentException();
             }
             else
             {
@@ -95,7 +90,6 @@
             if (course.CourseId == null)
             {
                 errors.Add(state + "Invalid course ID");
-                throw new ArgumentException();
             }
             else
             {
@@ -103,23 +97,19 @@
                 if (!m.Success)
                 {
                     errors.Add(state + "Coure ID is formatted incorrectly");
-                    throw new ArgumentException();
                 }
             }
             if (course.Title == null || course.Title.Length == 0)
             {
                 errors.Add(state + "Invalid Title");
-                throw new ArgumentException();
             }
             if (course.CourseLevel == null)
             {
                 errors.Add(state + "Invalid CourseLevel");
-                throw new ArgumentException();
             }
             if (course.Description == null || course.Description.Length == 0)
             {
                 errors.Add(state + "Invalid Course Description");
-                throw new ArgumentException();
             }
         }
     }
