@@ -13,8 +13,6 @@
     {
         private readonly ScheduleService service = new ScheduleService(new ScheduleRepository());
 
-        private List<string> errors = new List<string>();
-
         [HttpPost]
         public List<Schedule> GetScheduleList(string year, string quarter)
         {
@@ -26,22 +24,25 @@
         [HttpPost]
         public string AddSchedule(Schedule sch, int day_id, int time_id, int instr_id)
         {
-            this.service.AddSchedule(sch, day_id, time_id, instr_id, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.AddSchedule(sch, day_id, time_id, instr_id, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
         public string EditSchedule(Schedule sch, int day_id, int time_id, int instr_id)
         {
-            this.service.EditSchedule(sch, day_id, time_id, instr_id, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.EditSchedule(sch, day_id, time_id, instr_id, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
         public string DeleteSchedule(Schedule sch)
         {
-            this.service.DeleteSchedule(sch, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.DeleteSchedule(sch, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
     }

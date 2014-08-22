@@ -158,8 +158,10 @@
                 return false;
             }
 
-            Match m2 = Regex.Match(s.FirstName, @"^[a-zA-Z''-'\s]{1,40}$");
-            Match m3 = Regex.Match(s.LastName, @"^[a-zA-Z''-'\s]{1,40}$");
+            string regularExpression = "^[a-zA-Z''-'\\s]{1,40}$";
+
+            Match m2 = Regex.Match(s.FirstName, @regularExpression);
+            Match m3 = Regex.Match(s.LastName, @regularExpression);
             if(!m2.Success)
             {
                 errors.Add("Invalid first name");

@@ -13,36 +13,39 @@ namespace WebApi136.Controllers
     {
         private readonly EnrollmentService service = new EnrollmentService(new EnrollmentRepository());
 
-        private List<string> errors = new List<string>();
-
         [HttpPost]
         public List<Enrollment> GetEnrolledSchedules(string studentId)
         {
-            return this.service.GetEnrolledSchedules(studentId, ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetEnrolledSchedules(studentId, ref errors);
         }
 
         [HttpPost]
         public List<int> GetEnrolledStudents(int scheduleId)
         {
-            return this.service.GetEnrolledStudents(scheduleId, ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetEnrolledStudents(scheduleId, ref errors);
         }
 
         [HttpPost]
         public void EnrollSchedule(string studentId, int scheduleId)
         {
-            this.service.EnrollSchedule(studentId, scheduleId, ref this.errors);
+            List<string> errors = new List<string>();
+            this.service.EnrollSchedule(studentId, scheduleId, ref errors);
         }
 
         [HttpPost]
         public void DropEnrolledSchedule(string studentId, int scheduleId)
         {
-            this.service.DropEnrolledSchedule(studentId, scheduleId, ref this.errors);
+            List<string> errors = new List<string>();
+            this.service.DropEnrolledSchedule(studentId, scheduleId, ref errors);
         }
 
         [HttpPost]
         public int GetCourse(int scheduleId)
         {
-            return this.service.GetCourse(scheduleId, ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetCourse(scheduleId, ref errors);
         }
     }
 }

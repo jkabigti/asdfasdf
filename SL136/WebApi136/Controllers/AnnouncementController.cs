@@ -13,26 +13,27 @@ namespace WebApi136.Controllers
     {
         private readonly AnnouncementService service = new AnnouncementService(new AnnouncementRepository());
 
-        private List<string> errors = new List<string>();
-
         [HttpPost]
         public string AddAnnouncement(Announcement announcement)
         {
-            this.service.AddAnnouncement(announcement, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.AddAnnouncement(announcement, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
         public string DeleteAnnouncement(int id)
         {
-            this.service.DeleteAnnouncement(id, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.DeleteAnnouncement(id, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpGet]
         public List<Announcement> GetAnnouncements()
         {
-            return this.service.GetAnnouncements(ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetAnnouncements(ref errors);
         }
     }
 }

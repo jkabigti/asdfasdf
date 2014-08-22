@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AnnouncementServiceTest.cs" />
+    <Compile Include="EnrollmentServiceTest.cs" />
     <Compile Include="InstructorServiceTest.cs" />
     <Compile Include="StudentServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

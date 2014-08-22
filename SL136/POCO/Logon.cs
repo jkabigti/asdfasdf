@@ -10,6 +10,8 @@
 
         public string Role { get; set; }
 
+        ///public List<string> errors { get; set };
+
         public override string ToString()
         {
             return this.UserName + "-" + this.Id + "-" + this.Role;

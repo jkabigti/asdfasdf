@@ -13,45 +13,49 @@
     {
         private readonly StudentService service = new StudentService(new StudentRepository());
 
-        private List<string> errors = new List<string>();
-
         [HttpGet]
         public Student GetStudent(string id)
         {
-            return this.service.GetStudent(id, ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetStudent(id, ref errors);
         }
 
         [HttpPost]
         public string InsertStudent(Student student)
         {
-            this.service.InsertStudent(student, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.InsertStudent(student, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
         public string UpdateStudent(Student student)
         {
-            this.service.UpdateStudent(student, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.UpdateStudent(student, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpPost]
         public string DeleteStudent(string id)
         {
-            this.service.DeleteStudent(id, ref this.errors);
-            return this.errors.Count == 0 ? "ok" : "Error occurred";
+            List<string> errors = new List<string>();
+            this.service.DeleteStudent(id, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
         }
 
         [HttpGet]
         public List<Student> GetStudentList()
         {
-            return this.service.GetStudentList(ref this.errors);
+            List<string> errors = new List<string>();
+            return this.service.GetStudentList(ref errors);
         }
 
         [HttpPost]
         public void SendStudentRequest(string studentId, int scheduleId, string request)
         {
-            this.service.SendStudentRequest(studentId, scheduleId, request, ref this.errors);
+            List<string> errors = new List<string>();
+            this.service.SendStudentRequest(studentId, scheduleId, request, ref errors);
         }
     }
 }
