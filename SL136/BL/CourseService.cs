@@ -30,18 +30,15 @@
             {
                 // Throw error message
                 errors.Add("Add Unsuccessful: Invalid course");
-                return;
             }
             else
             {
                 checkCourse(course, ref errors, "Add Unsuccessful: ");
-                return;
             }
             if(prereq == null)
             {
                 // Throw error message
                 errors.Add("Add Unsuccessful: Invalid Prereq course");
-                return;
             }
             else
             {
@@ -57,7 +54,6 @@
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid course");
-                return;
             }
             else
             {
@@ -67,12 +63,10 @@
             {
                 // Throw error message
                 errors.Add("Edit Unsuccessful: Invalid Prereq course");
-                return;
             }
             else
             {
                 checkCourse(prereq, ref errors, "Edit Unsuccessful: ");
-                return;
             }
             this.repository.EditPrereq(course, prereq, ref errors);
         }
@@ -83,7 +77,6 @@
             {
                 // Throw error message
                 errors.Add("Delete Unsuccessful: Invalid course");
-                return;
             }
             else
             {
@@ -97,7 +90,6 @@
             if (course.CourseId == null)
             {
                 errors.Add(state + "Invalid course ID");
-                return;
             }
             else
             {
@@ -105,23 +97,19 @@
                 if (!m.Success)
                 {
                     errors.Add(state + "Coure ID is formatted incorrectly");
-                    return;
                 }
             }
             if (course.Title == null || course.Title.Length == 0)
             {
                 errors.Add(state + "Invalid Title");
-                return;
             }
             if (course.CourseLevel == null)
             {
                 errors.Add(state + "Invalid CourseLevel");
-                return;
             }
             if (course.Description == null || course.Description.Length == 0)
             {
                 errors.Add(state + "Invalid Course Description");
-                return;
             }
         }
     }

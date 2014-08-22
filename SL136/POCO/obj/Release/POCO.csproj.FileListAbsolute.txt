@@ -1,5 +1,0 @@
-C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\POCO\bin\Release\POCO.dll
-C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\POCO\bin\Release\POCO.pdb
-C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\POCO\obj\Release\POCO.csprojResolveAssemblyReference.cache
-C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\POCO\obj\Release\POCO.dll
-C:\Users\KyungJoon\Git Hub\asdfasdf\SL136\POCO\obj\Release\POCO.pdb
