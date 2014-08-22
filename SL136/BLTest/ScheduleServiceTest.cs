@@ -38,7 +38,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, -1, 3, 5, ref errors);
+            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 0, Description = "some description" } }, -1, 3, 5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -54,7 +54,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, 1, -3, 5, ref errors);
+            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, 1, -3, 5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -70,7 +70,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, 1, 3, -5, ref errors);
+            scheduleService.AddSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 2, Description = "some description" } }, 1, 3, -5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -102,7 +102,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.DeleteSchedule(new Schedule { ScheduleId = -1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, ref errors);
+            scheduleService.DeleteSchedule(new Schedule { ScheduleId = -1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -118,7 +118,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "201444", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, ref errors);
+            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "201444", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -134,7 +134,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "21321", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, ref errors);
+            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "21321", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -150,7 +150,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "AA01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, ref errors);
+            scheduleService.DeleteSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "AA01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 2, Description = "some description" } }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -182,7 +182,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, -1, 3, 5, ref errors);
+            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, -1, 3, 5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -198,7 +198,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, 1, -3, 5, ref errors);
+            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, 1, -3, 5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -214,7 +214,7 @@
             var scheduleService = new ScheduleService(mockRepository.Object);
 
             //// Act
-            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" } }, 1, 3, -5, ref errors);
+            scheduleService.EditSchedule(new Schedule { ScheduleId = 1, Year = "2014", Quarter = "Fall", Session = "A01", Course = new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" } }, 1, 3, -5, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);

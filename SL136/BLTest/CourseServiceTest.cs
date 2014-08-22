@@ -38,7 +38,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.AddPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, null, ref errors);
+            courseService.AddPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" }, null, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -54,7 +54,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.AddPrereq(null, new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.AddPrereq(null, new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -70,7 +70,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.AddPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, new Course { CourseId = "11AAA", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.AddPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = 1, Description = "some description" }, new Course { CourseId = "11AAA", Title = "some class", CourseLevel = 2, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -102,7 +102,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "AA11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "AA11", Title = "some class", CourseLevel = 1, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -118,7 +118,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "11", Title = null, CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "11", Title = null, CourseLevel = 2, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -134,7 +134,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "11", Title = "some title", CourseLevel = new CourseLevel(), Description = null }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "11", Title = "some title", CourseLevel = 2, Description = null }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -150,7 +150,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "-11", Title = "some title", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "-11", Title = "some title", CourseLevel = 2, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -166,7 +166,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "11", Title = "", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "11", Title = "", CourseLevel = 2, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -182,7 +182,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.DeletePrereq(new Course { CourseId = "11", Title = "some title", CourseLevel = new CourseLevel(), Description = "" }, ref errors);
+            courseService.DeletePrereq(new Course { CourseId = "11", Title = "some title", CourseLevel = 1, Description = "" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -214,7 +214,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.EditPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, null, ref errors);
+            courseService.EditPrereq(new Course { CourseId = "11", Title = "some class", CourseLevel = 0, Description = "some description" }, null, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
@@ -230,7 +230,7 @@
             var courseService = new CourseService(mockRepository.Object);
 
             //// Act
-            courseService.EditPrereq(null, new Course { CourseId = "11", Title = "some class", CourseLevel = new CourseLevel(), Description = "some description" }, ref errors);
+            courseService.EditPrereq(null, new Course { CourseId = "11", Title = "some class", CourseLevel = 0, Description = "some description" }, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);
