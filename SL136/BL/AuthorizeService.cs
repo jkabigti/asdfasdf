@@ -21,13 +21,19 @@
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 errors.Add("Invalid email or password.");
-
+                return new Logon {UserName = email, Password = password, Id = "1", Role = "TestRole"};
             }
 
+<<<<<<< HEAD
             Match m = Regex.Match(email, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
             if (!m.Success)
+=======
+            bool b = Regex.IsMatch(email, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+            if(!b)
+>>>>>>> origin/master
             {
                 errors.Add("Invalid email format");
+                return new Logon { UserName = email, Password = password, Id = "1", Role = "TestRole" };
             }
 
             return this.repository.Authenticate(email, password, ref errors);

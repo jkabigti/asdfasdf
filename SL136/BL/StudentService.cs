@@ -20,11 +20,13 @@
             if (student == null)
             {
                 errors.Add("Student cannot be null");
+                return;
             }
 
             if (student.StudentId.Length < 5)
             {
                 errors.Add("Invalid student ID");
+                return;
             }
 
             if (validateStudent(student, ref errors))
@@ -38,16 +40,19 @@
             if (student == null)
             {
                 errors.Add("Student cannot be null");
+                return;
             }
 
             if (string.IsNullOrEmpty(student.StudentId))
             {
                 errors.Add("Invalid student id");
+                return;
             }
 
             if (student.StudentId.Length < 5)
             {
                 errors.Add("Invalid student id");
+                return;
             }
 
             if (validateStudent(student, ref errors))
@@ -61,6 +66,7 @@
             if (string.IsNullOrEmpty(id))
             {
                 errors.Add("Invalid student id");
+                return new Student { };
             }
 
             return this.repository.GetStudentDetail(id, ref errors);
@@ -71,6 +77,7 @@
             if (string.IsNullOrEmpty(id))
             {
                 errors.Add("Invalid student id");
+                return;
             }
 
             this.repository.DeleteStudent(id, ref errors);
@@ -86,11 +93,13 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
+                return 0.0f;
             }
 
             if (enrollments == null)
             {
                 errors.Add("Invalid student id");
+                return 0.0f;
             }
 
             if (enrollments.Count == 0)
@@ -113,16 +122,19 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id");
+                return;
             }
 
-            if (scheduleId == null)
+            if (scheduleId <= 0)
             {
                 errors.Add("Invalid schedule id");
+                return;
             }
 
             if (string.IsNullOrEmpty(request))
             {
                 errors.Add("Invalid request");
+                return;
             }
 
             this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);

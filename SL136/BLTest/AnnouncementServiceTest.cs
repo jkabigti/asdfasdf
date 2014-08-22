@@ -44,7 +44,7 @@ namespace ServiceTest
         }
 
         [TestMethod]
-        public void AddAnnouncementErrorTest3()
+        public void AddAnnouncementPassTest()
         {
             //// Arranage
             var errors = new List<string>();
