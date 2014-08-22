@@ -14,9 +14,24 @@
             this.repository = repository;
         }
 
-        public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
+        public List<int> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
+            if (scheduleId < 0)
+            {
+                errors.Add("Invalid schedule id");
+                throw new ArgumentException();
+            }
             return this.repository.GetEnrolledStudents(scheduleId, ref errors);
+        }
+
+        public List<Enrollment> GetEnrolledSchedules(string studentId, ref List<string> errors)
+        {
+            if (string.IsNullOrEmpty(studentId))
+            {
+                errors.Add("Invalid student id");
+                throw new ArgumentException();
+            }
+            return this.repository.GetEnrolledSchedules(studentId, ref errors);
         }
 
         public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)

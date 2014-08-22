@@ -16,7 +16,13 @@ namespace WebApi136.Controllers
         private List<string> errors = new List<string>();
 
         [HttpPost]
-        public List<Enrollment> GetEnrolledStudents(int scheduleId)
+        public List<Enrollment> GetEnrolledSchedules(string studentId)
+        {
+            return this.service.GetEnrolledSchedules(studentId, ref this.errors);
+        }
+
+        [HttpPost]
+        public List<int> GetEnrolledStudents(int scheduleId)
         {
             return this.service.GetEnrolledStudents(scheduleId, ref this.errors);
         }

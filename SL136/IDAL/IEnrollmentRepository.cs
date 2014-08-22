@@ -6,7 +6,7 @@
 
     public interface IEnrollmentRepository
     {
-        List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors);
+        List<int> GetEnrolledStudents(int scheduleId, ref List<string> errors);
 
         void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors);
 

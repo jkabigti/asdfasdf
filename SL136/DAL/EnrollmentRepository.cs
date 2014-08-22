@@ -16,10 +16,10 @@
 	    private const string GetCourseProcedure = "getCourse";
 	    private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
 
-        public List<Enrollment> GetEnrolledStudents(int scheduleId, ref List<string> errors)
+        public List<int> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
-            var enrollmentList = new List<Enrollment>();
+            var studentList = new List<int>();
 
             try
             {
@@ -44,14 +44,8 @@
 
                 for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    var enrollment = new Enrollment
-                    {
-                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
-                        StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
-                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
-
-                    };
-                    enrollmentList.Add(enrollment);
+                    int studentId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["student_id"].ToString());
+                    studentList.Add(studentId);
                 }
             }
             catch (Exception e)
@@ -64,7 +58,7 @@
             }
 
 
-            return enrollmentList;
+            return studentList;
         }
 
         public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
