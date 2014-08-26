@@ -1,4 +1,4 @@
-﻿namespace WebApi136
+﻿namespace Web136
 {
     using System.Web.Http;
 
@@ -6,10 +6,7 @@
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute(
-                "DefaultApi", "api/{controller}/{action}", new { id = RouteParameter.Optional });
-
-            config.EnableSystemDiagnosticsTracing();
+            config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
         }
     }
 }
