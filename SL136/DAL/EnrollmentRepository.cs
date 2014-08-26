@@ -4,10 +4,9 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
-
     using IRepository;
-
     using POCO;
+
     public class EnrollmentRepository : BaseRepository, IEnrollmentRepository
     {
         private const string GetEnrolledStudentProcedure = "spGetEnrolledStudents";
@@ -24,7 +23,6 @@
             try
             {
                 var adapter = new SqlDataAdapter(GetEnrolledStudentProcedure, conn);
-
 
                 if (scheduleId > 0)
                 {
@@ -56,7 +54,6 @@
             {
                 conn.Dispose();
             }
-
 
             return studentList;
         }
@@ -155,7 +152,6 @@
                 adapter.Fill(dataSet);
 
                 courseId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["course_id"].ToString());
-
             }
             catch (Exception e)
             {
@@ -177,7 +173,6 @@
             try
             {
                 var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn)
-
                 {
                     SelectCommand =
                     {
@@ -206,7 +201,6 @@
                         ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
                         StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
                         Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
-
                     };
                     enrollmentList.Add(enrollment);
                 }

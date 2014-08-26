@@ -64,7 +64,6 @@
             return courseList;
         }
 
-
         public void AddPrereq(Course course, Course prereq, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
@@ -154,6 +153,4 @@
             }
         }
     }
-
-
 }

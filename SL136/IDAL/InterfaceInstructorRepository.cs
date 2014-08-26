@@ -12,10 +12,10 @@ namespace IRepository
 
         void DropStudent(int scheduleId, string studentId, ref List<string> errors);
 
-        void AddTutor(int taId, int courseId, string firstName, string lastName, ref List<string> errors);
+        void AddTutor(int tutorId, int courseId, string firstName, string lastName, ref List<string> errors);
 
-        void AssignTutor(int taId, int courseId, ref List<string> errors);
+        void AssignTutor(int tutorId, int courseId, ref List<string> errors);
 
-        void DeleteTutor(int taId, ref List<string> errors);
+        void DeleteTutor(int tutorId, ref List<string> errors);
     }
 }
