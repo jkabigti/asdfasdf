@@ -104,7 +104,6 @@
                         CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["course_id"].ToString()),
                         CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
                         CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
-                        
                     };
                     scheduleList.Add(info);
                 }

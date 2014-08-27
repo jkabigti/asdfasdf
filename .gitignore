@@ -4,3 +4,7 @@ SL136/SL136.v12.suo
 *.cache
 SL136/SL136.v12.suo
 *.suo
+*.dll
+*.pdb
+*.cache
+*.txt
