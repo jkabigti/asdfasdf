@@ -5,20 +5,19 @@
 
 <h1>Currently Enrolled Classes</h1>
 <div id="divStudentSchedule">
-    <table border="1">
+    <table>
         <thead>
             <tr>
-                <td align="center">Course</td>
-                <td align="center">Title</td>
-                <td align="center">Description</td>
-                <td align="center">Year</td>
-                <td align="center">Quarter</td>
-                <td align="center">Session</td>
-                <td align="center">Action</td>
+                <td>Course</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Year</td>
+                <td>Quarter</td>
+                <td>Session</td>
             </tr>
         </thead>
         <tbody data-bind="foreach: viewModel">
-            <!--<tr>
+            <tr>
                 <td data-bind="text: courseId"></td>
                 <td data-bind="text: coureTitle"></td>
                 <td data-bind="text: courseDescription"></td>
@@ -28,27 +27,15 @@
                 <td>
                     <div data-bind="template: { name: 'action_template', data: $data}"></div>
                 </td>
-            </tr> -->
-
-            <!-- Fake Enrolled Course Data -->
-            <tr>
-                <td align="center" id="courseId">CSE 136</td>
-                <td align="center" id="courseTitle">Enterprise-level Web Application</td>
-                <td align="center" id="courseDescription">Yeeeeeee</td>
-                <td align="center" id="year">2014</td>
-                <td align="center" id="quarter">Summer II</td>
-                <td align="center" id="session">A01</td>
-                <td align="center">
-                    <a href="/Student/EnrollCourse">Enroll Into a Course</a>
-                    <a href="/Student/GetSchedule">Get Schedule</a>
-                    <a href="/Student/ViewGrade">View Grade</a>
-                    <a href="/Student/AddRequest">Request Grade Change</a>
-                </td>
             </tr>
         </tbody>
     </table>
-    <!--<a data-bind="attr: { href: '/Student/EnrollCourse', title: 'enroll' }">Enroll Into a Course</a>-->
+    <a data-bind="attr: { href: '/Student/EnrollCourse', title: 'enroll' }">Enroll Into a Course</a>
 </div>
+
+<script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Student/?id' + id, title: 'drop' }">drop</a>
+</script>
 
 <h2>Student Detail</h2>
 
@@ -86,24 +73,22 @@
     </table>
 </div>
 
+<a href="~/Student/EnrollCourse">Enroll Into a Course</a>
+<a href="~/Student/GetSchedule">Get Schedule</a>
+<a href="~/Student/AddRequest">Request Grade Change</a>
+
+
+
 @Html.Partial("SharedStudentEnrollment")
 
-<!-- script type="text/html" id="action-template">
-    <a data-bind="attr: { href : '/Student/?id' + id, title: 'drop' }">Drop</a>
-    <a data-bind="attr: { href : '/Student/?id' + id, title: 'view_grade' }">View Grade</a>
-    <a data-bind="attr: { href : '/Student/?id' + id, title: 'request_grade' }">Request Grade Change</a>
-</!--script> -->
-
-<!-- script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
         require(['ViewModels/StudentViewModel'], function (studentViewModel) {
             var studentviewModelObj = new studentViewModel();
             studentViewModelObj.GetEnrolledCourses("@id");
         });
     });
-</!--script> -->
 
-<script type="text/javascript">
     $(document).ready(function () {
         require(['ViewModels/StudentViewModel'], function (studentViewModel) {
             var studentViewModelObj = new studentViewModel();
