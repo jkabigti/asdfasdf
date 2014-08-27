@@ -11,5 +11,7 @@ namespace Web136.Models
         public string Grade { get; set; }
 
         public float GradeValue { get; set; }
+
+        public CourseInfo Info { get; set; }
     }
 }
