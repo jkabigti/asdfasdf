@@ -115,5 +115,15 @@ namespace Service
 
             this.repository.DeleteTutor(tutorId, ref errors);
         }
+
+        public List<CourseInfo> GetInstructorCourse(int instructorId, ref List<string> errors)
+        {
+            if (instructorId < 0)
+            {
+                errors.Add("Instructor ID cannot be null");
+            }
+
+            return this.repository.GetInstructorCourse(instructorId, ref errors);
+        }
     }
 }

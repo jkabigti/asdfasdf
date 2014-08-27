@@ -17,5 +17,7 @@ namespace IRepository
         void AssignTutor(int tutorId, int courseId, ref List<string> errors);
 
         void DeleteTutor(int tutorId, ref List<string> errors);
+
+        List<CourseInfo> GetInstructorCourse(int instructorId, ref List<string> errors);
     }
 }

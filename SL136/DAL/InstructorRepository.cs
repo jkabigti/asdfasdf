@@ -17,6 +17,7 @@ namespace Repository
         private const string AddTutorProcedure = "addTutor";
         private const string AssignTutorProcedure = "editTutor";
         private const string DeleteTutorProcedure = "deleteTutor";
+        private const string GetInstructorCourseProcedure = "getInstructorCourse";
 
         public void EditGrade(int scheduleId, string studentId, string grade, ref List<string> errors)
         {
@@ -224,6 +225,56 @@ namespace Repository
             {
                 conn.Dispose();
             }
+        }
+
+        public List<CourseInfo> GetInstructorCourse(int instructorId, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var courseList = new List<CourseInfo>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter(GetInstructorCourseProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    }
+                };
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    var course = new CourseInfo
+                    {
+                        ScheduleId = (int)dataSet.Tables[0].Rows[i]["schedule_id"],
+                        CourseId = (int)dataSet.Tables[0].Rows[i]["course_id"],
+                        CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
+                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString()
+                    };
+                    courseList.Add(course);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return courseList;
         }
     }
 }

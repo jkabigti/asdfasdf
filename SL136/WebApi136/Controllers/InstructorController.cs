@@ -59,5 +59,12 @@ namespace WebApi136.Controllers
             this.service.DeleteTutor(tutorId, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
+
+        [HttpPost]
+        public List<CourseInfo> GetInstructorCourse(int instructorId)
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetInstructorCourse(instructorId, ref errors);
+        }
     }
 }
