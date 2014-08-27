@@ -1,19 +1,61 @@
-﻿namespace Web136.Controllers
+﻿namespace WebApi136.Controllers
 {
-    using System.Web.Mvc;
+    using System.Collections.Generic;
+    using System.Web.Http;
 
-    public class StudentController : Controller
+    using POCO;
+
+    using Repository;
+
+    using Service;
+
+    public class StudentController : ApiController
     {
-        public ActionResult Index(string id)
+        private readonly StudentService service = new StudentService(new StudentRepository());
+
+        [HttpGet]
+        public Student GetStudent(string id)
         {
-            ViewBag.Id = id;
-            return this.View();
+            List<string> errors = new List<string>();
+            return this.service.GetStudent(id, ref errors);
         }
 
-        public ActionResult Edit(string id)
+        [HttpPost]
+        public string InsertStudent(Student student)
         {
-            ViewBag.Id = id;
-            return this.View();
+            List<string> errors = new List<string>();
+            this.service.InsertStudent(student, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
+        }
+
+        [HttpPost]
+        public string UpdateStudent(Student student)
+        {
+            List<string> errors = new List<string>();
+            this.service.UpdateStudent(student, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
+        }
+
+        [HttpPost]
+        public string DeleteStudent(string id)
+        {
+            List<string> errors = new List<string>();
+            this.service.DeleteStudent(id, ref errors);
+            return errors.Count == 0 ? "ok" : "Error occurred";
+        }
+
+        [HttpGet]
+        public List<Student> GetStudentList()
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetStudentList(ref errors);
+        }
+
+        [HttpPost]
+        public void SendStudentRequest(string studentId, int scheduleId, string request)
+        {
+            List<string> errors = new List<string>();
+            this.service.SendStudentRequest(studentId, scheduleId, request, ref errors);
         }
     }
 }

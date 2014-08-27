@@ -1,24 +1,24 @@
-﻿namespace Web136.Controllers
+﻿namespace WebApi136.Controllers
 {
-    using System.Web.Mvc;
+    using System.Web.Http;
 
-    public class AdminController : Controller
+    using POCO;
+
+    public class AdminController : ApiController
     {
-        public ActionResult Index(int id)
+        [HttpGet]
+        public Admin GetAdminInfo(int adminId)
         {
-            ViewBag.id = id;
-            return this.View();
+            //// 136 TODO: get the admin info 
+            //// for now, returning the hard-coded value
+            return new Admin() { FirstName = "Isaac", LastName = "Chu", Id = adminId };
         }
 
-        public ActionResult Edit(int id)
+        [HttpPost]
+        public string UpdateAdminInfo(Admin admin)
         {
-            ViewBag.id = id;
-            return this.View();
-        }
-
-        public ActionResult StudentList()
-        {
-            return this.View();
+            //// 136 TODO : update admin info here...
+            return "updated not yet implemented";
         }
     }
 }
