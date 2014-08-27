@@ -22,7 +22,7 @@ namespace WebApi136.Controllers
         }
 
         [HttpPost]
-        public List<Request> GetResquests(int scheduleId)
+        public List<Request> GetRequests(int scheduleId)
         {
             List<string> errors = new List<string>();
             return this.service.GetRequests(scheduleId, ref errors);
