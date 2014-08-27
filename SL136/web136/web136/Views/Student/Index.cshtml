@@ -6,14 +6,26 @@
 <h1>Currently Enrolled Classes</h1>
 <div id="divStudentSchedule">
     <table>
-        <tr>
-            <td>Course</td>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Year</td>
-            <td>Quarter</td>
-            <td>Session</td>
-        </tr>
+        <thead>
+            <tr>
+                <td>Course</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Year</td>
+                <td>Quarter</td>
+                <td>Session</td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: viewModel">
+            <tr>
+                <td data-bind="text: courseId"></td>
+                <td data-bind="text: coureTitle"></td>
+                <td data-bind="text: courseDescription"></td>
+                <td data-bind="text: Year"></td>
+                <td data-bind="text: Quarter"></td>
+                <td data-bind="text: Session"></td>
+            </tr>
+        </tbody>
     </table>
 </div>
 
