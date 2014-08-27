@@ -21,6 +21,14 @@
             return service.GetScheduleList(year, quarter, ref errors);
         }
 
+        [HttpGet]
+        public List<CourseInfo> GetAllSchedules()
+        {
+            var errors = new List<string>();
+            var service = new ScheduleService(new ScheduleRepository());
+            return service.GetAllSchedules(ref errors);
+        }
+
         [HttpPost]
         public string AddSchedule(Schedule sch, int day_id, int time_id, int instr_id)
         {

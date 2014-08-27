@@ -25,6 +25,11 @@
             return this.repository.GetScheduleList(year, quarter, ref errors);
         }
 
+        public List<CourseInfo> GetAllSchedules(ref List<string> errors)
+        {
+            return this.repository.GetAllSchedules(ref errors);
+        }
+
         public void AddSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors)
         {
             if (sch == null)

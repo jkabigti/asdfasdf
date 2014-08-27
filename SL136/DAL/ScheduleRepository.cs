@@ -74,6 +74,53 @@
             return scheduleList;
         }
 
+        public List<CourseInfo> GetAllSchedules(ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var scheduleList = new List<CourseInfo>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter("getAllSchedules", conn);
+
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    var info = new CourseInfo
+                    {
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
+                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
+                        CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["course_id"].ToString()),
+                        CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        
+                    };
+                    scheduleList.Add(info);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return scheduleList;
+        }
+
         public void AddSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);

@@ -8,6 +8,8 @@
     {
         List<Schedule> GetScheduleList(string year, string quarter, ref List<string> errors);
 
+        List<CourseInfo> GetAllSchedules(ref List<string> errors);
+
         void AddSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors);
 
         void DeleteSchedule(Schedule sch, ref List<string> errors);
