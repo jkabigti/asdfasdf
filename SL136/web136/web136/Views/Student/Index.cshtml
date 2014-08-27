@@ -24,10 +24,18 @@
                 <td data-bind="text: Year"></td>
                 <td data-bind="text: Quarter"></td>
                 <td data-bind="text: Session"></td>
+                <td>
+                    <div data-bind="template: { name: 'action_template', data: $data}"></div>
+                </td>
             </tr>
         </tbody>
     </table>
+    <a data-bind="attr: { href: '/Student/EnrollCourse', title: 'enroll' }">Enroll Into a Course</a>
 </div>
+
+<script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Student/?id' + id, title: 'drop' }">drop</a>
+</script>
 
 <h2>Student Detail</h2>
 
@@ -74,6 +82,13 @@
 @Html.Partial("SharedStudentEnrollment")
 
 <script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentviewModelObj = new studentViewModel();
+            studentViewModelObj.GetEnrolledCourses("@id");
+        });
+    });
+
     $(document).ready(function () {
         require(['ViewModels/StudentViewModel'], function (studentViewModel) {
             var studentViewModelObj = new studentViewModel();

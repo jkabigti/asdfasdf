@@ -75,6 +75,22 @@
                 }
             });
         };
+
+		this.GetSchedule = function (id, callback) {
+			$.ajax({
+				async: asyncIndicator,
+				method: "GET",
+				url: "http://localhost:5419/Api/Student/GetStudentSchedule?id=" + id,
+				data: "",
+				dataType: "json",
+				success: function (result) {
+					callback(reslt);
+				},
+				error: function () {
+					alert('Error while loading student schedule. Is your service layer running?');
+				}
+			});
+		};
     }
 
     return StudentModel;
