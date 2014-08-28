@@ -15,5 +15,23 @@
             ViewBag.Id = id;
             return this.View();
         }
+
+        public ActionResult AddRequest(string id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
+
+        public ActionResult ViewGrade(string id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
+
+        public ActionResult EnrollCourse(string id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
     }
 }
