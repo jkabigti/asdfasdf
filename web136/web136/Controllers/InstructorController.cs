@@ -16,11 +16,6 @@ namespace Web136.Controllers
             return this.View();
         }
 
-        public ActionResult EditGrade()
-        {
-            return this.View();
-        }
-
         public ActionResult GetRequests()
         {
             return this.View();
@@ -31,17 +26,7 @@ namespace Web136.Controllers
             return this.View();
         }
 
-        public ActionResult AddTutor()
-        {
-            return this.View();
-        }
-
-        public ActionResult AssignTutor()
-        {
-            return this.View();
-        }
-
-        public ActionResult DeleteTutor()
+        public ActionResult CourseList()
         {
             return this.View();
         }
