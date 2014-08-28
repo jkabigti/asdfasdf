@@ -222,6 +222,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\136Libraries\Models\AdminModel.js" />
     <Content Include="Scripts\136Libraries\Models\CourseListModel.js" />
+    <Content Include="Scripts\136Libraries\Models\InstructorModel.js" />
     <Content Include="Scripts\136Libraries\Models\LoginModel.js" />
     <Content Include="Scripts\136Libraries\Models\StudentModel.js" />
     <Content Include="Scripts\136Libraries\ViewModels\AdminViewModel.js" />
