@@ -10,6 +10,12 @@ namespace Web136.Controllers
             return this.View();
         }
 
+        public ActionResult Edit(int id)
+        {
+            ViewBag.id = id;
+            return this.View();
+        }
+
         public ActionResult EditGrade()
         {
             return this.View();
