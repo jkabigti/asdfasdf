@@ -41,6 +41,9 @@
                         case "student":
                             this.Response.Redirect("/Student?id=" + logon.Id);
                             break;
+                        case "instructor":
+                            this.response.Redicrect("/Instructor?id=" + logon.Id);
+                            break;
                     }
                 }
             }
