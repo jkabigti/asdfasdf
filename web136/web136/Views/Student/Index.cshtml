@@ -41,6 +41,21 @@
 
 @Html.Partial("SharedStudentEnrollment")
 
+<!-- script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Student/?id' + id, title: 'drop' }">Drop</a>
+    <a data-bind="attr: { href : '/Student/?id' + id, title: 'view_grade' }">View Grade</a>
+    <a data-bind="attr: { href : '/Student/?id' + id, title: 'request_grade' }">Request Grade Change</a>
+</!--script> -->
+
+<!-- script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentviewModelObj = new studentViewModel();
+            studentViewModelObj.GetEnrolledCourses("@id");
+        });
+    });
+</!--script> -->
+
 <script type="text/javascript">
     $(document).ready(function () {
         require(['ViewModels/StudentViewModel'], function (studentViewModel) {
