@@ -136,7 +136,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EnrollmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\JasmineTestController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
@@ -292,10 +294,14 @@
     <Content Include="Views\Admin\AddSchedule.cshtml" />
     <Content Include="Views\Admin\EditAnnouncement.cshtml" />
     <Content Include="Views\Admin\AddAnnouncement.cshtml" />
+    <Content Include="Views\Instructor\DropStudents.cshtml" />
+    <Content Include="Views\Instructor\EditGrades.cshtml" />
+    <Content Include="Views\Instructor\GetRequests.cshtml" />
+    <Content Include="Views\Instructor\Index.cshtml" />
+    <Content Include="Views\Instructor\StudentList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Instructor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
