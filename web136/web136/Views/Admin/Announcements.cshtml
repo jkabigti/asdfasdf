@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Current Schedule Page</h3>
+
+<div id="divStudentListContent">
+    <table>
+        <thead>
+            <tr>
+                <th>Announcement</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!--<tbody data-bind="foreach: viewModel">-->
+        <tbody>
+            <tr>
+                <!--<td data-bind="text: text"></td>
+                <td data-bind="text: date"></td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>-->
+                <td>Summer Session 2 Finals Coming Up</td>
+                <td>August, 27, 2014</td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a data-bind="attr: { href : '/Admin/AddAnnouncement', title: 'create' }">New Announcement</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.GetAll();
+        });
+    });
+</script>
+
+<script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Admin/EditAnnouncement', title: 'edit' }">edit</a>
+    <a data-bind="DeleteAnnouncement: $data">delete</a>
+</script>

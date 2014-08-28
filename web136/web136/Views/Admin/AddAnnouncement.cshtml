@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Add";
+    var id = ViewBag.id;
+}
+<h2>New Announcement</h2>
+
+<div id="divAdminEdit">
+    <!--<input type="text" data-bind="value: $data.year" />-->
+    Text : <input type="text" value="" /><br />
+    <br />
+    Date : <input type="text" value="" />(YYYY-MM-dd HH:mm:ss)<br />
+    <br />
+    <input type="button" value="Add Schedule" style="margin-left:80px" />
+    <br /><br />
+    <div id="divMessage"></div>
+</div>
+<!--
+<script type="text/javascript">
+    $(document).ready(function () {
+        // this require[] will load the /Scripts/136Libraries/ViewModels/AdminViewModel.js file
+        // and return the object inside it and assign to adminViewModel variable.
+        require(['ViewModels/AdminViewModel'], function (adminViewModel) {
+            var viewModel = new adminViewModel();
+            viewModel.Load(@id);
+        });
+    });
+
+</script>
+    -->
