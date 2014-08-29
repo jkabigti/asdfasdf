@@ -33,7 +33,7 @@
                     switch (logon.Role)
                     {
                         case "admin":
-                            this.Response.Redirect("/Instructor?id=" + logon.Id);
+                            this.Response.Redirect("/Admin?id=" + logon.Id);
                             break;
                         case "staff":
                             this.Response.Redirect("/Staff?id=" + logon.Id);

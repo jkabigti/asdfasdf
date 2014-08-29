@@ -9,32 +9,32 @@ namespace Web136.Controllers
             return this.View();
         }
 
-        public ActionResult EditGrade(int scheduleId, string studentId, string grade)
+        public ActionResult EditGrade()
         {
             return this.View();
         }
 
-        public ActionResult GetRequests(int scheduleId)
+        public ActionResult GetRequests()
         {
             return this.View();
         }
 
-        public ActionResult DropStudent(int scheduleId, string studentId)
+        public ActionResult DropStudent()
         {
             return this.View();
         }
 
-        public ActionResult AddTutor(int tutorId, int courseId, string firstName, string lastName)
+        public ActionResult AddTutor()
         {
             return this.View();
         }
 
-        public ActionResult AssignTutor(int tutorId, int courseId)
+        public ActionResult AssignTutor()
         {
             return this.View();
         }
 
-        public ActionResult DeleteTutor(int tutorId)
+        public ActionResult DeleteTutor()
         {
             return this.View();
         }
