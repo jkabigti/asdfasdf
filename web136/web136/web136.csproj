@@ -301,6 +301,10 @@
     <Content Include="Views\Instructor\StudentList.cshtml" />
     <Content Include="Views\Instructor\CourseList.cshtml" />
     <Content Include="Views\Instructor\AddTutor.cshtml" />
+    <Content Include="Views\Student\AddRequest.cshtml" />
+    <Content Include="Views\Student\EnrollCourse.cshtml" />
+    <Content Include="Views\Student\ViewGrade.cshtml" />
+    <Content Include="Views\Instructor\EditTutor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
