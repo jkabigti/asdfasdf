@@ -36,6 +36,11 @@ namespace Web136.Controllers
             return this.View();
         }
 
+        public ActionResult EditTutor()
+        {
+            return this.View();
+        }
+
         public ActionResult AssignTutor()
         {
             return this.View();
