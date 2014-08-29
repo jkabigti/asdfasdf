@@ -150,8 +150,8 @@
                     callback(result);
                 },
                 error: function () {
-                    alert('Error while requesting enrolled courses');
-                    callback("Error while requesting enrollced courses");
+                    alert('Error while loading enrolled courses');
+                    callback("Error while loading enrolled courses");
                 }
             });
         };
