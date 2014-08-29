@@ -1,28 +1,30 @@
 ﻿@{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EditGrade";
 	var id = ViewBag.id;
 }
 
 <h3>EditGrades</h3>
 
 <div id="divInstructorEdit">
-    Grade : <input type="text" value="A" />
-	<br />
-    <br />
-    <input type="button" value="Update" style="margin-left:80px" />
-    <br /><br />
-    <div id="divMessage"></div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td align="center">CourseId</td>
+                <td align="center">StudentId</td>
+                <td align="center">Grade</td>
+            </tr>
+        </thead>
+		<tbody>
+            <tr>
+                <td align="center" class="courseId">1</td>
+                <td align="center" class="studentId">1</td>
+                <td align="center" class="grade"><input type="text" value="A" /></td>
+            </tr>
+			<tr>
+                <td align="center" class="courseId">1</td>
+                <td align="center" class="studentId">2</td>
+                <td align="center" class="grade"><input type="text" value="B" /></td>
+            </tr>
+		</tbody>
+	</table>
 </div>
-<!--
-<script type="text/javascript">
-    $(document).ready(function () {
-        // this require[] will load the /Scripts/136Libraries/ViewModels/InstructorViewModel.js file
-        // and return the object inside it and assign to instructorViewModel variable.
-        require(['ViewModels/InstructorViewModel'], function (instructorViewModel) {
-            var viewModel = new instructorViewModel();
-            viewModel.Load(@id);
-        });
-    });
-
-</script>
-    -->
