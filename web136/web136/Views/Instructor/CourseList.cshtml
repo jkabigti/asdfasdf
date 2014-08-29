@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "List";
+	var id = ViewBad.id;
+}
+
+<h3>Course Lists</h3>
+
+<div id="divStudentListContent">
+<table>
+        <thead>
+            <tr>
+                <th>CouseId</th>
+                <th>Session</th>
+                <th>Course</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!--<tbody data-bind="foreach: viewModel">-->
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>Summer Session 2</td>
+                <td>A00</td>
+                <td>CSE 136</td>
+                <td>Enterprise-class Web Applications</td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a data-bind="attr: { href : '/Instructor/EditGrades', title: 'edit' }">Edit Student Grades</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.GetAll();
+        });
+    });
+</script>
+
+<script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Instructor/AddTutors', title: 'create' }">Create Tutors</a>
+    <a data-bind="attr: { href : '/Instructor/EditTutors', title: 'edit' }">Edit Tutors</a>
+    <a data-bind="DeleteTutor: $data">Delete</a>
+</script>
