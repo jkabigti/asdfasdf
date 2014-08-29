@@ -75,6 +75,86 @@
                 }
             });
         };
+
+        this.Drop = function (studentId, scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/Drop?studentId=" + studentId + "&scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while dropping course');
+                    callback("Error while dropping course");
+                }
+            });
+        };
+
+        this.Enroll = function (studentId, scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/Enroll?studentId" + studentId + "&scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while enrolling into the course');
+                    callback("Error while enrolling into the course");
+                }
+            });
+        };
+
+        this.ViewGrade = function (studentId, scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/ViewGrade?studentId" + studentId + "&scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while viewing the grade');
+                    callback("Error while viewing the grade");
+                }
+            });
+        };
+
+        this.AddRequest = function (studentId, scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/AddRequest?studentId" + studentId + "&scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while requesting grade change');
+                    callback("Error while requesting grade change");
+                }
+            });
+        };
+
+        this.EnrollCourse = function (studentId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/EnrollCourse?studentId" + studentId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while requesting enrolled courses');
+                    callback("Error while requesting enrollced courses");
+                }
+            });
+        };
     }
 
     return StudentModel;

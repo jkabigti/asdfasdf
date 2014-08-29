@@ -4,13 +4,20 @@ namespace Web136.Controllers
 
     public class InstructorController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            ViewBag.id = id;
             return this.View();
         }
 
         public ActionResult EditGrade()
         {
+            return this.View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            ViewBag.id = id;
             return this.View();
         }
 
@@ -35,6 +42,11 @@ namespace Web136.Controllers
         }
 
         public ActionResult DeleteTutor()
+        {
+            return this.View();
+        }
+
+        public ActionResult CourseList()
         {
             return this.View();
         }
