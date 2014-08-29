@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "List";
-	var id = ViewBad.id;
+	var id = ViewBag.id;
 }
 
 <h3>Course Lists</h3>
@@ -9,7 +9,7 @@
 <table>
         <thead>
             <tr>
-                <th>CouseId</th>
+                <th>CourseId</th>
                 <th>Session</th>
                 <th>Course</th>
                 <th>Description</th>
@@ -43,7 +43,7 @@
 </script>
 
 <script type="text/html" id="action-template">
-    <a data-bind="attr: { href : '/Instructor/AddTutors', title: 'create' }">Create Tutors</a>
-    <a data-bind="attr: { href : '/Instructor/EditTutors', title: 'edit' }">Edit Tutors</a>
+    <a data-bind="attr: { href : '/Instructor/AddTutor', title: 'add' }">Add Tutor</a>
+    <a data-bind="attr: { href : '/Instructor/EditTutor', title: 'edit' }">Edit Tutors</a>
     <a data-bind="DeleteTutor: $data">Delete</a>
 </script>
