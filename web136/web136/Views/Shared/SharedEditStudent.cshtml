@@ -1,7 +1,32 @@
 ﻿@{
     var id = ViewBag.Id;
 }
-<h3>Edit</h3>
+<h3>Edit Student Information</h3>
 
 @id
-136 TODO : edit the student record
+<div id="divEditStudentRecord">
+    Id : <input type="text" data-bind="value: $data.student_id" /><br />
+    <br />
+    SSN : <input type="text" data-bind="value: $data.ssn" /><br />
+    <br />
+    First : <input type="text" data-bind="value: $data.first" /><br />
+    <br />
+    Last : <input type="text" data-bind="value: $data.last" /><br />
+    <br />
+    Email : <input type="text" data-bind="value: $data.email" /><br />
+    <br />
+    Shoe Size : <input type="text" data-bind="value: $data.shoesize" /><br />
+    <br />
+    Weight : <input type="text" data-bind="value: $data.weight" /><br />
+    <br />
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.GetDetail("@id");
+        });
+    });
+</script>
