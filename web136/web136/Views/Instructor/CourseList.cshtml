@@ -28,9 +28,28 @@
                     <div data-bind="template: { name: 'action-template', data: $data}"></div>
                 </td>
             </tr>
+			<tr>
+                <td>02</td>
+                <td>Summer Session 2</td>
+                <td>A00</td>
+                <td>CSE 135</td>
+                <td>Enterprise-class Web Applications</td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>
+            </tr>
+			<tr>
+                <td>03</td>
+                <td>Summer Session 2</td>
+                <td>A00</td>
+                <td>CSE 134B</td>
+                <td>Enterprise-class Web Applications</td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>
+            </tr>
         </tbody>
     </table>
-    <a data-bind="attr: { href : '/Instructor/EditGrade', title: 'edit' }">Edit Student Grades</a>
 </div>
 
 <script type="text/javascript">
@@ -43,6 +62,7 @@
 </script>
 
 <script type="text/html" id="action-template">
+	<a data-bind="attr: { href : '/Instructor/EditGrade', title: 'edit' }">Edit Student Grades</a>
     <a data-bind="attr: { href : '/Instructor/AddTutor', title: 'add' }">Add Tutor</a>
     <a data-bind="attr: { href : '/Instructor/EditTutor', title: 'edit' }">Edit Tutors</a>
     <a data-bind="DeleteTutor: $data">Delete</a>
