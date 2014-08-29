@@ -305,6 +305,7 @@
     <Content Include="Views\Student\EnrollCourse.cshtml" />
     <Content Include="Views\Student\ViewGrade.cshtml" />
     <Content Include="Views\Instructor\EditTutor.cshtml" />
+    <Content Include="Views\Instructor\EnrollStudents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

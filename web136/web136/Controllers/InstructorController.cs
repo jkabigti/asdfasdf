@@ -26,6 +26,11 @@ namespace Web136.Controllers
             return this.View();
         }
 
+        public ActionResult EnrollStudents()
+        {
+            return this.View();
+        }
+
         public ActionResult DropStudent()
         {
             return this.View();
