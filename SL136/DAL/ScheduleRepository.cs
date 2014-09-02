@@ -237,5 +237,77 @@
                 conn.Dispose();
             }
         }
+
+        public List<string> GetYears(ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var yearList = new List<string>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter("getYears", conn);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    string year = dataSet.Tables[0].Rows[i]["year"].ToString(); ;
+                    yearList.Add(year);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return yearList;
+        }
+
+        public List<string> GetQuarters(ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var quarterList = new List<string>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter("getQuarters", conn);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    string quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(); ;
+                    quarterList.Add(quarter);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return quarterList;
+        }
     }
 }

@@ -183,5 +183,15 @@
                 return;
             }
         }
+
+        public List<string> GetYears(ref List<string> errors)
+        {
+            return this.GetYears(ref errors);
+        }
+
+        public List<string> GetQuarters(ref List<string> errors)
+        {
+            return this.GetQuarters(ref errors);
+        }
     }
 }

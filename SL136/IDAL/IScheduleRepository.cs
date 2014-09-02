@@ -15,5 +15,9 @@
         void DeleteSchedule(Schedule sch, ref List<string> errors);
 
         void EditSchedule(Schedule sch, int sch_day_id, int sch_time_id, int instr_id, ref List<string> errors);
+
+        List<string> GetYears(ref List<string> errors);
+
+        List<string> GetQuarters(ref List<string> errors);
     }
 }

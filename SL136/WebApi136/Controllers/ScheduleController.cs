@@ -52,5 +52,19 @@
             this.service.DeleteSchedule(sch, ref errors);
             return errors.Count == 0 ? "ok" : "Error occurred";
         }
+
+        [HttpGet]
+        public List<string> GetYears()
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetYears(ref errors);
+        }
+
+        [HttpGet]
+        public List<string> GetQuarters()
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetQuarters(ref errors);
+        }
     }
 }
