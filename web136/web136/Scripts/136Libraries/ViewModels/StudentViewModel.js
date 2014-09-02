@@ -69,6 +69,25 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
+        this.UpdateStudent = function (viewModel) {
+            var studentModelObj = new StudentModel();
+
+            var studentData = {
+                StudentId: data.id(),
+                SSN: data.ssn(),
+                FirstName: data.first(),
+                LastName: data.last(),
+                Email: data.email(),
+                Password: data.password(),
+                ShoeSize: data.shoesize(),
+                Weight: data.weight()
+            };
+
+            studentModelObj.UpdateStudent(studentData, function (message) {
+                $('#divEditStudentRecord').html(message);
+            });
+        };
+
         this.GetDetail = function (id) {
 
             StudentModelObj.GetDetail(id, function (result) {
