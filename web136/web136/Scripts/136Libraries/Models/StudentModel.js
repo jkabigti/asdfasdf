@@ -155,6 +155,20 @@
                 }
             });
         };
+
+        this.UpdateStudent = function (studentData, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Shared/SharedEditStudent?studentId=" + studentId,
+                data: studentData,
+                success: function (message) {
+                    callback(message);
+                },
+                error: function () {
+                    callback('Error while updating student info');
+                }
+            });
+        };
     }
 
     return StudentModel;

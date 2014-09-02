@@ -4,7 +4,7 @@
 <h3>Edit Student Information</h3>
 
 <div id="divEditStudentRecord">
-    Id : <input type="text" data-bind="value: $data.student_id" /><br />
+    Id : <input type="text" data-bind="value: $data.id" /><br />
     <br />
     SSN : <input type="text" data-bind="value: $data.ssn" /><br />
     <br />
@@ -30,4 +30,11 @@
             studentViewModelObj.GetDetail("@id");
         });
     });
+
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.UpdateStudent()
+        })
+    })
 </script>
