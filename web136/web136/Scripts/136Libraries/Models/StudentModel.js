@@ -156,22 +156,6 @@
             });
         };
 
-        this.Load = function (studentId, callback) {
-            $.ajax({
-                method: 'GET',
-                url: "http://localhost:5419/Api/Student/GetStudent?StudentId=" + studentId,
-                data: "",
-                dataType: "json",
-                success: function (result) {
-                    callback(result);
-                },
-                error: function () {
-                    alert('Error while loading student info.');
-                    callback('Error while loading student info.');
-                }
-            });
-        };
-
         this.UpdateStudent = function (studentData, callback) {
             $.ajax({
                 method: 'POST',
