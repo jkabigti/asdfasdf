@@ -62,17 +62,17 @@
     <table border="1">
         <thead>
             <tr>
-                <td align="center">Title</td>
-                <td align="center">Description</td>
-                <td align="center">Instructor</td>
-                <td align="center">Time</td>
-                <td align="center">Quarter</td>
-                <td align="center">Year</td>
-                <td align="center">Session</td>
-                <td align="center">Action</td>
+                <th align="center">Title</th>
+                <th align="center">Description</th>
+                <th align="center">Instructor</th>
+                <th align="center">Time</th>
+                <th align="center">Quarter</th>
+                <th align="center">Year</th>
+                <th align="center">Session</th>
+                <th align="center">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody data-bind="foreach: viewModel">
             <tr>
                 <td align="center" class="title">CSE 134B</td>
                 <td align="center" class="description">Client-side Web Languages</td>
@@ -193,7 +193,7 @@
 	$(document).ready(function () {
 		require(['ViewModels/StudentViewModel'], function (studentViewModel) {
 			var studentViewModelObj = new studentViewModel();
-			studentViewModelObj.Load("@id");
+			studentViewModelObj.GetDetail("@id");
 		});
 	});
 </script>

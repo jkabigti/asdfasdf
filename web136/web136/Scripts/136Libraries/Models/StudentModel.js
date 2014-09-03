@@ -32,8 +32,8 @@
             $.ajax({
                 async: asyncIndicator,
                 method: "POST",
-                url: "http://localhost:5419/Api/Student/DeleteStudent?id=" + id,
-                data: '',
+                url: "http://localhost:5419/Api/Student/DeleteStudent1" + id,
+                data: "",
                 dataType: "json",
                 success: function (result) {
                     callback(result);
