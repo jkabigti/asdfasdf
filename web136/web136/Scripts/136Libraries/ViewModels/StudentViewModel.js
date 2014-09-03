@@ -26,6 +26,27 @@ define(['Models/StudentModel'], function (StudentModel) {
             ko.applyBindings(viewModel, document.getElementById("divStudent"));
         };
 
+        this.Load = function (id) {
+            var studentModelObj = new StudentModel();
+            studentModelObj.Load(id, function (result) {
+
+                var viewModel = {
+                    id: result.Id,
+                    ssn: ko.observable(result.SSN),
+                    first: ko.observable(result.FirstName),
+                    last: ko.observable(result.LastName),
+                    email: ko.observable(result.Email),
+                    shoesize: ko.observable(result.ShoeSize),
+                    weight: ko.observable(result.Weight),
+                    update: function () {
+                        self.UpdateStudent(this);
+                    }
+                }
+
+                ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
+            });
+        };
+
         this.CreateStudent = function(data) {
             var model = {
                 StudentId: data.id(),
@@ -73,18 +94,18 @@ define(['Models/StudentModel'], function (StudentModel) {
             var studentModelObj = new StudentModel();
 
             var studentData = {
-                StudentId: data.id(),
-                SSN: data.ssn(),
-                FirstName: data.first(),
-                LastName: data.last(),
-                Email: data.email(),
-                Password: data.password(),
-                ShoeSize: data.shoesize(),
-                Weight: data.weight()
+                StudentId: viewModel.id(),
+                SSN: viewModel.ssn(),
+                FirstName: viewModel.first(),
+                LastName: viewModel.last(),
+                Email: viewModel.email(),
+                Password: viewModel.password(),
+                ShoeSize: viewModel.shoesize(),
+                Weight: viewModel.weight()
             };
 
             studentModelObj.UpdateStudent(studentData, function (message) {
-                $('#divEditStudentRecord').html(message);
+                $('#divEditMessage').html(message);
             });
         };
 

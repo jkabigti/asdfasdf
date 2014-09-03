@@ -159,7 +159,7 @@
         this.UpdateStudent = function (studentData, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Shared/SharedEditStudent?studentId=" + studentId,
+                url: "http://localhost:5419/Api/Shared/SharedEditStudent",
                 data: studentData,
                 success: function (message) {
                     callback(message);
