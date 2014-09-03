@@ -12,7 +12,7 @@ Year:
 Quarter:
 <select data-bind="foreach: viewModel">
     <option value="allquarters">All Quarters</option>
-    <option data-bind="text: quarter">Fall</option>
+    <!--<option data-bind="text: quarter">Fall</option>-->
 </select>
 
 <div id="divScheduleListContent">
@@ -53,9 +53,9 @@ Quarter:
 
 <script type="text/javascript">
     $(document).ready(function () {
-        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
-            var studentViewModelObj = new studentViewModel();
-            studentViewModelObj.GetAll();
+        require(['ViewModels/AdminViewModel'], function (adminViewModel) {
+            var adminViewModelObj = new adminViewModel();
+            adminViewModelObj.GetAllSchedules();
         });
     });
 </script>
