@@ -109,6 +109,25 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
+		this.StudentEnroll = function (viewModel) {
+			var studentModelObj = new StudentModel();
+
+			var studentData = {
+				StudentId: viewModel.id(),
+                SSN: viewModel.ssn(),
+                FirstName: viewModel.first(),
+                LastName: viewModel.last(),
+                Email: viewModel.email(),
+                Password: viewModel.password(),
+                ShoeSize: viewModel.shoesize(),
+                Weight: viewModel.weight()
+			};
+
+			studentModelObj.StudentEnroll(studentData, function (message) {
+				$('#divEditMessage').html(message);
+			});
+		};
+
         this.GetDetail = function (id) {
 
             StudentModelObj.GetDetail(id, function (result) {

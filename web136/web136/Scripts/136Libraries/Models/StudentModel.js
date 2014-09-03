@@ -169,6 +169,20 @@
                 }
             });
         };
+
+		this.CourseScheduleStudent = function (studentData, callback) {
+			$.ajax({
+				method: 'POST',
+				url: "http://localhost:5419/Api/Shared/SharedStudentEnrollment",
+				data: studentData,
+				success: function (message) {
+					callback(message);
+				},
+				error: function () {
+					callback('Eror while updating studentinfo');
+				}
+			});
+		};
     }
 
     return StudentModel;
