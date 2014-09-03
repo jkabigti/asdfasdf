@@ -1,138 +1,12 @@
 ﻿@{
     var id = ViewBag.Id;
 }
-<h3>Current Enrollment</h3>
-
-<div id="divStudentSchedule">
-    <table border="1">
-        <thead>
-            <tr>
-                <td align="center">Title</td>
-                <td align="center">Description</td>
-                <td align="center">Year</td>
-                <td align="center">Quarter</td>
-                <td align="center">Session</td>
-                <td align="center">Action</td>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: viewModel">
-            <!--<tr>
-                <td data-bind="text: courseId"></td>
-                <td data-bind="text: coureTitle"></td>
-                <td data-bind="text: courseDescription"></td>
-                <td data-bind="text: Year"></td>
-                <td data-bind="text: Quarter"></td>
-                <td data-bind="text: Session"></td>
-                <td>
-                    <div data-bind="template: { name: 'action_template', data: $data}"></div>
-                </td>
-            </tr> -->
-            <!-- Fake Enrolled Course Data -->
-            <tr>
-                <td align="center" id="courseTitle">CSE 136</td>
-                <td align="center" id="courseDescription">Enterprise-level Web Application</td>
-                <td align="center" id="year">2014</td>
-                <td align="center" id="quarter">Summer II</td>
-                <td align="center" id="session">A01</td>
-                <td align="center">
-                    <a href="#">Drop</a>
-                    <a href="/Student/ViewGrade">View Grade</a>
-                    <a href="/Student/AddRequest">Request Grade Change</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <br />
-    <br />
-    <form action="/Student/EnrollCourse">
-        <input type="submit" value="Look up Courses to enroll" />
-    </form>
-    <!-- <a href="/Student/EnrollCourse">Look up Courses to enroll</a> -->
-    <!--<a data-bind="attr: { href: '/Student/EnrollCourse', title: 'enroll' }">Enroll Into a Course</a>-->
-</div>
 
 <!-- @id
 136 TODO: for a given student, show all his course schedule enrollment. Allow add & delete of enrollments
 (The reason this is under the /Shared folder is that both staff and student should be able to update enrollments)
 -->
-
-<h3>Course Schedule Enrollment</h3>
-
-<div id="studentCourseSchedule">
-    <table border="1">
-        <thead>
-            <tr>
-                <th align="center">Title</th>
-                <th align="center">Description</th>
-                <th align="center">Instructor</th>
-                <th align="center">Time</th>
-                <th align="center">Quarter</th>
-                <th align="center">Year</th>
-                <th align="center">Session</th>
-                <th align="center">Action</th>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: viewModel">
-            <tr>
-                <td align="center" class="title">CSE 134B</td>
-                <td align="center" class="description">Client-side Web Languages</td>
-                <td align="center" class="instr">Thomas Powell</td>
-                <td align="center" class="courseTime">5:30pm - 10:30pm MWF</td>
-                <td align="center" class="courseQuarter">Summer I</td>
-                <td align="center" class="courseYear">2014</td>
-                <td align="center" class="courseSession">A00</td>
-                <td align="center" class="action">
-                    <a href="#">Drop</a>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" class="title">CSE 134B</td>
-                <td align="center" class="description">Client-side Web Languages</td>
-                <td align="center" class="instr">Thomas Powell</td>
-                <td align="center" class="courseTime">8:30am - 11:30pm TTR</td>
-                <td align="center" class="courseQuarter">Summer I</td>
-                <td align="center" class="courseYear">2014</td>
-                <td align="center" class="courseSession">A01</td>
-                <td align="center" class="action">
-                    <a href="#">Drop</a>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" class="title">CSE 135</td>
-                <td align="center" class="description">Server-side Web Languages</td>
-                <td align="center" class="instr">Thomas Powell</td>
-                <td align="center" class="courseTime">5:30pm - 10:30pm MWF</td>
-                <td align="center" class="courseQuarter">Summer II</td>
-                <td align="center" class="courseYear">2014</td>
-                <td align="center" class="courseSession">A00</td>
-                <td align="center" class="action">
-                    <a href="#">Drop</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-	<table border="1">
-		<thead>
-            <tr>
-                <td align="center">Course Id</td>
-                <td align="center">Action</td>
-            </tr>
-        </thead>
-		<tbody>
-			<tr>
-				<td align="center" class = "courseId">
-					<input type="text" value="" />
-				</td>
-				<td align="center" class="action">
-					<a href="#">Enroll</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-
-<h3>Courses Schedule:</h3>
+<h3>Current Enrollment:</h3>
 
 <div id="en_courseSchedule">
     <table border="1">
@@ -158,7 +32,7 @@
                 <td align="center" class="courseYear">2014</td>
                 <td align="center" class="courseSession">A00</td>
                 <td align="center" class="action">
-                    <a href="#">Enroll</a>
+                    <div data-bind="template: {name: 'action-template', data: $data}"></div>
                 </td>
             </tr>
             <tr>
@@ -170,7 +44,7 @@
                 <td align="center" class="courseYear">2014</td>
                 <td align="center" class="courseSession">A01</td>
                 <td align="center" class="action">
-                    <a href="#">Enroll</a>
+                    <div data-bind="template: {name: 'action-template', data: $data}"></div>
                 </td>
             </tr>
             <tr>
@@ -182,11 +56,12 @@
                 <td align="center" class="courseYear">2014</td>
                 <td align="center" class="courseSession">A00</td>
                 <td align="center" class="action">
-                    <a href="#">Enroll</a>
+                    <div data-bind="template: {name: 'action-template', data: $data}"></div>
                 </td>
             </tr>
         </tbody>
     </table>
+	<a data-bind="attr: { href : '/Student/EnrollCourse', title: 'enroll' }">Enroll a Course</a>
 </div>
 
 <script type="text/javascript">
@@ -196,4 +71,10 @@
 			studentViewModelObj.GetDetail("@id");
 		});
 	});
+</script>
+
+<script type = "text/html" id="action-template">
+	<a data-bind="attr: { href : '/Student/ViewGrade', title: 'view' }">View Grade</a>
+	<a data-bind="attr: { href : '/Student/AddRequest', title: 'create' }">Request Grade Change</a>
+	<a data-bind="attr: { href : '/Instructor/DropStudent', title: 'drop' }">Drop Course</a>
 </script>
