@@ -108,6 +108,42 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
+        this.Load = function (id) {
+
+            StudentModelObj.GetDetail(id, function (result) {
+                var viewModel = {
+                    id: ko.observable(result.StudentId),
+                    first: ko.observable(result.FirstName),
+                    last: ko.observable(result.LastName),
+                    email: ko.observable(result.Email),
+                    shoesize: ko.observable(result.ShoeSize),
+                    weight: ko.observable(result.Weight),
+                    ssn: ko.observable(result.SSN),
+                    update: function () {
+                        self.UpdateStudent(this);
+                    }
+                }
+                ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
+            });
+        };
+
+        this.UpdateStudent = function (viewModel) {
+            var studentModelObj = new StudentModel();
+            var studentData = {
+                StudentId: viewModel.id,
+                FirstName: viewModel.first(),
+                LastName: viewModel.last(),
+                Email: viewModel.email(),
+                ShoeSize: viewModel.shoesize(),
+                Weight: viewModel.weight(),
+                SSN: viewModel.ssn()
+            };
+
+            studentModelObj.UpdateStudent(studentData, function (message) {
+                $('#divEditMessage').html(message);
+            });
+        };
+
         ko.bindingHandlers.DeleteStudent = {
             init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
                 $(element).click(function () {

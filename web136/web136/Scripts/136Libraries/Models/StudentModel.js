@@ -72,6 +72,7 @@
                 },
                 error: function () {
                     alert('Error while loading student detail.  Is your service layer running?');
+                    callback("Error while loading student detail.");
                 }
             });
         };
