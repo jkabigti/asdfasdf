@@ -40,13 +40,11 @@ define(['Models/AdminModel'], function (adminModel) {
         };
         
         this.GetAllSchedules = function () {
-            alert("hi1");
             var adminModelObj = new adminModel();
             var scheduleListViewModel = ko.observableArray();
-            alert("hi2");
             adminModelObj.GetSchedules(function (scheduleList) {
                 scheduleListViewModel.removeAll();
-                alert("hi3");
+                alert(scheduleList.length);
                 for (var i = 0; i < scheduleList.length; i++) {
                     scheduleListViewModel.push({
                         year: scheduleList[i].Year,
