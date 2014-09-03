@@ -2,6 +2,7 @@
 define(['Models/AdminModel'], function (adminModel) {
     function AdminViewModel() {
         var self = this;
+        var initialBind = true;
 
         this.Load = function (id) {
             var adminModelObj = new adminModel();
@@ -44,7 +45,6 @@ define(['Models/AdminModel'], function (adminModel) {
             var scheduleListViewModel = ko.observableArray();
             adminModelObj.GetSchedules(function (scheduleList) {
                 scheduleListViewModel.removeAll();
-                alert(scheduleList.length);
                 for (var i = 0; i < scheduleList.length; i++) {
                     scheduleListViewModel.push({
                         year: scheduleList[i].Year,
@@ -53,7 +53,7 @@ define(['Models/AdminModel'], function (adminModel) {
                         course_title: scheduleList[i].CourseTitle,
                         course_description: scheduleList[i].CourseDescription,
                         course_id: scheduleList[i].CourseId,
-                        schedule_id: scheduleList[i].ScheduleId,
+                        schedule_id: scheduleList[i].ScheduleId
                     });
                 }
 
@@ -64,6 +64,37 @@ define(['Models/AdminModel'], function (adminModel) {
             });
         };
 
+        this.GetYears = function () {
+            var adminModelObj = new adminModel();
+            var yearListViewModel = ko.observableArray();
+            adminModelObj.GetYears(function (yearList) {
+                yearListViewModel.removeAll();
+                yearListViewModel.push({year: "All Years"});
+                for (var i = 0; i < yearList.length; i++) {
+                    yearListViewModel.push({
+                        year: yearList[i]
+                    });
+                }
+
+                ko.applyBindings({ viewModel1: yearListViewModel }, document.getElementById("yearListContent"));
+            });
+        }
+
+        this.GetQuarters = function () {
+            var adminModelObj = new adminModel();
+            var quarterListViewModel = ko.observableArray();
+            adminModelObj.GetQuarters(function (quarterList) {
+                quarterListViewModel.removeAll();
+                quarterListViewModel.push({ quarter: "All Quarters" });
+                for (var i = 0; i < quarterList.length; i++) {
+                    quarterListViewModel.push({
+                        quarter: quarterList[i]
+                    });
+                }
+
+                ko.applyBindings({ viewModel2: quarterListViewModel }, document.getElementById("quarterListContent"));
+            });
+        }
     }
     return AdminViewModel;
 }

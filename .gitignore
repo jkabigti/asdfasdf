@@ -15,3 +15,9 @@ SL136/SL136.v12.suo
 web136/web136.v12.suo
 SL136/SL136.v12.suo
 web136/web136.v12.suo
+*.dll
+*.pdb
+*.cache
+*.suo
+*.dll
+*.pdb

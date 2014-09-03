@@ -186,12 +186,12 @@
 
         public List<string> GetYears(ref List<string> errors)
         {
-            return this.GetYears(ref errors);
+            return this.repository.GetYears(ref errors);
         }
 
         public List<string> GetQuarters(ref List<string> errors)
         {
-            return this.GetQuarters(ref errors);
+            return this.repository.GetQuarters(ref errors);
         }
     }
 }
