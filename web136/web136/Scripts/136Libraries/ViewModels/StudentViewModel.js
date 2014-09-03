@@ -7,7 +7,7 @@ define(['Models/StudentModel'], function (StudentModel) {
         var initialBind = true;
         var studentListViewModel = ko.observableArray();
 
-        this.Initialize = function() {
+        this.Initialize = function () {
 
             var viewModel = {
                 id: ko.observable("A0000111"),
@@ -27,27 +27,31 @@ define(['Models/StudentModel'], function (StudentModel) {
         };
 
         this.Load = function (id) {
-            var studentModelObj = new StudentModel();
-            studentModelObj.Load(id, function (result) {
-
+            var sModelObj = new StudentModel();
+            sModelObj.GetDetail(id, function (result) {
                 var viewModel = {
-                    id: result.Id,
-                    ssn: ko.observable(result.SSN),
                     first: ko.observable(result.FirstName),
                     last: ko.observable(result.LastName),
+                    id: result.id,
+                    ssn: ko.observable(result.SSN),
                     email: ko.observable(result.Email),
                     shoesize: ko.observable(result.ShoeSize),
-                    weight: ko.observable(result.Weight),
+                    weight: ko.observable(result.weight),
                     update: function () {
                         self.UpdateStudent(this);
                     }
                 }
 
                 ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
+                if (result == "ok") {
+                    alert("Load student successful");
+                } else {
+                    alert("Error occurred in Load student");
+                }
             });
         };
 
-        this.CreateStudent = function(data) {
+        this.CreateStudent = function (data) {
             var model = {
                 StudentId: data.id(),
                 SSN: data.ssn(),
@@ -59,7 +63,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                 Weight: data.weight()
             }
 
-            StudentModelObj.Create(model, function(result) {
+            StudentModelObj.Create(model, function (result) {
                 if (result == "ok") {
                     alert("Create student successful");
                 } else {
@@ -69,9 +73,9 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         };
 
-        this.GetAll = function() {
+        this.GetAll = function () {
 
-            StudentModelObj.GetAll(function(studentList) {
+            StudentModelObj.GetAll(function (studentList) {
                 studentListViewModel.removeAll();
 
                 for (var i = 0; i < studentList.length; i++) {
@@ -109,11 +113,11 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
-		this.StudentEnroll = function (viewModel) {
-			var studentModelObj = new StudentModel();
+        this.StudentEnroll = function (viewModel) {
+            var studentModelObj = new StudentModel();
 
-			var studentData = {
-				StudentId: viewModel.id(),
+            var studentData = {
+                StudentId: viewModel.id(),
                 SSN: viewModel.ssn(),
                 FirstName: viewModel.first(),
                 LastName: viewModel.last(),
@@ -121,12 +125,12 @@ define(['Models/StudentModel'], function (StudentModel) {
                 Password: viewModel.password(),
                 ShoeSize: viewModel.shoesize(),
                 Weight: viewModel.weight()
-			};
+            };
 
-			studentModelObj.StudentEnroll(studentData, function (message) {
-				$('#divEditMessage').html(message);
-			});
-		};
+            studentModelObj.StudentEnroll(studentData, function (message) {
+                $('#divEditMessage').html(message);
+            });
+        };
 
         this.GetDetail = function (id) {
 
@@ -145,6 +149,10 @@ define(['Models/StudentModel'], function (StudentModel) {
                 if (initialBind) {
                     ko.applyBindings({ viewModel: student }, document.getElementById("divStudentContent"));
                 }
+                else {
+                    console.log('viewModel', viewModel);
+                    ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
+                }
             });
         };
 
@@ -153,7 +161,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                 $(element).click(function () {
                     var id = viewModel.id;
 
-                    StudentModelObj.Delete(id, function(result) {
+                    StudentModelObj.Delete(id, function (result) {
                         if (result != "ok") {
                             alert("Error occurred");
                         } else {

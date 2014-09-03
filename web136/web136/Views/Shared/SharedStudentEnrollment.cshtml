@@ -121,7 +121,7 @@
 		<tbody>
 			<tr>
 				<td align="center" class = "courseId">
-					<input type="text" value="4" />
+					<input type="text" value="" />
 				</td>
 				<td align="center" class="action">
 					<a href="#">Enroll</a>
@@ -188,3 +188,12 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+			var studentViewModelObj = new studentViewModel();
+			studentViewModelObj.Load("@id");
+		});
+	});
+</script>

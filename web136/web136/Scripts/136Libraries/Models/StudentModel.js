@@ -156,22 +156,6 @@
             });
         };
 
-        this.Load = function (studentId, callback) {
-            $.ajax({
-                method: 'GET',
-                url: "http://localhost:5419/Api/Student/GetStudent?StudentId=" + studentId,
-                data: "",
-                dataType: "json",
-                success: function (result) {
-                    callback(result);
-                },
-                error: function () {
-                    alert('Error while loading student info.');
-                    callback('Error while loading student info.');
-                }
-            });
-        };
-
         this.UpdateStudent = function (studentData, callback) {
             $.ajax({
                 method: 'POST',
@@ -189,8 +173,8 @@
 		this.CourseScheduleStudent = function (studentData, callback) {
 			$.ajax({
 				method: 'POST',
-				url: "http://localhost:5419/Api/Shared/SharedStudentEnrollment",
-				data: studentData,
+				url: "http://localhost:5419/Api/Student/EnrollCourse?StudentId=" + stdentId,
+				data: "",
 				success: function (message) {
 					callback(message);
 				},

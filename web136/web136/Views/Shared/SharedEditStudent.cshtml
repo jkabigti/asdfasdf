@@ -28,7 +28,7 @@
     $(document).ready(function () {
         require(['ViewModels/StudentViewModel'], function (studentViewModel) {
             var studentViewModelObj = new studentViewModel();
-            studentViewModelObj.Load("@id");
+            studentViewModelObj.GetDetail("@id");
         });
     });
 </script>
