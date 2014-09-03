@@ -112,15 +112,16 @@ define(['Models/StudentModel'], function (StudentModel) {
 
             StudentModelObj.GetDetail(id, function (result) {
                 var viewModel = {
-                    id: ko.observable(result.StudentId),
+                    id: result.StudentId,
                     first: ko.observable(result.FirstName),
                     last: ko.observable(result.LastName),
                     email: ko.observable(result.Email),
+                    password: ko.observable(result.Password),
                     shoesize: ko.observable(result.ShoeSize),
                     weight: ko.observable(result.Weight),
                     ssn: ko.observable(result.SSN),
                     update: function () {
-                        self.UpdateStudent(this);
+                        that.UpdateStudent(this);
                     }
                 }
                 ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
@@ -134,6 +135,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                 FirstName: viewModel.first(),
                 LastName: viewModel.last(),
                 Email: viewModel.email(),
+                Password: viewModel.password(),
                 ShoeSize: viewModel.shoesize(),
                 Weight: viewModel.weight(),
                 SSN: viewModel.ssn()
