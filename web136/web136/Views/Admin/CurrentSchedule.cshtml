@@ -4,9 +4,18 @@
 }
 
 <h3>Current Schedule Page</h3>
+Year: 
+<select data-bind="foreach: viewModel">
+    <option value="allyears">All Years</option>
+    <!--<option data-bind="text: year">2011</option>-->
+</select>
+Quarter:
+<select data-bind="foreach: viewModel">
+    <option value="allquarters">All Quarters</option>
+    <option data-bind="text: quarter">Fall</option>
+</select>
 
-
-<div id="divStudentListContent">
+<div id="divScheduleListContent">
     <table>
         <thead>
             <tr>
@@ -18,25 +27,24 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <!--<tbody data-bind="foreach: viewModel">-->
-        <tbody>
+        <tbody data-bind="foreach: viewModel">
             <tr>
-                <!--<td data-bind="text: year"></td>
+                <td data-bind="text: year"></td>
                 <td data-bind="text: quarter"></td>
                 <td data-bind="text: session"></td>
                 <td data-bind="text: course_title"></td>
                 <td data-bind="text: course_description"></td>
                 <td>
                     <div data-bind="template: { name: 'action-template', data: $data}"></div>
-                </td>-->
-                <td>2014</td>
+                </td>
+                <!--<td>2014</td>
                 <td>Summer Session 2</td>
                 <td>A00</td>
                 <td>CSE 136</td>
                 <td>Enterprise-class Web Applications</td>
                 <td>
                     <div data-bind="template: { name: 'action-template', data: $data}"></div>
-                </td>
+                </td>-->
             </tr>
         </tbody>
     </table>

@@ -147,7 +147,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Announcements.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseInfo.cs" />
+    <Compile Include="Models\CourseLevel.cs" />
+    <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\Logon.cs" />
     <Compile Include="Models\LogonResult.cs" />
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
