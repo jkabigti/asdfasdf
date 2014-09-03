@@ -5,14 +5,13 @@
 
 <h3>Current Schedule Page</h3>
 Year: 
-<select data-bind="foreach: viewModel">
-    <option value="allyears">All Years</option>
-    <!--<option data-bind="text: year">2011</option>-->
+<select id="yearListContent" data-bind="foreach: viewModel1">
+    <option data-bind="text: year"></option>
 </select>
+
 Quarter:
-<select data-bind="foreach: viewModel">
-    <option value="allquarters">All Quarters</option>
-    <!--<option data-bind="text: quarter">Fall</option>-->
+<select id="quarterListContent" data-bind="foreach: viewModel2">
+    <option data-bind="text: quarter"></option>
 </select>
 
 <div id="divScheduleListContent">
@@ -48,13 +47,15 @@ Quarter:
             </tr>
         </tbody>
     </table>
-    <a data-bind="attr: { href : '/Admin/AddSchedule', title: 'create' }">Add New Course Schedule</a>
+    <a data-bind="attr: { href : '/Admin/AddSchedule',  title: 'create' }">Add New Course Schedule</a>
 </div>
 
 <script type="text/javascript">
     $(document).ready(function () {
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var adminViewModelObj = new adminViewModel();
+            adminViewModelObj.GetYears();
+            adminViewModelObj.GetQuarters();
             adminViewModelObj.GetAllSchedules();
         });
     });
