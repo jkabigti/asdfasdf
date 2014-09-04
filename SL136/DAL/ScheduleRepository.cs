@@ -258,7 +258,7 @@
 
                 for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    string year = dataSet.Tables[0].Rows[i]["year"].ToString(); ;
+                    string year = dataSet.Tables[0].Rows[i]["year"].ToString();
                     yearList.Add(year);
                 }
             }
@@ -294,7 +294,7 @@
 
                 for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    string quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(); ;
+                    string quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString();
                     quarterList.Add(quarter);
                 }
             }

@@ -140,7 +140,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                 Weight: viewModel.weight(),
                 SSN: viewModel.ssn()
             };
-
+            
             studentModelObj.UpdateStudent(studentData, function (message) {
                 $('#divEditMessage').html(message);
             });

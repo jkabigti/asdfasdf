@@ -80,7 +80,7 @@
         this.Drop = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/Drop?studentId=" + studentId + "&scheduleId=" + scheduleId,
+                url: "http://localhost:5419/Api/Student/Drop?id=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
@@ -96,7 +96,7 @@
         this.Enroll = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/Enroll?studentId" + studentId + "&scheduleId=" + scheduleId,
+                url: "http://localhost:5419/Api/Student/Enroll?id=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
@@ -112,7 +112,7 @@
         this.ViewGrade = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/ViewGrade?studentId" + studentId + "&scheduleId=" + scheduleId,
+                url: "http://localhost:5419/Api/Student/ViewGrade?id=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
@@ -128,7 +128,7 @@
         this.AddRequest = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/AddRequest?studentId" + studentId + "&scheduleId=" + scheduleId,
+                url: "http://localhost:5419/Api/Student/AddRequest?id=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
@@ -144,7 +144,7 @@
         this.EnrollCourse = function (studentId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/EnrollCourse?studentId" + studentId,
+                url: "http://localhost:5419/Api/Student/EnrollCourse?id=" + studentId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
