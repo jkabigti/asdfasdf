@@ -13,25 +13,40 @@
     {
         private const string GetScheduleListProcedure = "spGetScheduleList";
 
-        public List<Schedule> GetScheduleList(string year, string quarter, ref List<string> errors)
+        public List<CourseInfo> GetScheduleList(string year, string quarter, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
-            var scheduleList = new List<Schedule>();
+            var scheduleList = new List<CourseInfo>();
 
             try
             {
                 var adapter = new SqlDataAdapter(GetScheduleListProcedure, conn);
-
+                
                 if (year.Length > 0)
                 {
-                    adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
-                    adapter.SelectCommand.Parameters["@year"].Value = year;
+                    if (year == "All Years")
+                    {
+                        adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
+                        adapter.SelectCommand.Parameters["@year"].Value = DBNull.Value;
+                    }
+                    else {
+                        adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
+                        adapter.SelectCommand.Parameters["@year"].Value = year;
+                    }                    
                 }
-
+                               
                 if (quarter.Length > 0)
                 {
-                    adapter.SelectCommand.Parameters.Add(new SqlParameter("@quarter", SqlDbType.VarChar, 25));
-                    adapter.SelectCommand.Parameters["@quarter"].Value = quarter;
+                    if (quarter == "All Quarters")
+                    {
+                        adapter.SelectCommand.Parameters.Add(new SqlParameter("@quarter", SqlDbType.VarChar, 25));
+                        adapter.SelectCommand.Parameters["@quarter"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        adapter.SelectCommand.Parameters.Add(new SqlParameter("@quarter", SqlDbType.VarChar, 25));
+                        adapter.SelectCommand.Parameters["@quarter"].Value = quarter;
+                    }
                 }
 
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -46,18 +61,16 @@
 
                 for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    var schedule = new Schedule
+                    var schedule = new CourseInfo
                     {
                         ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
                         Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
                         Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
                         Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
-                        Course = new Course
-                        {
-                            CourseId = dataSet.Tables[0].Rows[i]["course_id"].ToString(),
-                            Title = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
-                            Description = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
-                        }
+                        CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["course_id"].ToString()),
+                        CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        
                     };
                     scheduleList.Add(schedule);
                 }

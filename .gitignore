@@ -19,3 +19,8 @@ web136/web136.v12.suo
 *.pdb
 *.cache
 *.suo
+SL136/WebApi136/Web.config
+*.dll
+*.pdb
+*.cache
+*.suo

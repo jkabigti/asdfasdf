@@ -4,7 +4,7 @@
 }
 
 <h3>Current Schedule Page</h3>
-Year: 
+Year:
 <select id="yearListContent" data-bind="foreach: viewModel1">
     <option data-bind="text: year"></option>
 </select>
@@ -13,6 +13,8 @@ Quarter:
 <select id="quarterListContent" data-bind="foreach: viewModel2">
     <option data-bind="text: quarter"></option>
 </select>
+
+<input id="filterbutton" type="button" data-bind="value: 'Apply Filter', click: $data.filter" />
 
 <div id="divScheduleListContent">
     <table>
@@ -36,14 +38,6 @@ Quarter:
                 <td>
                     <div data-bind="template: { name: 'action-template', data: $data}"></div>
                 </td>
-                <!--<td>2014</td>
-                <td>Summer Session 2</td>
-                <td>A00</td>
-                <td>CSE 136</td>
-                <td>Enterprise-class Web Applications</td>
-                <td>
-                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
-                </td>-->
             </tr>
         </tbody>
     </table>
@@ -54,14 +48,15 @@ Quarter:
     $(document).ready(function () {
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var adminViewModelObj = new adminViewModel();
-            adminViewModelObj.GetYears();
-            adminViewModelObj.GetQuarters();
-            adminViewModelObj.GetAllSchedules();
+            adminViewModelObj.LoadFilters();
+            //adminViewModelObj.GetQuarters();
+            adminViewModelObj.FilterGetSchedule("All Years", "All Quarters");
         });
     });
 </script>
 
 <script type="text/html" id="action-template">
     <a data-bind="attr: { href : '/Admin/EditSchedule', title: 'edit' }">Edit</a>
-    <a data-bind="DeleteSchedule: $data">Delete</a>
+    @*<a data-bind="DeleteSchedule: $data">Delete</a>*@
 </script>
+

@@ -14,7 +14,7 @@
         private readonly ScheduleService service = new ScheduleService(new ScheduleRepository());
 
         [HttpPost]
-        public List<Schedule> GetScheduleList(string year, string quarter)
+        public List<CourseInfo> GetScheduleList(string year, string quarter)
         {
             var service = new ScheduleService(new ScheduleRepository());
             var errors = new List<string>();

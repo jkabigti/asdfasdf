@@ -2,6 +2,7 @@
 define(['Models/AdminModel'], function (adminModel) {
     function AdminViewModel() {
         var self = this;
+        var scheduleListViewModel = ko.observableArray();
         var initialBind = true;
 
         this.Load = function (id) {
@@ -64,7 +65,7 @@ define(['Models/AdminModel'], function (adminModel) {
             });
         };
 
-        this.GetYears = function () {
+        this.LoadFilters = function () {
             var adminModelObj = new adminModel();
             var yearListViewModel = ko.observableArray();
             adminModelObj.GetYears(function (yearList) {
@@ -78,10 +79,6 @@ define(['Models/AdminModel'], function (adminModel) {
 
                 ko.applyBindings({ viewModel1: yearListViewModel }, document.getElementById("yearListContent"));
             });
-        }
-
-        this.GetQuarters = function () {
-            var adminModelObj = new adminModel();
             var quarterListViewModel = ko.observableArray();
             adminModelObj.GetQuarters(function (quarterList) {
                 quarterListViewModel.removeAll();
@@ -93,6 +90,57 @@ define(['Models/AdminModel'], function (adminModel) {
                 }
 
                 ko.applyBindings({ viewModel2: quarterListViewModel }, document.getElementById("quarterListContent"));
+            });
+            var viewModel = {
+                filter: function () {
+                    self.ApplyFilter(this);
+                }
+            };
+            ko.applyBindings(viewModel, document.getElementById("filterbutton"));
+        }
+
+        this.FilterGetSchedule = function (year, quarter) {
+            var adminModelObj = new adminModel();
+            adminModelObj.FilterGetSchedule(year, quarter, function (scheduleList) {
+                scheduleListViewModel.removeAll();
+                for (var i = 0; i < scheduleList.length; i++) {
+                    scheduleListViewModel.push({
+                        year: scheduleList[i].Year,
+                        quarter: scheduleList[i].Quarter,
+                        session: scheduleList[i].Session,
+
+                        course_title: scheduleList[i].CourseTitle,
+                        course_description: scheduleList[i].CourseDescription,
+                        course_id: scheduleList[i].CourseId,
+                        schedule_id: scheduleList[i].ScheduleId
+                    });
+                }
+                var node = document.getElementById("divScheduleListContent");
+                console.log('test: ', scheduleListViewModel());
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: scheduleListViewModel }, node);
+                }
+            });
+        };
+
+        this.ApplyFilter = function () {
+            var adminModelObj = new adminModel();
+            var year = document.getElementById("yearListContent").value.toString();
+            var quarter = document.getElementById("quarterListContent").value.toString();
+            adminModelObj.FilterGetSchedule(year, quarter, function (scheduleList) {
+                scheduleListViewModel.removeAll();
+                for (var i = 0; i < scheduleList.length; i++) {
+                    scheduleListViewModel.push({
+                        year: scheduleList[i].Year,
+                        quarter: scheduleList[i].Quarter,
+                        session: scheduleList[i].Session,
+
+                        course_title: scheduleList[i].CourseTitle,
+                        course_description: scheduleList[i].CourseDescription,
+                        course_id: scheduleList[i].CourseId,
+                        schedule_id: scheduleList[i].ScheduleId
+                    });
+                }
             });
         }
     }
