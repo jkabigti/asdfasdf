@@ -114,6 +114,16 @@
             this.repository.EditSchedule(sch, sch_day_id, sch_time_id, instr_id, ref errors);
         }
 
+        public List<string> GetYears(ref List<string> errors)
+        {
+            return this.repository.GetYears(ref errors);
+        }
+
+        public List<string> GetQuarters(ref List<string> errors)
+        {
+            return this.repository.GetQuarters(ref errors);
+        }
+
         private void CheckSchedule(Schedule sch, ref List<string> errors, string state)
         {
             if (sch.ScheduleId <= 0)
@@ -182,16 +192,6 @@
                 errors.Add(state + "Invalid Course Description");
                 return;
             }
-        }
-
-        public List<string> GetYears(ref List<string> errors)
-        {
-            return this.repository.GetYears(ref errors);
-        }
-
-        public List<string> GetQuarters(ref List<string> errors)
-        {
-            return this.repository.GetQuarters(ref errors);
         }
     }
 }

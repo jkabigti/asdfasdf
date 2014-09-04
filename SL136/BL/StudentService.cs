@@ -39,6 +39,7 @@
         {
             if (student == null)
             {
+                System.Diagnostics.Debug.WriteLine("ERROR IN student == null");
                 errors.Add("Student cannot be null");
                 return;
             }
