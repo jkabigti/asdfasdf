@@ -29,7 +29,8 @@
                         adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
                         adapter.SelectCommand.Parameters["@year"].Value = DBNull.Value;
                     }
-                    else {
+                    else 
+                    {
                         adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
                         adapter.SelectCommand.Parameters["@year"].Value = year;
                     }                    
@@ -69,8 +70,7 @@
                         Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
                         CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["course_id"].ToString()),
                         CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
-                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
-                        
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString()
                     };
                     scheduleList.Add(schedule);
                 }
