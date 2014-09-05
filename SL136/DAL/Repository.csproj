@@ -47,6 +47,7 @@
     <Compile Include="AnnouncementRepository.cs" />
     <Compile Include="AuthorizeRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="AdminRepository.cs" />
     <Compile Include="CourseRepository.cs" />
     <Compile Include="EnrollmentRepository.cs" />
     <Compile Include="InstructorRepository.cs">
