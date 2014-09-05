@@ -19,5 +19,7 @@
         List<string> GetYears(ref List<string> errors);
 
         List<string> GetQuarters(ref List<string> errors);
+
+        CourseInfo GetScheduleInfo(int scheduleId, ref List<string> errors);
     }
 }

@@ -30,3 +30,7 @@ SL136/WebApi136/Web.config
 
 >>>>>>> origin/master
 *.suo
+*.dll
+*.pdb
+*.cache
+*.suo

@@ -245,6 +245,22 @@ define([], function () {
                 }
             });
         };
+
+        this.GetScheduleInfo = function (scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Schedule/GetScheduleInfo?scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while loading schedule info.');
+                    callback("Error while loading schedule info");
+                }
+            });
+        }
     }
 
     return AdminModel;

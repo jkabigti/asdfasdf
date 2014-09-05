@@ -124,6 +124,16 @@
             return this.repository.GetQuarters(ref errors);
         }
 
+        public CourseInfo GetScheduleInfo(int scheduleId, ref List<string> errors)
+        {
+            if (scheduleId <= 0)
+            {
+                errors.Add("Schedule Id must not be < 0");
+                return new CourseInfo();
+            }
+            return this.repository.GetScheduleInfo(scheduleId, ref errors);
+        }
+
         private void CheckSchedule(Schedule sch, ref List<string> errors, string state)
         {
             if (sch.ScheduleId <= 0)
