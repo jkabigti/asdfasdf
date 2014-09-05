@@ -19,8 +19,9 @@
     Email : <input type="text" data-bind="value: $data.email" />
     Ex: abc@ucsd.edu
     <br /><br />
-    Password : <input type="text" data-bind="value: $data.password" /><br />
-    <br />
+    Password : <input type="text" data-bind="value: $data.password" />
+    must be longer than 5 characters
+    <br /><br />
     Shoe Size : <input type="text" data-bind="value: $data.shoesize" />
     <br /><br />
     Weight : <input type="text" data-bind="value: $data.weight" /><br />
@@ -29,3 +30,12 @@
     <br /><br />
     <div id="divEditMessage"></div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var viewModel = new studentViewModel();
+            viewModel.Load("@id");
+        });
+    });
+</script>

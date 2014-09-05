@@ -4,12 +4,3 @@
 }
 
 @Html.Partial("SharedEditStudent")
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
-            var viewModel = new studentViewModel();
-            viewModel.Load("@id");
-        });
-    });
-</script>
