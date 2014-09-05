@@ -17,13 +17,13 @@
 
         public void UpdateAdminInfo(Admin admin, ref List<string> errors)
         {
-            if( admin == null )
+            if (admin == null)
             {
                 errors.Add("Admin can't be null");
                 return;
             }
-            
-            if( this.ValidateAdmin(admin, ref errors))
+
+            if (this.ValidateAdmin(admin, ref errors))
             {
                 this.repository.UpdateAdminInfo(admin, ref errors);
             }
@@ -31,7 +31,7 @@
 
         public Admin GetAdminInfo(int id, ref List<string> errors)
         {
-            if( id < 0 )
+            if (id < 0)
             {
                 errors.Add("Invalid admin id");
                 return new Admin();
@@ -40,9 +40,9 @@
             return this.repository.GetAdminInfo(id, ref errors);
         }
 
-        private bool ValidateAdmin( Admin a, ref List<string> errors)
+        private bool ValidateAdmin(Admin a, ref List<string> errors)
         {
-            if(a.Id < 0)
+            if (a.Id < 0)
             {
                 errors.Add("Invalid admin id");
                 return false;
@@ -72,7 +72,7 @@
                 return false;
             }
 
-            if( a.Password.Length <= 5 )
+            if (a.Password.Length <= 5)
             {
                 errors.Add("Invalid Password");
                 return false;

@@ -55,7 +55,7 @@
                 return;
             }
 
-            if(student.Password.Length <= 5)
+            if (student.Password.Length <= 5)
             {
                 errors.Add("Invalid Password");
                 return;

@@ -69,7 +69,7 @@
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
 
-                if(dataSet.Tables[0].Rows.Count == 0)
+                if (dataSet.Tables[0].Rows.Count == 0)
                 {
                     return null;
                 }
