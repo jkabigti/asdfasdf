@@ -34,7 +34,7 @@
         {
             List<string> errors = new List<string>();
             this.service.AddSchedule(sch, day_id, time_id, instr_id, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@
         {
             List<string> errors = new List<string>();
             this.service.EditSchedule(sch, day_id, time_id, instr_id, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -50,7 +50,7 @@
         {
             List<string> errors = new List<string>();
             this.service.DeleteSchedule(sch, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpGet]

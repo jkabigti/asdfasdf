@@ -18,7 +18,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.AddAnnouncement(announcement, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -26,7 +26,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.DeleteAnnouncement(id, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpGet]

@@ -34,7 +34,7 @@
         {
             if (sch == null)
             {
-                errors.Add("Add Unsuccessful: Invalid Schedule information");
+                errors.Add("Add Unsuccessful: Invalid Schedule information.");
                 return;
             }
 
@@ -47,19 +47,19 @@
 
             if (sch_day_id <= 0)
             {
-                errors.Add("Add Unsuccessful: Invalid Schedule Day ID");
+                errors.Add("Add Unsuccessful: Invalid Schedule Day ID.");
                 return;
             }
 
             if (sch_time_id <= 0)
             {
-                errors.Add("Add Unsuccessful: Invalid Schedule Time ID");
+                errors.Add("Add Unsuccessful: Invalid Schedule Time ID.");
                 return;
             }
 
             if (instr_id <= 0)
             {
-                errors.Add("Add Unsuccessful: Invalid Instructor ID");
+                errors.Add("Add Unsuccessful: Invalid Instructor ID.");
                 return;
             }
 
@@ -70,7 +70,7 @@
         {
             if (sch == null)
             {
-                errors.Add("Delete Unsuccessful: Invalid schedule information");
+                errors.Add("Delete Unsuccessful: Invalid schedule information.");
                 return;
             }
             else
@@ -85,7 +85,7 @@
         {
             if (sch == null)
             {
-                errors.Add("Edit Unsuccessful: Invalid Schedule information");
+                errors.Add("Edit Unsuccessful: Invalid Schedule information.");
                 return;
             }
             else
@@ -95,19 +95,19 @@
 
             if (sch_day_id <= 0)
             {
-                errors.Add("Edit Unsuccessful: Invalid Schedule Day ID");
+                errors.Add("Edit Unsuccessful: Invalid Schedule Day ID.");
                 return;
             }
 
             if (sch_time_id <= 0)
             {
-                errors.Add("Edit Unsuccessful: Invalid Schedule Time ID");
+                errors.Add("Edit Unsuccessful: Invalid Schedule Time ID.");
                 return;
             }
 
             if (instr_id <= 0)
             {
-                errors.Add("Edit Unsuccessful: Invalid Instructor ID");
+                errors.Add("Edit Unsuccessful: Invalid Instructor ID.");
                 return;
             }
 
@@ -128,34 +128,34 @@
         {
             if (sch.ScheduleId <= 0)
             {
-                errors.Add(state + "Invalid Schedule ID");
+                errors.Add(state + "Invalid Schedule ID.");
                 return;
             }
 
             Match m = Regex.Match(sch.Year, @"^\d{4}$");
             if (!m.Success)
             {
-                errors.Add(state + "Year is formatted incorrectly");
+                errors.Add(state + "Year is formatted incorrectly.");
                 return;
             }
 
             m = Regex.Match(sch.Quarter, @"^Fall|Winter|Spring|(Summer\x20[12])$");
             if (!m.Success)
             {
-                errors.Add(state + "Quarter is formatted incorrectly");
+                errors.Add(state + "Quarter is formatted incorrectly.");
                 return;
             }
 
             m = Regex.Match(sch.Session, @"^[ABCD]\d{2}$");
             if (!m.Success)
             {
-                errors.Add(state + "Sessions is formatted incorrectly");
+                errors.Add(state + "Sessions is formatted incorrectly.");
                 return;
             }
 
             if (sch.Course == null)
             {
-                errors.Add(state + "Invalid Course in Schedule Object");
+                errors.Add(state + "Invalid Course in Schedule Object.");
                 return;
             }
             else
@@ -168,7 +168,7 @@
         {
             if (course.CourseId == null)
             {
-                errors.Add(state + "Invalid course ID");
+                errors.Add(state + "Invalid course ID.");
                 return;
             }
             else
@@ -176,20 +176,20 @@
                 Match m = Regex.Match(course.CourseId, @"^[0-9]+$");
                 if (!m.Success)
                 {
-                    errors.Add(state + "Coure ID is formatted incorrectly");
+                    errors.Add(state + "Coure ID is formatted incorrectly.");
                     return;
                 }
             }
 
             if (course.Title == null || course.Title.Length == 0)
             {
-                errors.Add(state + "Invalid Title");
+                errors.Add(state + "Invalid Title.");
                 return;
             }
 
             if (course.Description == null || course.Description.Length == 0)
             {
-                errors.Add(state + "Invalid Course Description");
+                errors.Add(state + "Invalid Course Description.");
                 return;
             }
         }

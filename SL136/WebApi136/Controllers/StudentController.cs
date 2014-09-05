@@ -25,7 +25,7 @@
         {
             List<string> errors = new List<string>();
             this.service.InsertStudent(student, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@
         {
             List<string> errors = new List<string>();
             this.service.UpdateStudent(student, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -41,7 +41,7 @@
         {
             List<string> errors = new List<string>();
             this.service.DeleteStudent(id, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpGet]

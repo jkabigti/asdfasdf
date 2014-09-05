@@ -26,7 +26,7 @@
             bool b = Regex.IsMatch(email, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
             if (!b)
             {
-                errors.Add("Invalid email format");
+                errors.Add("Invalid email format.");
                 return new Logon { UserName = email, Password = password, Id = "1", Role = "TestRole" };
             }
 

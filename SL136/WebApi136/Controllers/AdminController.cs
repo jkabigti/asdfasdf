@@ -25,7 +25,7 @@
         {
             List<string> errors = new List<string>();
             this.service.UpdateAdminInfo(admin, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
     }
 }
