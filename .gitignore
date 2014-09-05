@@ -34,3 +34,10 @@ SL136/WebApi136/Web.config
 *.pdb
 *.cache
 *.suo
+SL136/BL/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SL136/BLTest/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SL136/DAL/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SL136/IDAL/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SL136/POCO/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SL136/SL136.v12.suo
+SL136/UpgradeLog4.htm
