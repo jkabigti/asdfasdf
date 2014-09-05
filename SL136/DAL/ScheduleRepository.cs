@@ -21,7 +21,7 @@
             try
             {
                 var adapter = new SqlDataAdapter(GetScheduleListProcedure, conn);
-                
+
                 if (year.Length > 0)
                 {
                     if (year == "All Years")
@@ -29,13 +29,13 @@
                         adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
                         adapter.SelectCommand.Parameters["@year"].Value = DBNull.Value;
                     }
-                    else 
+                    else
                     {
                         adapter.SelectCommand.Parameters.Add(new SqlParameter("@year", SqlDbType.Int));
                         adapter.SelectCommand.Parameters["@year"].Value = year;
-                    }                    
+                    }
                 }
-                               
+
                 if (quarter.Length > 0)
                 {
                     if (quarter == "All Quarters")
@@ -321,6 +321,47 @@
             }
 
             return quarterList;
+        }
+
+        public CourseInfo GetScheduleInfo(int scheduleId, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            CourseInfo ci = new CourseInfo();
+
+            try
+            {
+                var adapter = new SqlDataAdapter("getScheduleInfo", conn);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                ci.ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["schedule_id"].ToString());
+                ci.Year = dataSet.Tables[0].Rows[0]["year"].ToString();
+                ci.Quarter = dataSet.Tables[0].Rows[0]["quarter"].ToString();
+                ci.Session = dataSet.Tables[0].Rows[0]["session"].ToString();
+                ci.CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["course_id"].ToString());
+                ci.CourseTitle = dataSet.Tables[0].Rows[0]["course_title"].ToString();
+                ci.CourseDescription = dataSet.Tables[0].Rows[0]["course_description"].ToString();
+                
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return ci;
         }
     }
 }

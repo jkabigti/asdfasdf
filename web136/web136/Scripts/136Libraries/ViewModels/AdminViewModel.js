@@ -147,6 +147,43 @@ define(['Models/AdminModel'], function (adminModel) {
                 }
             });
         }
+
+        this.LoadScheduleInfo = function (id) {
+            var adminModelObj = new adminModel();
+            var id = window.location.search.substring(4);
+            adminModelObj.GetScheduleInfo(id, function (courseInfo) {
+                var viewModel = {
+                    year: courseInfo.Year,
+                    quarter: courseInfo.Quarter,
+                    session: courseInfo.Session,
+                    course_title: courseInfo.CourseTitle,
+                    course_description: courseInfo.CourseDescription,
+                    course_id: courseInfo.CourseId,
+                    schedule_id: courseInfo.scheduleId,
+                    update: function () {
+                        self.EditSchedule(this);
+                    }
+                };
+                ko.applyBindings(viewModel, document.getElementById("divScheduleEdit"));
+            });
+        }
+
+        this.EditSchedule = function (viewModel) {
+            alert("Update Schedule in Model");
+            //var adminModelObj = new adminModel();
+            //var scheduleData = {
+            //    Year: viewModel.year,
+            //    Quarter: viewModel.quarter(),
+            //    Session: viewModel.session(),
+            //    CourseTitle: viewModel.course_title(),
+            //    CourseDescription: viewModel.course_description(),
+            //    CourseId: viewModel.course_id(),
+            //    ScheduleId: viewModel.schedule_id()
+            //};
+            //studentModelObj.UpdateStudent(studentData, function (message) {
+            //    $('#divEditMessage').html(message);
+            //});
+        };
     }
     return AdminViewModel;
 }

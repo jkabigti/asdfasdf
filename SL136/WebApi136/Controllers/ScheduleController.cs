@@ -66,5 +66,12 @@
             List<string> errors = new List<string>();
             return this.service.GetQuarters(ref errors);
         }
+
+        [HttpPost]
+        public CourseInfo GetScheduleInfo(int scheduleId)
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetScheduleInfo(scheduleId, ref errors);
+        }
     }
 }

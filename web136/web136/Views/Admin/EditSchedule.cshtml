@@ -4,32 +4,30 @@
 }
 <h2>Edit Schedule</h2>
 
-<div id="divAdminEdit">
-    <!--<input type="text" data-bind="value: $data.year" />-->
-    Year : <input type="text" value="2014" /><br />
+<div id="divScheduleEdit">
+    Year : <input type="text" data-bind="value: $data.year" /><br />
     <br />
-    Quarter : <input type="text" value="Summer Session 2" /><br />
+    Quarter : <input type="text" data-bind="value: $data.quarter" /><br />
     <br />
-    Session : <input type="text" value="A00" /><br />
+    Session : <input type="text" data-bind="value: $data.session" /><br />
     <br />
-    Course Title : <input type="text" value="CSE 136" /><br />
+    Course Title : <input type="text" data-bind="value: $data.course_title" /><br />
     <br />
-    Course Description : <input type="text" value="Enterprise-class Web Applications" /><br />
+    Course Description : <input type="text" data-bind="value: $data.course_description" /><br />
     <br />
-    <input type="button" value="Update" style="margin-left:80px" />
+    <input type="button" data-bind="value: 'Update', click: $data.update" style="margin-left:80px" />
     <br /><br />
     <div id="divMessage"></div>
 </div>
-<!--
+
 <script type="text/javascript">
     $(document).ready(function () {
         // this require[] will load the /Scripts/136Libraries/ViewModels/AdminViewModel.js file
         // and return the object inside it and assign to adminViewModel variable.
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var viewModel = new adminViewModel();
-            viewModel.Load(@id);
+            viewModel.LoadScheduleInfo();
         });
     });
 
 </script>
-    -->

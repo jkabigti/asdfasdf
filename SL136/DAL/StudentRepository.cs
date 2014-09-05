@@ -34,7 +34,7 @@
                                           }
                                   };
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@ssn", SqlDbType.VarChar, 9));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@ssn", SqlDbType.VarChar, 11));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@first_name", SqlDbType.VarChar, 50));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@last_name", SqlDbType.VarChar, 50));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 64));
@@ -74,7 +74,7 @@
                     SelectCommand = { CommandType = CommandType.StoredProcedure }
                 };
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@ssn", SqlDbType.VarChar, 9));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@ssn", SqlDbType.VarChar, 11));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@first_name", SqlDbType.VarChar, 50));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@last_name", SqlDbType.VarChar, 50));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 64));
@@ -90,7 +90,7 @@
                 adapter.SelectCommand.Parameters["@password"].Value = student.Password;
                 adapter.SelectCommand.Parameters["@shoe_size"].Value = student.ShoeSize;
                 adapter.SelectCommand.Parameters["@weight"].Value = student.Weight;
-
+                Console.Write("SSN: ", student.SSN);
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
             }

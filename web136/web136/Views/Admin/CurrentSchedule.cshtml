@@ -49,14 +49,13 @@ Quarter:
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var adminViewModelObj = new adminViewModel();
             adminViewModelObj.LoadFilters();
-            //adminViewModelObj.GetQuarters();
             adminViewModelObj.FilterGetSchedule("All Years", "All Quarters");
         });
     });
 </script>
 
 <script type="text/html" id="action-template">
-    <a data-bind="attr: { href : '/Admin/EditSchedule', title: 'edit' }">Edit</a>
-    @*<a data-bind="DeleteSchedule: $data">Delete</a>*@
+    <a data-bind="attr: { href : '/Admin/EditSchedule?id=' + schedule_id, title: 'edit' }">Edit</a>
+    <a data-bind="DeleteSchedule: $data">Delete</a>
 </script>
 
