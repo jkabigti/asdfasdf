@@ -39,7 +39,6 @@
         {
             if (student == null)
             {
-                System.Diagnostics.Debug.WriteLine("ERROR IN student == null");
                 errors.Add("Student cannot be null");
                 return;
             }
@@ -53,6 +52,12 @@
             if (student.StudentId.Length < 5)
             {
                 errors.Add("Invalid student id");
+                return;
+            }
+
+            if (student.Password.Length <= 5)
+            {
+                errors.Add("Invalid Password");
                 return;
             }
 

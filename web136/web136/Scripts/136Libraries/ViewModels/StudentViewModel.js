@@ -6,6 +6,7 @@ define(['Models/StudentModel'], function (StudentModel) {
         var that = this;
         var initialBind = true;
         var studentListViewModel = ko.observableArray();
+		var enrollmentListViewModel = ko.observableArray();
 
         this.Initialize = function () {
 
@@ -87,6 +88,29 @@ define(['Models/StudentModel'], function (StudentModel) {
                 $('#divEditMessage').html(message);
             });
         };
+
+		this.GetEnrollment = function (id) {
+			var studentModelObj = new StudentModel();
+			studentModelObj.GetEnrollment(id, function (enrollmentList) {
+				enrollmentListViewModel.removeAll();
+				for (var i = 0; i < enrollmentList.length; i++) {
+					enrollmentListViewModel.push({
+						year: enrollmentList[i].Year,
+						quarter: enrollmentList[i].Quarter,
+						session: enrollmentList[i].Session,
+						course_title: enrollmentList[i].CourseTitle,
+						course_description: enrollmentList[i].CourseDescription,
+						course_id: enrollmentList[i].CourseId,
+						schedule_id: enrollmentList[i].ScheduleId
+					});
+				}
+				var node = document.getElementById("divEnrollmentListContent");
+				console.log('test: ', enrollmentListViewModel());
+				if (initialBind) {
+					ko.applyBindings({ viewModel: enrollmentListViewModel }, node);
+				}
+			});
+		};
 
         this.GetDetail = function (id) {
 
