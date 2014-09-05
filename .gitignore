@@ -19,7 +19,18 @@ web136/web136.v12.suo
 *.pdb
 *.cache
 *.suo
+<<<<<<< HEAD
+SL136/WebApi136/Web.config
+*.dll
+*.pdb
+*.cache
+=======
 *.dll
 *.pdb
 
+>>>>>>> origin/master
+*.suo
+*.dll
+*.pdb
+*.cache
 *.suo

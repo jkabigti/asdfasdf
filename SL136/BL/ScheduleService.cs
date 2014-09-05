@@ -20,7 +20,7 @@
             return;
         }
 
-        public List<Schedule> GetScheduleList(string year, string quarter, ref List<string> errors)
+        public List<CourseInfo> GetScheduleList(string year, string quarter, ref List<string> errors)
         {
             return this.repository.GetScheduleList(year, quarter, ref errors);
         }

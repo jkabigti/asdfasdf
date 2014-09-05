@@ -6,7 +6,7 @@
 
     public interface IScheduleRepository
     {
-        List<Schedule> GetScheduleList(string year, string quarter, ref List<string> errors);
+        List<CourseInfo> GetScheduleList(string year, string quarter, ref List<string> errors);
 
         List<CourseInfo> GetAllSchedules(ref List<string> errors);
 
