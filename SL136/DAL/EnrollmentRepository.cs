@@ -172,19 +172,13 @@
 
             try
             {
-                var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn)
-                {
-                    SelectCommand =
-                    {
-                        CommandType
-                            =
-                            CommandType
-                            .StoredProcedure
-                    }
-                };
+                var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn);
+                
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
 
                 adapter.SelectCommand.Parameters["@student_id"].Value = student_id;
+                
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
