@@ -89,10 +89,13 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
-		this.CourseScheduleStudent = function (id) {
-			StudentModelObj.CourseScheduleStudent(id, function (enrollmentList) {
+        this.GetEnrolledSchedules = function (id) {
+            var studentModelObj = new StudentModel();
+		    studentModelObj.GetEnrolledSchedules(id, function (enrollmentList) {
+		        enrollmentListViewModel.removeAll();
 				for (var i = 0; i < enrollmentList.length; i++) {
-					enrollmentListViewModel.push({
+				    enrollmentListViewModel.push({
+                        id: enrollmentList[i].StudentId,
 						year: enrollmentList[i].Year,
 						quarter: enrollmentList[i].Quarter,
 						session: enrollmentList[i].Session,
@@ -103,11 +106,12 @@ define(['Models/StudentModel'], function (StudentModel) {
 						schedule_id: enrollmentList[i].ScheduleId
 					});
 				}
+				alert(enrollmentList.length);
 				var node = document.getElementById("divEnrollmentListContent");
 				console.log('test: ', enrollmentListViewModel());
 
 				if (initialBind) {
-				    ko.applyBindings({ viewModel: enrollmentListViewModel }, node);
+				    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
 				}
 			});
 		};

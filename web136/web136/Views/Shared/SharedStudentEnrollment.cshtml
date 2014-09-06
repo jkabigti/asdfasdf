@@ -42,7 +42,7 @@
 	$(document).ready(function () {
 		require(['ViewModels/StudentViewModel'], function (studentViewModel) {
 			var studentViewModelObj = new studentViewModel();
-			studentViewModelObj.CourseScheduleStudent("@id");
+			studentViewModelObj.GetEnrolledSchedules("@id");
 		});
 	});
 </script>
