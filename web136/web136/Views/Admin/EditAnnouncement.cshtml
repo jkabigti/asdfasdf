@@ -4,26 +4,24 @@
 }
 <h2>Edit Announcement</h2>
 
-<div id="divAdminEdit">
-    <!--<input type="text" data-bind="value: $data.year" />-->
-    Text : <input type="text" value="Summer Session 2 Finals Coming Up" /><br />
+<div id="divAnnouncementEdit">
+    Text : <input type="text" data-bind="value: $data.text" /><br />
     <br />
-    Date : <input type="text" value="2014-08-27 00:00:00" />(YYYY-MM-dd HH:mm:ss)<br />
+    Date : <input type="text" data-bind="value: $data.date" />(YYYY-MM-dd HH:mm:ss)<br />
     <br />
     <input type="button" value="Update" style="margin-left:80px" />
     <br /><br />
     <div id="divMessage"></div>
 </div>
-<!--
+
 <script type="text/javascript">
     $(document).ready(function () {
         // this require[] will load the /Scripts/136Libraries/ViewModels/AdminViewModel.js file
         // and return the object inside it and assign to adminViewModel variable.
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var viewModel = new adminViewModel();
-            viewModel.Load(@id);
+            viewModel.Announcement();
         });
     });
 
 </script>
-    -->

@@ -5,7 +5,7 @@
 
 <h3>Current Schedule Page</h3>
 
-<div id="divStudentListContent">
+<div id="divAnnouncementContent">
     <table>
         <thead>
             <tr>
@@ -14,16 +14,10 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <!--<tbody data-bind="foreach: viewModel">-->
-        <tbody>
+        <tbody data-bind="foreach: viewModel">
             <tr>
-                <!--<td data-bind="text: text"></td>
+                <td data-bind="text: text"></td>
                 <td data-bind="text: date"></td>
-                <td>
-                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
-                </td>-->
-                <td>Summer Session 2 Finals Coming Up</td>
-                <td>August, 27, 2014</td>
                 <td>
                     <div data-bind="template: { name: 'action-template', data: $data}"></div>
                 </td>
@@ -35,9 +29,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
-            var studentViewModelObj = new studentViewModel();
-            studentViewModelObj.GetAll();
+        require(['ViewModels/AdminViewModel'], function (adminViewModel) {
+            var adminViewModelObj = new adminViewModel();
+            adminViewModelObj.LoadAnnouncements();
         });
     });
 </script>

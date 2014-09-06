@@ -176,9 +176,28 @@ define(['Models/AdminModel'], function (adminModel) {
             //    CourseId: viewModel.course_id(),
             //    ScheduleId: viewModel.schedule_id()
             //};
-            //studentModelObj.UpdateStudent(studentData, function (message) {
-            //    $('#divEditMessage').html(message);
+            //adminModelObj.UpdateSchedule(scheduleData, function (message) {
+            //    //$('#divEditMessage').html(message);
             //});
+        };
+
+        this.LoadAnnouncements = function () {
+            var adminModelObj = new adminModel();
+            var announcementViewModel = ko.observableArray();
+            adminModelObj.GetAnnouncements(function (announcementList) {
+                announcementViewModel.removeAll();
+                for (var i = 0; i < announcementList.length; i++) {
+                    announcementViewModel.push({
+                        text: announcementList[i].Text,
+                        date: announcementList[i].Date
+                    });
+                }
+
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: announcementViewModel }, document.getElementById("divAnnouncementContent"));
+                    initialBind = false; // this is to prevent binding multiple time because "Delete" functio calls GetAll again
+                }
+            });
         };
     }
     return AdminViewModel;
