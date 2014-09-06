@@ -50,3 +50,9 @@ SL136/UpgradeLog4.htm
 *.cache
 SL136/WebApi136/Web.config
 *.suo
+*.dll
+*.cache
+*.suo
+*.dll
+*.pdb
+*.cache

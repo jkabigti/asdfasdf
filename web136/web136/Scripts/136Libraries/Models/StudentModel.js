@@ -171,7 +171,7 @@
             });
         };
 
-		this.CourseScheduleStudent = function (id, callback) {
+		this.GetEnrolledSchedules = function (id, callback) {
 		    $.ajax({
 		        async: asyncIndicator,
 				method: 'GET',
@@ -182,7 +182,7 @@
 					callback(message);
 				},
 				error: function () {
-					callback('Eror while updating studentinfo');
+					callback('Error while updating studentinfo');
 				}
 			});
 		};
