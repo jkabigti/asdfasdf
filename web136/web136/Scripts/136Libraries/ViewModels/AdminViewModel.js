@@ -213,12 +213,27 @@ define(['Models/AdminModel'], function (adminModel) {
                 var announcementViewModel = {
                     id: announcement.ID,
                     text: announcement.Text,
-                    date: announcement.Date
+                    date: announcement.Date,
+                    update: function () {
+                        self.UpdateAnnouncement(this);
+                    }
                 };
-                //alert(announcement.Text);
                 ko.applyBindings(announcementViewModel, document.getElementById("divAnnouncementEdit"));
             });
         };
+
+        this.UpdateAnnouncement = function (viewModel) {
+            var adminModelObj = new adminModel();
+            var announcement = {
+                ID: viewModel.id,
+                Text: viewModel.text,
+                Date: viewModel.date
+            };
+
+            adminModelObj.EditAnnouncement(announcement, function (message) {
+                $('#divEditMessage').html(message);
+            });
+        }
     }
     return AdminViewModel;
 }
