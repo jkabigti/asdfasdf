@@ -190,27 +190,17 @@
 
                 for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    /*var course = new CourseInfo
+                    var enrollment = new Enrollment
                     {
-                        ScheduleId = (int)dataSet.Tables[0].Rows[i]["schedule_id"],
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
+                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
                         CourseId = (int)dataSet.Tables[0].Rows[i]["course_id"],
                         CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
                         CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
                         Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
                         Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
                         Session = dataSet.Tables[0].Rows[i]["session"].ToString()
-                    };*/
-                    var enrollment = new Enrollment
-                    {
-                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
-                        StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
-                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
-                        //CourseId = (int)dataSet.Tables[0].Rows[i]["course_id"],
-                        //CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
-                        //CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
-                        //Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
-                        //Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
-                        //Session = dataSet.Tables[0].Rows[i]["session"].ToString()
                     };
                     enrollmentList.Add(enrollment);
                 }
