@@ -125,18 +125,18 @@
             });
         };
 
-        this.AddRequest = function (studentId, scheduleId, callback) {
+        this.SendRequest = function (request, callback) {
             $.ajax({
+                async: asyncIndicator,
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/AddRequest?id=" + studentId + "&scheduleId=" + scheduleId,
-                data: "",
+                url: "http://localhost:5419/Api/Student/SendStudentRequest",
+                data: request,
                 dataType: "json",
                 success: function (result) {
                     callback(result);
                 },
                 error: function () {
                     alert('Error while requesting grade change');
-                    callback("Error while requesting grade change");
                 }
             });
         };
@@ -171,7 +171,7 @@
             });
         };
 
-		this.CourseScheduleStudent = function (id, callback) {
+		this.GetEnrolledSchedules = function (id, callback) {
 		    $.ajax({
 		        async: asyncIndicator,
 				method: 'GET',
@@ -182,7 +182,7 @@
 					callback(message);
 				},
 				error: function () {
-					callback('Eror while updating studentinfo');
+					callback('Error while updating studentinfo');
 				}
 			});
 		};

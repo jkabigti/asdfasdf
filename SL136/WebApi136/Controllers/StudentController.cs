@@ -52,10 +52,10 @@
         }
 
         [HttpPost]
-        public void SendStudentRequest(string studentId, int scheduleId, string request)
+        public void SendStudentRequest(Request request)
         {
             List<string> errors = new List<string>();
-            this.service.SendStudentRequest(studentId, scheduleId, request, ref errors);
+            this.service.SendStudentRequest(request, ref errors);
         }
     }
 }

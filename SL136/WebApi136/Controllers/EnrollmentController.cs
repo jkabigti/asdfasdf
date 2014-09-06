@@ -14,10 +14,10 @@ namespace WebApi136.Controllers
         private readonly EnrollmentService service = new EnrollmentService(new EnrollmentRepository());
 
         [HttpPost]
-        public List<Enrollment> GetEnrolledSchedules(string studentId)
+        public List<Enrollment> GetEnrolledSchedules(string id)
         {
             List<string> errors = new List<string>();
-            return this.service.GetEnrolledSchedules(studentId, ref errors);
+            return this.service.GetEnrolledSchedules(id, ref errors);
         }
 
         [HttpPost]
