@@ -11,5 +11,9 @@ namespace IRepository
         void DeleteAnnouncement(int id, ref List<string> errors);
 
         List<Announcement> GetAnnouncements(ref List<string> errors);
+
+        Announcement GetAnnouncementById(int id, ref List<string> errors);
+
+        void EditAnnouncement(Announcement announcement, ref List<string> errors);
     }
 }

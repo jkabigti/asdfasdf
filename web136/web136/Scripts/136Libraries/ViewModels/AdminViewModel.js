@@ -148,7 +148,7 @@ define(['Models/AdminModel'], function (adminModel) {
             });
         }
 
-        this.LoadScheduleInfo = function (id) {
+        this.LoadScheduleInfo = function () {
             var adminModelObj = new adminModel();
             var id = window.location.search.substring(4);
             adminModelObj.GetScheduleInfo(id, function (courseInfo) {
@@ -193,7 +193,8 @@ define(['Models/AdminModel'], function (adminModel) {
                 for (var i = 0; i < announcementList.length; i++) {
                     announcementViewModel.push({
                         text: announcementList[i].Text,
-                        date: announcementList[i].Date
+                        date: announcementList[i].Date,
+                        id: announcementList[i].ID
                     });
                 }
 
@@ -201,6 +202,19 @@ define(['Models/AdminModel'], function (adminModel) {
                     ko.applyBindings({ viewModel: announcementViewModel }, document.getElementById("divAnnouncementContent"));
                     initialBind = false; // this is to prevent binding multiple time because "Delete" functio calls GetAll again
                 }
+            });
+        };
+
+        this.GetAnnouncementById = function () {
+            var adminModelObj = new adminModel();
+            var id = window.location.search.substring(4);
+            adminModelObj.GetAnnouncementById(id, function (announcement) {
+                var announcementViewModel = {
+                    id: announcement.ID,
+                    text: announcement.Text,
+                    date: announcement.Date
+                };
+                ko.applyBindings(announcementViewModel, document.getElementById("divAnnouncementEdit"));
             });
         };
     }

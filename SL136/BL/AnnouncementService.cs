@@ -39,6 +39,16 @@ namespace Service
             this.repository.AddAnnouncement(announcement, ref errors);
         }
 
+        public Announcement GetAnnouncementById(int id, ref List<string> errors)
+        {
+            if (id <= 0)
+            { 
+                errors.Add("Announcement ID cannot be negative.");
+            }
+
+            return this.repository.GetAnnouncementById(id, ref errors);
+        }
+
         public void DeleteAnnouncement(int id, ref List<string> errors)
         {
             if (id < 0)
@@ -54,6 +64,16 @@ namespace Service
         public List<Announcement> GetAnnouncements(ref List<string> errors)
         {
             return this.repository.GetAnnouncements(ref errors);
+        }
+
+        public void EditAnnouncement(Announcement a, ref List<string> errors)
+        {
+            if (a == null)
+            {
+                errors.Add("Announcement must not be null.");
+            }
+
+            this.repository.EditAnnouncement(a, ref errors);
         }
     }
 }

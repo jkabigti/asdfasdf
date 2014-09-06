@@ -170,10 +170,29 @@ define([], function () {
             });
         };
 
+        this.GetAnnouncementById = function (id, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Announcement/GetAnnouncementById?id=" + id,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    // when ajax call recevies data, it'll call the function "callback" which is passed in this as a parameter.
+                    // See AdminViewModel.load and see how it's being used
+                    callback(result); // "that" is currently pointing to the AdminModel object
+                },
+                error: function () {
+                    // if the call fails, it will return FirstName="First" and LastName="Last"
+                    alert('Error while getting announcement');
+                    callback("Error while getting announcement");
+                }
+            });
+        };
+
         this.DeleteAnnouncement = function (id, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Schedule/DeleteAnnouncement?id=" + id,
+                url: "http://localhost:5419/Api/Announcement/DeleteAnnouncement?id=" + id,
                 data: "",
                 dataType: "json",
                 success: function (result) {

@@ -37,6 +37,6 @@
 </script>
 
 <script type="text/html" id="action-template">
-    <a data-bind="attr: { href : '/Admin/EditAnnouncement', title: 'edit' }">edit</a>
+    <a data-bind="attr: { href : '/Admin/EditAnnouncement?id=' + id, title: 'edit' }">edit</a>
     <a data-bind="DeleteAnnouncement: $data">delete</a>
 </script>

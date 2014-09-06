@@ -35,5 +35,20 @@ namespace WebApi136.Controllers
             List<string> errors = new List<string>();
             return this.service.GetAnnouncements(ref errors);
         }
+
+        [HttpPost]
+        public Announcement GetAnnouncementById(int id)
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetAnnouncementById(id, ref errors);
+        }
+
+        [HttpPost]
+        public string EditAnnouncement(Announcement a)
+        {
+            List<string> errors = new List<string>();
+            this.service.EditAnnouncement(a, ref errors);
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
+        }
     }
 }

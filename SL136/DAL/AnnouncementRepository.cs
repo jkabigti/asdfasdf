@@ -46,6 +46,45 @@ namespace Repository
             }
         }
 
+        public Announcement GetAnnouncementById(int id, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var announcement = new Announcement();
+            try
+            {
+                var adapter = new SqlDataAdapter("getAnnouncementById", conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType =
+                            CommandType
+                            .StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+
+                adapter.SelectCommand.Parameters["@id"].Value = id;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+                announcement.ID = (int)dataSet.Tables[0].Rows[0]["id"];
+                announcement.Text = dataSet.Tables[0].Rows[0]["text"].ToString();
+                announcement.Date = dataSet.Tables[0].Rows[0]["date"].ToString();
+                
+
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return announcement;
+        }
+
         public void DeleteAnnouncement(int id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
@@ -122,6 +161,39 @@ namespace Repository
             }
 
             return announcementList;
+        }
+
+        public void EditAnnouncement(Announcement announcement, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            try
+            {
+                var adapter = new SqlDataAdapter("editAnnouncement", conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    }
+                };
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@text", SqlDbType.VarChar, -1));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@date", SqlDbType.DateTime));
+
+                adapter.SelectCommand.Parameters["@id"].Value = announcement.ID;
+                adapter.SelectCommand.Parameters["@text"].Value = announcement.Text;
+                adapter.SelectCommand.Parameters["@date"].Value = announcement.Date;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
         }
     }
 }
