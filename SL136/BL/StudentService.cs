@@ -136,27 +136,27 @@
             return sum / enrollments.Count;
         }
 
-        public void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors)
+        public void SendStudentRequest(Request request, ref List<string> errors)
         {
-            if (string.IsNullOrEmpty(studentId))
+            if (string.IsNullOrEmpty(request.StudentId))
             {
                 errors.Add("Invalid student id.");
                 return;
             }
 
-            if (scheduleId <= 0)
+            if (request.ScheduleId <= 0)
             {
                 errors.Add("Invalid schedule id.");
                 return;
             }
 
-            if (string.IsNullOrEmpty(request))
+            if (string.IsNullOrEmpty(request.Text))
             {
                 errors.Add("Invalid request.");
                 return;
             }
 
-            this.repository.SendStudentRequest(studentId, scheduleId, request, ref errors);
+            this.repository.SendStudentRequest(request.StudentId, request.ScheduleId, request.Text, ref errors);
         }
 
         private bool ValidateStudent(Student s, ref List<string> errors)

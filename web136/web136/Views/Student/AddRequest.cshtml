@@ -40,11 +40,24 @@
     <br />
     <br />
 
-    <form id="requestForm">
+    <div id="requestForm">
+        Student ID: <input type="text" data-bind="value: $data.id" />
+        <br /><br />
+        Schedule ID: <input type="text" data-bind="value: $data.scheduleId" />
+        <br /><br />
         <em>Your Reason for the Request:</em> <br />
-        <textarea rows="6" cols="50">Your Explanation Here...</textarea>
-        <input type="text" name="requestFormName" hidden="hidden"/> 
+        <textarea id="textareaBox" rows="6" cols="50" data-bind="value: $data.text"></textarea>
         <br /> <br />
-        <input type="submit" value="Submit"/>
-    </form>
+        <input type="button" data-bind="value:'Submit', click: $data.submit" style="margin-left: 80px"/>
+        <br /><br />
+        <div id="divRequestMessage"></div>
+    </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var viewModel = new studentViewModel();
+        });
+    });
+</script>

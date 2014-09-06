@@ -49,6 +49,22 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         };
 
+        this.SendRequest = function (request) {
+            var model = {
+                studentId: data.student_id(),
+                scheduleId: data.schedule_id(),
+                text: data.text()
+            }
+
+            StudentModelObj.SendRequest(model, function (result) {
+                if (result == "ok") {
+                    alert("Request Sent!");
+                } else {
+                    alert("Error occurred");
+                }
+            });
+        };
+
         this.GetAll = function () {
 
             StudentModelObj.GetAll(function (studentList) {
