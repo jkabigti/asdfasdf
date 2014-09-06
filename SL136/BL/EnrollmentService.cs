@@ -24,14 +24,14 @@
             return this.repository.GetEnrolledStudents(scheduleId, ref errors);
         }
 
-        public List<Enrollment> GetEnrolledSchedules(string id, ref List<string> errors)
+        public List<Enrollment> GetEnrolledSchedules(string studentId, ref List<string> errors)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(studentId))
             {
                 errors.Add("Invalid student id.");
             }
 
-            return this.repository.GetEnrolledSchedules(id, ref errors);
+            return this.repository.GetEnrolledSchedules(studentId, ref errors);
         }
 
         public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
