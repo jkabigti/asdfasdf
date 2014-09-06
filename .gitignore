@@ -56,3 +56,4 @@ SL136/WebApi136/Web.config
 *.dll
 *.pdb
 *.cache
+*.config

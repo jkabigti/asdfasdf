@@ -56,9 +56,7 @@ namespace Repository
                 {
                     SelectCommand =
                     {
-                        CommandType =
-                            CommandType
-                            .StoredProcedure
+                        CommandType = CommandType.StoredProcedure
                     }
                 };
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
@@ -67,11 +65,15 @@ namespace Repository
 
                 var dataSet = new DataSet();
                 adapter.Fill(dataSet);
-                announcement.ID = (int)dataSet.Tables[0].Rows[0]["id"];
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                announcement.ID = Convert.ToInt32(dataSet.Tables[0].Rows[0]["id"].ToString());
                 announcement.Text = dataSet.Tables[0].Rows[0]["text"].ToString();
                 announcement.Date = dataSet.Tables[0].Rows[0]["date"].ToString();
-                
-
             }
             catch (Exception e)
             {

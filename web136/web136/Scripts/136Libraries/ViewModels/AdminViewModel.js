@@ -207,13 +207,15 @@ define(['Models/AdminModel'], function (adminModel) {
 
         this.GetAnnouncementById = function () {
             var adminModelObj = new adminModel();
-            var id = window.location.search.substring(4);
-            adminModelObj.GetAnnouncementById(id, function (announcement) {
+            var announcement_id = window.location.search.substring(4);
+            adminModelObj.GetAnnouncementById(announcement_id, function (announcement) {
+                
                 var announcementViewModel = {
                     id: announcement.ID,
                     text: announcement.Text,
                     date: announcement.Date
                 };
+                //alert(announcement.Text);
                 ko.applyBindings(announcementViewModel, document.getElementById("divAnnouncementEdit"));
             });
         };
