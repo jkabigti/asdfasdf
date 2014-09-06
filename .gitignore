@@ -48,3 +48,4 @@ SL136/UpgradeLog4.htm
 *.dll
 *.pdb
 *.cache
+SL136/WebApi136/Web.config
