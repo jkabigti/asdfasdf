@@ -171,11 +171,13 @@
             });
         };
 
-		this.CourseScheduleStudent = function (studentData, callback) {
-			$.ajax({
-				method: 'POST',
-				url: "http://localhost:5419/Api/Student/EnrollCourse?StudentId=" + stdentId,
+		this.CourseScheduleStudent = function (id, callback) {
+		    $.ajax({
+		        async: asyncIndicator,
+				method: 'GET',
+				url: "http://localhost:5419/Api/Enrollment/GetEnrolledSchedules?id=" + id,
 				data: "",
+				dataType: "json",
 				success: function (message) {
 					callback(message);
 				},
