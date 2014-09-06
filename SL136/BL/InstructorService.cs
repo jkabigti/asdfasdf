@@ -19,17 +19,17 @@ namespace Service
         {
             if (scheduleId < 0)
             {
-                errors.Add("Schedule ID cannot be null");
+                errors.Add("Schedule ID cannot be null.");
             }
 
             if (studentId == null)
             {
-                errors.Add("Student ID cannot be null");
+                errors.Add("Student ID cannot be null.");
             }
 
             if (grade == null)
             {
-                errors.Add("Grade cannot be null");
+                errors.Add("Grade cannot be null.");
             }
 
             bool b = Regex.IsMatch(grade, @"^[ABCDF]?[+-]$");
@@ -45,7 +45,7 @@ namespace Service
         {
             if (scheduleId < 0)
             {
-                errors.Add("Schedule ID cannot be null");
+                errors.Add("Schedule ID cannot be null.");
             }
 
             return this.repository.GetRequests(scheduleId, ref errors);
@@ -55,12 +55,12 @@ namespace Service
         {
             if (scheduleId < 0)
             {
-                errors.Add("Schedule ID cannot be null");
+                errors.Add("Schedule ID cannot be null.");
             }
 
             if (studentId == null)
             {
-                errors.Add("Student ID cannot be null");
+                errors.Add("Student ID cannot be null.");
             }
 
             this.repository.DropStudent(scheduleId, studentId, ref errors);
@@ -70,22 +70,22 @@ namespace Service
         {
             if (tutorId < 0)
             {
-                errors.Add("TA ID cannot be null");
+                errors.Add("TA ID cannot be null.");
             }
 
             if (courseId < 0)
             {
-                errors.Add("Course ID cannot be null");
+                errors.Add("Course ID cannot be null.");
             }
 
             if (firstName == null)
             {
-                errors.Add("First name cannot be null");
+                errors.Add("First name cannot be null.");
             }
 
             if (lastName == null)
             {
-                errors.Add("Last name cannot be null");
+                errors.Add("Last name cannot be null.");
             }
 
             this.repository.AddTutor(tutorId, courseId, firstName, lastName, ref errors);
@@ -95,12 +95,12 @@ namespace Service
         {
             if (tutorId < 0)
             {
-                errors.Add("TA ID cannot be null");
+                errors.Add("TA ID cannot be null.");
             }
 
             if (courseId < 0)
             {
-                errors.Add("Course ID cannot be null");
+                errors.Add("Course ID cannot be null.");
             }
 
             this.repository.AssignTutor(tutorId, courseId, ref errors);
@@ -110,7 +110,7 @@ namespace Service
         {
             if (tutorId < 0)
             {
-                errors.Add("TA ID cannot be null");
+                errors.Add("TA ID cannot be null.");
             }
 
             this.repository.DeleteTutor(tutorId, ref errors);
@@ -120,7 +120,7 @@ namespace Service
         {
             if (instructorId < 0)
             {
-                errors.Add("Instructor ID cannot be null");
+                errors.Add("Instructor ID cannot be null.");
             }
 
             return this.repository.GetInstructorCourse(instructorId, ref errors);

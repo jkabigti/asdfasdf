@@ -19,20 +19,20 @@ namespace Service
         {
             if (announcement == null)
             {
-                errors.Add("Announcement cannot be null");
+                errors.Add("Announcement cannot be null.");
                 return;
             }
 
             if (announcement.Text.Length == 0)
             {
-                errors.Add("Please include text for announcement");
+                errors.Add("Please include text for announcement.");
                 return;
             }
 
             bool b = Regex.IsMatch(announcement.Date, @"^((0[1-9]|1[012])[-](19|20)\d\d[-](0?[1-9]|[12][0-9]|3[01])(\x20)(0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5[0-9]$)");
             if (!b)
             {
-                errors.Add("Announcement date must be formatted as yy-MM-dd HH:mm:ss");
+                errors.Add("Announcement date must be formatted as yy-MM-dd HH:mm:ss.");
                 return;
             }
 
@@ -43,7 +43,7 @@ namespace Service
         {
             if (id < 0)
             {
-                errors.Add("Announcement ID cannot be negative");
+                errors.Add("Announcement ID cannot be negative.");
 
                 return;
             }

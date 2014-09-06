@@ -5,9 +5,21 @@
 <h2>Edit</h2>
 
 <div id="divAdminEdit">
-    First : <input type="text" data-bind="value: $data.first" /><br />
+    First : <input type="text" data-bind="value: $data.first" />
+    Ex: John
     <br />
-    Last : <input type="text" data-bind="value: $data.last" /><br />
+    <br />
+    Last : <input type="text" data-bind="value: $data.last" />
+    Ex: Doe
+    <br />
+    <br />
+    Email : <input type="text" data-bind="value: $data.email" />
+    Ex: johndoe@ucsd.edu
+    <br />
+    <br />
+    Password : <input type="text" data-bind="value: $data.password" />
+    must be at least 6 characters long
+    <br />
     <br />
     <input type="button" data-bind="value: 'Update', click: $data.update" style="margin-left:80px" />
     <br /><br />

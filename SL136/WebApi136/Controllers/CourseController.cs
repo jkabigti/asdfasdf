@@ -28,7 +28,7 @@
         {
             List<string> errors = new List<string>();
             this.service.AddPrereq(course, prereq, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@
         {
             List<string> errors = new List<string>();
             this.service.EditPrereq(course, prereq, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@
         {
             List<string> errors = new List<string>();
             this.service.DeletePrereq(prereq, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
         //// you can add more [HttpGet] and [HttpPost] methods as you need
     }

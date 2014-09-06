@@ -25,3 +25,12 @@ C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\DAL\bin\Debug\POCO.pdb
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\DAL\obj\Debug\Repository.csprojResolveAssemblyReference.cache
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\DAL\obj\Debug\136Repository.dll
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\DAL\obj\Debug\136Repository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\obj\Debug\136Repository.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\obj\Debug\136Repository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\136Repository.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\136Repository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\136IRepository.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\POCO.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\136IRepository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\DAL\bin\Debug\POCO.pdb

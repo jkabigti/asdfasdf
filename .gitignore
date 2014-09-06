@@ -19,14 +19,14 @@ web136/web136.v12.suo
 *.pdb
 *.cache
 *.suo
-<<<<<<< HEAD
 SL136/WebApi136/Web.config
 *.dll
 *.pdb
 *.cache
-=======
 *.dll
 *.pdb
+<<<<<<< HEAD
+=======
 
 >>>>>>> origin/master
 *.suo
@@ -44,3 +44,12 @@ SL136/POCO/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 SL136/SL136.v12.suo
 SL136/UpgradeLog4.htm
 >>>>>>> origin/master
+>>>>>>> origin/master
+*.dll
+*.pdb
+*.cache
+SL136/WebApi136/Web.config
+*.suo
+*.dll
+*.cache
+*.suo

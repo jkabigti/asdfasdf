@@ -18,7 +18,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.EditGrade(scheduleId, studentId, grade, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.DropStudent(scheduleId, studentId, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -41,7 +41,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.AddTutor(tutorId, courseId, firstName, lastName, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.AssignTutor(tutorId, courseId, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]
@@ -57,7 +57,7 @@ namespace WebApi136.Controllers
         {
             List<string> errors = new List<string>();
             this.service.DeleteTutor(tutorId, ref errors);
-            return errors.Count == 0 ? "ok" : "Error occurred";
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
 
         [HttpPost]

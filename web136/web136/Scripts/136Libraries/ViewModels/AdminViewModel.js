@@ -14,7 +14,9 @@ define(['Models/AdminModel'], function (adminModel) {
 
                 var viewModel = {
                     first: ko.observable(result.FirstName),
-                    last : ko.observable(result.LastName),
+                    last: ko.observable(result.LastName),
+                    email: ko.observable(result.Email),
+                    password: ko.observable(result.Password),
                     id: result.Id,
                     update: function() {
                         self.UpdateAdmin(this);
@@ -32,7 +34,9 @@ define(['Models/AdminModel'], function (adminModel) {
             var adminData = {
                 Id: viewModel.id,
                 FirstName: viewModel.first(),
-                LastName: viewModel.last()
+                LastName: viewModel.last(),
+                Email: viewModel.email(),
+                Password: viewModel.password()
             };
 
             adminModelObj.Update(adminData, function (message) {

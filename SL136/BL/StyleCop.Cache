@@ -541,11 +541,14 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="-1447627288">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="AdminService.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/09/02 19:15:30.501</settingsFile>
-      <sourceFile>2014/09/04 17:23:31.079</sourceFile>
+      <sourceFile>2014/09/04 18:39:32.384</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -562,16 +565,19 @@
       <StyleCop.CSharp.SpacingRules>2014/04/01 10:18:24.000</StyleCop.CSharp.SpacingRules>
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
-    <violations />
+    <violations>
+      <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBeFollowedByBlankLine" ruleCheckId="SA1505">
+        <context>An opening curly bracket must not be followed by a blank line.</context>
+        <line>44</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
-  <project key="-1447627288">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="StudentService.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/09/02 19:15:30.501</settingsFile>
-      <sourceFile>2014/09/04 17:23:46.795</sourceFile>
+      <sourceFile>2014/09/04 18:38:46.550</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>

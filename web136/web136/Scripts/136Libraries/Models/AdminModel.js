@@ -6,7 +6,7 @@ define([], function () {
         this.Load = function (adminId, callback) {
             $.ajax({
                 method: 'GET',
-                url: "http://localhost:5419/Api/Admin/GetAdminInfo?AdminId=" + adminId,
+                url: "http://localhost:5419/Api/Admin/GetAdminInfo?adminId=" + adminId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
