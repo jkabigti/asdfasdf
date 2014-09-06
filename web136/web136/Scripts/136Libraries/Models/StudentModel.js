@@ -125,22 +125,6 @@
             });
         };
 
-        this.SendRequest = function (request, callback) {
-            $.ajax({
-                async: asyncIndicator,
-                method: 'POST',
-                url: "http://localhost:5419/Api/Student/SendStudentRequest",
-                data: request,
-                dataType: "json",
-                success: function (result) {
-                    callback(result);
-                },
-                error: function () {
-                    alert('Error while requesting grade change');
-                }
-            });
-        };
-
         this.EnrollCourse = function (studentId, callback) {
             $.ajax({
                 method: 'POST',
