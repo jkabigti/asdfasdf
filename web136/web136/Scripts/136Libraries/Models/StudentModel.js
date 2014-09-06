@@ -174,7 +174,7 @@
 		this.GetEnrolledSchedules = function (id, callback) {
 		    $.ajax({
 		        async: asyncIndicator,
-				method: 'GET',
+				method: 'POST',
 				url: "http://localhost:5419/Api/Enrollment/GetEnrolledSchedules?id=" + id,
 				data: "",
 				dataType: "json",
