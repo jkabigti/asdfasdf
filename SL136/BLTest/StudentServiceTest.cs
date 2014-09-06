@@ -97,7 +97,7 @@
             var mockRepository = new Mock<IStudentRepository>();
             var studentService = new StudentService(mockRepository.Object);
             //// Act
-            studentService.SendStudentRequest(string.Empty, 1, string.Empty, ref errors);
+            //studentService.SendStudentRequest(string.Empty, 1, string.Empty, ref errors);
 
             //// Assert
             Assert.AreEqual(1, errors.Count);

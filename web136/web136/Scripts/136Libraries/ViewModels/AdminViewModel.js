@@ -199,7 +199,7 @@ define(['Models/AdminModel'], function (adminModel) {
                 }
 
                 if (initialBind) {
-                    ko.applyBindings({ viewModel: announcementViewModel }, document.getElementById("divAnnouncementContent"));
+                    ko.applyBindings(announcementViewModel, document.getElementById("divAnnouncementContent"));
                     initialBind = false; // this is to prevent binding multiple time because "Delete" functio calls GetAll again
                 }
             });
