@@ -16,3 +16,8 @@ C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\POCO\obj\Debug\POCO.csprojR
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\POCO\obj\Debug\POCO.dll
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\POCO\obj\Debug\POCO.pdb
 >>>>>>> origin/master
+C:\Users\KyungJoon\git\asdfasdf\SL136\POCO\bin\Debug\POCO.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\POCO\bin\Debug\POCO.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\POCO\obj\Debug\POCO.csprojResolveAssemblyReference.cache
+C:\Users\KyungJoon\git\asdfasdf\SL136\POCO\obj\Debug\POCO.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\POCO\obj\Debug\POCO.pdb

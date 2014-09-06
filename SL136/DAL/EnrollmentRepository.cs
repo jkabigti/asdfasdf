@@ -165,7 +165,7 @@
             return courseId;
         }
 
-        public List<Enrollment> GetEnrolledSchedules(string student_id, ref List<string> errors)
+        public List<Enrollment> GetEnrolledSchedules(string id, ref List<string> errors)
         {
             var conn = new SqlConnection(ConnectionString);
             var enrollmentList = new List<Enrollment>();
@@ -176,7 +176,7 @@
                 
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
 
-                adapter.SelectCommand.Parameters["@student_id"].Value = student_id;
+                adapter.SelectCommand.Parameters["@student_id"].Value = id;
                 
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 

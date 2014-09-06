@@ -19,3 +19,10 @@ C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\IDAL\bin\Debug\POCO.pdb
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\IDAL\obj\Debug\IRepository.csprojResolveAssemblyReference.cache
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\IDAL\obj\Debug\136IRepository.dll
 C:\Users\honhoonchen\Documents\GitHub\asdfasdf\SL136\IDAL\obj\Debug\136IRepository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\bin\Debug\136IRepository.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\bin\Debug\136IRepository.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\bin\Debug\POCO.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\bin\Debug\POCO.pdb
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\obj\Debug\IRepository.csprojResolveAssemblyReference.cache
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\obj\Debug\136IRepository.dll
+C:\Users\KyungJoon\git\asdfasdf\SL136\IDAL\obj\Debug\136IRepository.pdb
