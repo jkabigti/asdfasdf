@@ -48,7 +48,7 @@
 </script>
 
 <script type = "text/html" id="action-template">
-	<a data-bind="attr: { href : '/Student/ViewGrade?id=@ViewBag.Id&scheduleid=', title: 'view' }">View Grade</a>
-	<a data-bind="attr: { href : '/Student/AddRequest?id=@ViewBag.Id&scheduleid=', title: 'create' }">Request Grade Change</a>
-	<a data-bind="attr: { href : '/Instructor/DropStudent?id=@ViewBag.Id', title: 'drop' }">Drop Course</a>
+    <a data-bind="attr: { href : '/Student/ViewGrade?id=' + id + '&scheduleid=', title: 'view' }">View Grade</a>
+	<a data-bind="attr: { href : '/Student/AddRequest?id=' + id + '&scheduleid=', title: 'create' }">Request Grade Change</a>
+	<a data-bind="attr: { href : '/Instructor/DropStudent?id=' +id, title: 'drop' }">Drop Course</a>
 </script>
