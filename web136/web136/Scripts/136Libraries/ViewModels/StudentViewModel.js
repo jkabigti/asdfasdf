@@ -96,19 +96,18 @@ define(['Models/StudentModel'], function (StudentModel) {
 				for (var i = 0; i < enrollmentList.length; i++) {
 				    enrollmentListViewModel.push({
                         id: enrollmentList[i].StudentId,
-						year: enrollmentList[i].Year,
-						quarter: enrollmentList[i].Quarter,
-						session: enrollmentList[i].Session,
-						course_title: enrollmentList[i].CourseTitle,
-						course_description: enrollmentList[i].CourseDescription,
-						course_id: enrollmentList[i].CourseId,
-                        grade: enrollmentList[i].Grade,
-						schedule_id: enrollmentList[i].ScheduleId
+						year: ko.observable(enrollmentList[i].Year),
+						quarter: ko.observable(enrollmentList[i].Quarter),
+						session: ko.observable(enrollmentList[i].Session),
+						course_title: ko.observable(enrollmentList[i].CourseTitle),
+						course_description: ko.observable(enrollmentList[i].CourseDescription),
+						course_id: ko.observable(enrollmentList[i].CourseId),
+                        grade: ko.observable(enrollmentList[i].Grade),
+						schedule_id: ko.observable(enrollmentList[i].ScheduleId)
 					});
 				}
-				alert(enrollmentList.length);
 				var node = document.getElementById("divEnrollmentListContent");
-				console.log('test: ', enrollmentListViewModel());
+				console.log('test: ', JSON.stringify(enrollmentListViewModel()));
 
 				if (initialBind) {
 				    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
