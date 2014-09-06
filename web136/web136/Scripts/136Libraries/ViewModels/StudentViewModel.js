@@ -91,7 +91,6 @@ define(['Models/StudentModel'], function (StudentModel) {
 
 		this.CourseScheduleStudent = function (id) {
 			StudentModelObj.CourseScheduleStudent(id, function (enrollmentList) {
-				enrollmentListViewModel.removeAll();
 				for (var i = 0; i < enrollmentList.length; i++) {
 					enrollmentListViewModel.push({
 						year: enrollmentList[i].Year,
@@ -106,6 +105,7 @@ define(['Models/StudentModel'], function (StudentModel) {
 				}
 				var node = document.getElementById("divEnrollmentListContent");
 				console.log('test: ', enrollmentListViewModel());
+
 				if (initialBind) {
 				    ko.applyBindings({ viewModel: enrollmentListViewModel }, node);
 				}
