@@ -1,10 +1,9 @@
 ﻿@{
     ViewBag.Title = "SharedAnnouncement";
-    var id = ViewBag.id;
 }
 
 <h2>Announcement:</h2>
-<div id="divAnnouncementContent">
+<div id="divSharedAnnouncementContent">
     <table>
         <thead>
             <tr>
@@ -25,7 +24,7 @@
     $(document).ready(function () {
         require(['ViewModels/AdminViewModel'], function (adminViewModel) {
             var adminViewModelObj = new adminViewModel();
-            //adminViewModelObj.LoadAnnouncements();
+            adminViewModelObj.LoadSharedAnnouncements();
         });
     });
 </script>
