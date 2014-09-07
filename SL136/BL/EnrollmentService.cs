@@ -51,17 +51,6 @@
                 errors.Add("Invalid student id or schedule id.");
             }
 
-            //List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
-            //int courseId = this.repository.GetCourse(scheduleId, ref errors);
-
-            //foreach (Enrollment e in enrolled)
-            //{
-            //    int id = this.repository.GetCourse(e.ScheduleId, ref errors);
-            //    if (courseId == id)
-            //    {
-            //        this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
-            //    }
-            //}
             this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
         }
 

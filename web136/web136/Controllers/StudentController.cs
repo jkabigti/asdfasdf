@@ -39,5 +39,11 @@
             ViewBag.Id = id;
             return this.View();
         }
+
+        public ActionResult ViewRequestHistory(string id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
     }
 }

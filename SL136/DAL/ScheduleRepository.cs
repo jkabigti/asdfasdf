@@ -349,8 +349,7 @@
                 ci.Session = dataSet.Tables[0].Rows[0]["session"].ToString();
                 ci.CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[0]["course_id"].ToString());
                 ci.CourseTitle = dataSet.Tables[0].Rows[0]["course_title"].ToString();
-                ci.CourseDescription = dataSet.Tables[0].Rows[0]["course_description"].ToString();
-                
+                ci.CourseDescription = dataSet.Tables[0].Rows[0]["course_description"].ToString();   
             }
             catch (Exception e)
             {

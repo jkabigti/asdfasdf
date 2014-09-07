@@ -20,6 +20,7 @@
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentScheudle";
         private const string RequestGradeChangeProcedure = "addRequest";
         private const string GetCourseProcedure = "getCourse";
+        private const string GetStudentRequestProcedure = "getRequestHistory";
 
         public void InsertStudent(Student student, ref List<string> errors)
         {
@@ -205,6 +206,61 @@
             }
 
             return student;
+        }
+
+        public List<RequestHistory> GetRequestHistory(string studentId, ref List<string> errors)
+        {
+            System.Diagnostics.Debug.WriteLine("Hi FROM DEBUGGER!!!!!!!!!");
+            var conn = new SqlConnection(ConnectionString);
+            var requestList = new List<RequestHistory>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter(GetStudentRequestProcedure, conn)
+                {
+                    SelectCommand =
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    }
+                };
+
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
+
+                adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    var request = new RequestHistory
+                    {
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        RequestMessage = dataSet.Tables[0].Rows[i]["request"].ToString(),
+                        CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
+                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString()
+                    };
+                    requestList.Add(request);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return requestList;
         }
 
         public List<Student> GetStudentList(ref List<string> errors)

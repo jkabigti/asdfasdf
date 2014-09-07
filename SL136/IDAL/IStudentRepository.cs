@@ -17,5 +17,7 @@
         List<Student> GetStudentList(ref List<string> errors);
 
         void SendStudentRequest(string studentId, int scheduleId, string request, ref List<string> errors);
+
+        List<RequestHistory> GetRequestHistory(string studentId, ref List<string> errors);
     }
 }

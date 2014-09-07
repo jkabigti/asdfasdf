@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "ViewRequestHistory";
+    var id = ViewBag.Id;
+}
+
+<h2>My Request History</h2>
+
+<div id="divMyRequests">
+    <table border="1">
+        <thead>
+            <tr>
+                <th align="center">Course</th>
+                <th align="center">Description</th>
+                <th align="center">Quarter</th>
+                <th align="center">Year</th>
+                <th align="center">Session</th>
+                <th align="center">Request Message</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: viewModel">
+            <tr>
+                <td align="center" data-bind="text: course_title"></td>
+                <td align="center" data-bind="text: course_description"></td>
+                <td align="center" data-bind="text: quarter"></td>
+                <td align="center" data-bind="text: year"></td>
+                <td align="center" data-bind="text: session"></td>
+                <td align="center" data-bind="text: requestMessage"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.LoadRequestHistory("@id");
+        });
+    });
+</script>

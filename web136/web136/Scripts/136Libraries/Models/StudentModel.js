@@ -202,6 +202,22 @@
 		        }
 		    });
 		};
+
+		this.GetRequestHistory = function (id, callback) {
+		    $.ajax({
+		        async: asyncIndicator,
+		        method: 'POST',
+		        url: "http://localhost:5419/Api/Student/GetRequestHistory?id=" + id,
+		        data: "",
+		        dataType: "json",
+		        success: function (message) {
+		            callback(message);
+		        },
+		        error: function () {
+		            callback('Error while loading request history');
+		        }
+		    });
+		};
     }
 
     this.GetYears = function (callback) {

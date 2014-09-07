@@ -58,5 +58,12 @@
             this.service.SendStudentRequest(request, ref errors);
             return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
+
+        [HttpPost]
+        public List<RequestHistory> GetRequestHistory(string id)
+        {
+            List<string> errors = new List<string>();
+            return this.service.GetRequestHistory(id, ref errors);
+        }
     }
 }

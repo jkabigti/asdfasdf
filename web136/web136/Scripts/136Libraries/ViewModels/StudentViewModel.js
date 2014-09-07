@@ -8,6 +8,7 @@ define(['Models/StudentModel'], function (StudentModel) {
         var studentListViewModel = ko.observableArray();
         var enrollmentListViewModel = ko.observableArray();
         var courseListViewModel = ko.observableArray();
+        var requestViewModel = ko.observableArray();
 
         this.Initialize = function () {
 
@@ -225,6 +226,30 @@ define(['Models/StudentModel'], function (StudentModel) {
 
                 if (initialBind) {
                     ko.applyBindings({ viewModel: courseListViewModel }, document.getElementById("divEnrollmentListContent"));
+                }
+            });
+        };
+
+        this.LoadRequestHistory = function (id) {
+            var studentModelObj = new StudentModel();
+            studentModelObj.GetRequestHistory(id, function (requestList) {
+                requestViewModel.removeAll();
+                for (var i = 0; i < requestList.length; i++) {
+                    requestViewModel.push({
+                        schedule_id: ko.observable(requestList.ScheduleId),
+                        year: ko.observable(requestList[i].Year),
+                        quarter: ko.observable(requestList[i].Quarter),
+                        session: ko.observable(requestList[i].Session),
+                        course_title: ko.observable(requestList[i].CourseTitle),
+                        course_description: ko.observable(requestList[i].CourseDescription),
+                        requestMessage: ko.observable(requestList[i].RequestMessage)
+                    });
+                }
+                var node = document.getElementById("divMyRequests");
+                console.log('test: ', JSON.stringify(requestViewModel()));
+
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: requestViewModel }, document.getElementById("divMyRequests"));
                 }
             });
         };

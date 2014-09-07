@@ -107,6 +107,11 @@
             return this.repository.GetStudentList(ref errors);
         }
 
+        public List<RequestHistory> GetRequestHistory(string studentId, ref List<string> errors)
+        {
+            return this.repository.GetRequestHistory(studentId, ref errors);
+        }
+
         public float CalculateGpa(string studentId, List<Enrollment> enrollments, ref List<string> errors)
         {
             if (string.IsNullOrEmpty(studentId))

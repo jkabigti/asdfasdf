@@ -131,6 +131,7 @@
                 errors.Add("Schedule Id must not be < 0");
                 return new CourseInfo();
             }
+
             return this.repository.GetScheduleInfo(scheduleId, ref errors);
         }
 
