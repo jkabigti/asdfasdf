@@ -172,5 +172,62 @@
 		};
     }
 
+    this.GetYears = function (callback) {
+        $.ajax({
+            method: 'GET',
+            url: "http://localhost:5419/Api/Schedule/GetYears",
+            data: "",
+            dataType: "json",
+            success: function (result) {
+                // when ajax call recevies data, it'll call the function "callback" which is passed in this as a parameter.
+                // See AdminViewModel.load and see how it's being used
+                callback(result); // "that" is currently pointing to the AdminModel object
+            },
+            error: function () {
+                // if the call fails, it will return FirstName="First" and LastName="Last"
+                alert('Error while loading years');
+                callback("Error while loading years");
+            }
+        });
+    };
+
+    this.GetQuarters = function (callback) {
+        $.ajax({
+            method: 'GET',
+            url: "http://localhost:5419/Api/Schedule/GetQuarters",
+            data: "",
+            dataType: "json",
+            success: function (result) {
+                // when ajax call recevies data, it'll call the function "callback" which is passed in this as a parameter.
+                // See AdminViewModel.load and see how it's being used
+                callback(result); // "that" is currently pointing to the AdminModel object
+            },
+            error: function () {
+                // if the call fails, it will return FirstName="First" and LastName="Last"
+                alert('Error while loading quarters');
+                callback("Error while loading quarters");
+            }
+        });
+    };
+
+    this.FilterGetSchedule = function (year, quarter, callback) {
+        $.ajax({
+            method: 'POST',
+            url: "http://localhost:5419/Api/Schedule/GetScheduleList?year=" + year + "&quarter=" + quarter,
+            data: "",
+            dataType: "json",
+            success: function (result) {
+                // when ajax call recevies data, it'll call the function "callback" which is passed in this as a parameter.
+                // See AdminViewModel.load and see how it's being used
+                callback(result); // "that" is currently pointing to the AdminModel object
+            },
+            error: function () {
+                // if the call fails, it will return FirstName="First" and LastName="Last"
+                alert('Error while loading schedules.');
+                callback("Error while loading schedules");
+            }
+        });
+    };
+
     return StudentModel;
 });

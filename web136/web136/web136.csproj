@@ -159,6 +159,8 @@
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Views\Admin\EnrollClass.cshtml" />
+    <Content Include="Views\Student\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\136.css">

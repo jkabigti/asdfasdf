@@ -27,6 +27,88 @@ define(['Models/StudentModel'], function (StudentModel) {
             ko.applyBindings(viewModel, document.getElementById("divStudent"));
         };
 
+        this.GetAllSchedules = function () {
+            var adminModelObj = new StudentModel();
+            var scheduleListViewModel = ko.observableArray();
+            adminModelObj.GetSchedules(function (scheduleList) {
+                scheduleListViewModel.removeAll();
+                for (var i = 0; i < scheduleList.length; i++) {
+                    scheduleListViewModel.push({
+                        year: scheduleList[i].Year,
+                        quarter: scheduleList[i].Quarter,
+                        session: scheduleList[i].Session,
+                        course_title: scheduleList[i].CourseTitle,
+                        course_description: scheduleList[i].CourseDescription,
+                        course_id: scheduleList[i].CourseId,
+                        schedule_id: scheduleList[i].ScheduleId
+                    });
+                }
+
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: scheduleListViewModel }, document.getElementById("divScheduleListContent"));
+                    initialBind = false; // this is to prevent binding multiple time because "Delete" functio calls GetAll again
+                }
+            });
+        };
+
+        this.LoadFilters = function () {
+            var adminModelObj = new StudentModel();
+            var yearListViewModel = ko.observableArray();
+            adminModelObj.GetYears(function (yearList) {
+                yearListViewModel.removeAll();
+                yearListViewModel.push({ year: "All Years" });
+                for (var i = 0; i < yearList.length; i++) {
+                    yearListViewModel.push({
+                        year: yearList[i]
+                    });
+                }
+
+                ko.applyBindings({ viewModel1: yearListViewModel }, document.getElementById("yearListContent"));
+            });
+            var quarterListViewModel = ko.observableArray();
+            adminModelObj.GetQuarters(function (quarterList) {
+                quarterListViewModel.removeAll();
+                quarterListViewModel.push({ quarter: "All Quarters" });
+                for (var i = 0; i < quarterList.length; i++) {
+                    quarterListViewModel.push({
+                        quarter: quarterList[i]
+                    });
+                }
+
+                ko.applyBindings({ viewModel2: quarterListViewModel }, document.getElementById("quarterListContent"));
+            });
+            var viewModel = {
+                filter: function () {
+                    self.ApplyFilter(this);
+                }
+            };
+            ko.applyBindings(viewModel, document.getElementById("filterbutton"));
+        }
+
+        this.FilterGetSchedule = function (year, quarter) {
+            var studentModelObj = new StudentModel();
+            studentModelObj.FilterGetSchedule(year, quarter, function (scheduleList) {
+                scheduleListViewModel.removeAll();
+                for (var i = 0; i < scheduleList.length; i++) {
+                    scheduleListViewModel.push({
+                        year: scheduleList[i].Year,
+                        quarter: scheduleList[i].Quarter,
+                        session: scheduleList[i].Session,
+
+                        course_title: scheduleList[i].CourseTitle,
+                        course_description: scheduleList[i].CourseDescription,
+                        course_id: scheduleList[i].CourseId,
+                        schedule_id: scheduleList[i].ScheduleId
+                    });
+                }
+                var node = document.getElementById("divScheduleListContent");
+                console.log('test: ', scheduleListViewModel());
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: scheduleListViewModel }, node);
+                }
+            });
+        };
+
         this.CreateStudent = function (data) {
             var model = {
                 StudentId: data.id(),

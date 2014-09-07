@@ -1,0 +1,46 @@
+﻿@{
+    var id = ViewBag.id;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Enroll Class Page</h3>
+
+<div id="divScheduleListContent">
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Quarter</th>
+                <th>Session</th>
+                <th>Course</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: viewModel">
+            <tr>
+                <td data-bind="text: year"></td>
+                <td data-bind="text: quarter"></td>
+                <td data-bind="text: session"></td>
+                <td data-bind="text: course_title"></td>
+                <td data-bind="text: course_description"></td>
+                <td>
+                    <div data-bind="template: { name: 'action-template', data: $data}"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/AdminViewModel'], function (adminViewModel) {
+            var adminViewModelObj = new adminViewModel();
+            adminViewModelObj.FilterGetSchedule("All Years", "All Quarters");
+        });
+    });
+</script>
+
+<script type="text/html" id="action-template">
+    <a data-bind="attr: { href : '/Student/Confirmation?id=@ViewBag.Id&scheduleId=' + schedule_id,  title: 'create' }">Add New Course Schedule</a>
+</script>

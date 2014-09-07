@@ -41,6 +41,11 @@
             return this.View();
         }
 
+        public ActionResult EnrollClass()
+        {
+            return this.View();
+        }
+
         public ActionResult EditAnnouncement()
         {
             return this.View();
