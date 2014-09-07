@@ -214,7 +214,10 @@ define(['Models/AdminModel'], function (adminModel) {
                     announcementViewModel.push({
                         text: announcementList[i].Text,
                         date: announcementList[i].Date,
-                        id: announcementList[i].ID
+                        id: announcementList[i].ID,
+                        delete: function () {
+                            self.DeleteAnnouncement(this);
+                        }
                     });
                 }
 
@@ -252,6 +255,14 @@ define(['Models/AdminModel'], function (adminModel) {
             };
             adminModelObj.EditAnnouncement(announcement, function (message) {
                 $('#divEditMessage').html(message);
+            });
+        };
+
+        this.DeleteAnnouncement = function (viewModel) {
+            var adminModelObj = new adminModel();
+            var id = viewModel.id;
+            adminModelObj.DeleteAnnouncement(id, function (message) {
+                alert(message);
             });
         };
     }
