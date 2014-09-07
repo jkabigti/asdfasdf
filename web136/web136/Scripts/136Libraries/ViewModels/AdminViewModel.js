@@ -27,6 +27,15 @@ define(['Models/AdminModel'], function (adminModel) {
             });
         };
 
+        this.EnrollCourse = function (viewModel) {
+            var studentModelObj = new adminModel();
+            var studentId = window.location.search.substring(4);
+            var scheduleId = viewModel.schedule_id;
+            studentModelObj.EnrollCourse(studentId, scheduleId, function (message) {
+                $('#divAddMessage').html(message);
+            });
+        };
+
         this.UpdateAdmin = function (viewModel) {
             var adminModelObj = new adminModel();
 
@@ -116,7 +125,10 @@ define(['Models/AdminModel'], function (adminModel) {
                         course_title: scheduleList[i].CourseTitle,
                         course_description: scheduleList[i].CourseDescription,
                         course_id: scheduleList[i].CourseId,
-                        schedule_id: scheduleList[i].ScheduleId
+                        schedule_id: scheduleList[i].ScheduleId,
+                        enroll: function () {
+                            self.EnrollCourse(this);
+                        }
                     });
                 }
                 var node = document.getElementById("divScheduleListContent");

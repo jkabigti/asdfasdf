@@ -227,6 +227,22 @@ define([], function () {
             });
         };
 
+        this.EnrollCourse = function (studentId, scheduleId, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Enrollment/EnrollSchedule?studentId=" + studentId + "&scheduleId=" + scheduleId,
+                data: "",
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while loading enrolled courses');
+                    callback("Error while loading enrolled courses");
+                }
+            });
+        };
+
         this.GetQuarters = function (callback) {
             $.ajax({
                 method: 'GET',

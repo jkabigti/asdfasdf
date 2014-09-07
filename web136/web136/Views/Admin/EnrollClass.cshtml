@@ -42,5 +42,5 @@
 </script>
 
 <script type="text/html" id="action-template">
-    <a data-bind="attr: { href : '/Student/Confirmation?id=@ViewBag.Id&scheduleId=' + schedule_id,  title: 'create' }">Add New Course Schedule</a>
+    <input type="button" data-bind="value: 'Enroll', click: $data.enroll">
 </script>

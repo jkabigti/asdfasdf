@@ -125,10 +125,10 @@
             });
         };
 
-        this.EnrollCourse = function (studentId, callback) {
+        this.EnrollCourse = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/EnrollCourse?id=" + studentId,
+                url: "http://localhost:5419/Api/Enrollment/EnrollSchedule?studentId=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {
