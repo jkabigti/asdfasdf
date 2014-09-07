@@ -60,5 +60,11 @@ namespace Web136.Controllers
         {
             return this.View();
         }
+
+        public ActionResult InstructorClasses(int id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
     }
 }

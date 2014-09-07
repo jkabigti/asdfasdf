@@ -14,6 +14,7 @@
         private const string DeleteStudentScheduleProcedure = "spDeleteStudentSchedule";
         private const string GetCourseProcedure = "getCourse";
         private const string GetEnrolledSchedulesProcedure = "getEnrolledSchedules";
+        private const string InstructorCoursesProcedure = "getInstructorCourses";
 
         public List<int> GetEnrolledStudents(int scheduleId, ref List<string> errors)
         {
@@ -224,7 +225,7 @@
 
             try
             {
-                var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn);
+                var adapter = new SqlDataAdapter(InstructorCoursesProcedure, conn);
 
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@instructor_id", SqlDbType.VarChar, 20));
 
@@ -245,15 +246,12 @@
                     var enrollment = new Enrollment
                     {
                         ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
-                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
-                        CourseId = (int)dataSet.Tables[0].Rows[i]["course_id"],
                         CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
                         CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        CourseLevel = dataSet.Tables[0].Rows[i]["course_level"].ToString(),
                         Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
                         Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
-                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
-                        InstructorId = (int)dataSet.Tables[0].Rows[i]["instructor_id"],
-                        TAId = (int)dataSet.Tables[0].Rows[i]["ta_id"]
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString()
                     };
                     instructorClasses.Add(enrollment);
                 }

@@ -18,6 +18,8 @@
 
         public string CourseDescription { get; set; }
 
+        public string CourseLevel { get; set; }
+
         public string Year { get; set; }
 
         public string Quarter { get; set; }

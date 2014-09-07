@@ -7,6 +7,7 @@ define(['Models/StudentModel'], function (StudentModel) {
         var initialBind = true;
         var studentListViewModel = ko.observableArray();
         var enrollmentListViewModel = ko.observableArray();
+        var courseListViewModel = ko.observableArray();
 
         this.Initialize = function () {
 
@@ -206,26 +207,24 @@ define(['Models/StudentModel'], function (StudentModel) {
         this.InstructorCourses = function (id) {
             var studentModelObj = new StudentModel();
             studentModelObj.InstructorCourses(id, function (instructorClasses) {
-                enrollmentListViewModel.removeAll();
+                courseListViewModel.removeAll();
                 for (var i = 0; i < instructorClasses.length; i++) {
-                    enrollmentListViewModel.push({
-                        id: instructorClasses[i].InstructorId,
+                    courseListViewModel.push({
                         year: ko.observable(instructorClasses[i].Year),
                         quarter: ko.observable(instructorClasses[i].Quarter),
                         session: ko.observable(instructorClasses[i].Session),
                         course_title: ko.observable(instructorClasses[i].CourseTitle),
                         course_description: ko.observable(instructorClasses[i].CourseDescription),
                         course_id: ko.observable(instructorClasses[i].CourseId),
-                        grade: ko.observable(instructorClasses[i].Grade),
-                        schedule_id: ko.observable(instructorClasses[i].ScheduleId),
-                        ta_id: ko.observable(instructorClasses[i].TAId)
+                        schedule_id: ko.observable(instructorClasses[i].ScheduleId)
                     });
+                    //alert(instructorClasses[0].InstructorId);
                 }
                 var node = document.getElementById("divEnrollmentListContent");
-                //console.log('test: ', JSON.stringify(enrollmentListViewModel()));
+                console.log('test: ', JSON.stringify(courseListViewModel()));
 
                 if (initialBind) {
-                    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
+                    ko.applyBindings({ viewModel: courseListViewModel }, document.getElementById("divEnrollmentListContent"));
                 }
             });
         };

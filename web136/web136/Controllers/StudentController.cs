@@ -33,5 +33,11 @@
             ViewBag.Id = id;
             return this.View();
         }
+
+        public ActionResult InstructorClasses(int id)
+        {
+            ViewBag.Id = id;
+            return this.View();
+        }
     }
 }

@@ -198,7 +198,7 @@
 		            callback(message);
 		        },
 		        error: function () {
-		            callback('Error while updating studentinfo');
+		            callback('Error while loading courses');
 		        }
 		    });
 		};
