@@ -1,6 +1,6 @@
 ﻿define([], function () {
     $.support.cors = true;
-    
+
     //// THe reason for asyncIndicator is to make sure Jasmine test cases can run without error
     //// Due to async nature of ajax, the Jasmine's compare function would throw an error during
     //// a callback. By allowing this optional paramter for StudentModel function, it forces the ajax
@@ -171,37 +171,37 @@
             });
         };
 
-		this.GetEnrolledSchedules = function (id, callback) {
-		    $.ajax({
-		        async: asyncIndicator,
-				method: 'POST',
-				url: "http://localhost:5419/Api/Enrollment/GetEnrolledSchedules?id=" + id,
-				data: "",
-				dataType: "json",
-				success: function (message) {
-					callback(message);
-				},
-				error: function () {
-					callback('Error while updating studentinfo');
-				}
-			});
-		};
+        this.GetEnrolledSchedules = function (id, callback) {
+            $.ajax({
+                async: asyncIndicator,
+                method: 'POST',
+                url: "http://localhost:5419/Api/Enrollment/GetEnrolledSchedules?id=" + id,
+                data: "",
+                dataType: "json",
+                success: function (message) {
+                    callback(message);
+                },
+                error: function () {
+                    callback('Error while updating studentinfo');
+                }
+            });
+        };
 
-		this.InstructorCourses = function (id, callback) {
-		    $.ajax({
-		        async: asyncIndicator,
-		        method: 'POST',
-		        url: "http://localhost:5419/Api/Enrollment/InstructorCourses?id=" + id,
-		        data: "",
-		        dataType: "json",
-		        success: function (message) {
-		            callback(message);
-		        },
-		        error: function () {
-		            callback('Error while loading courses');
-		        }
-		    });
-		};
+        this.InstructorCourses = function (id, callback) {
+            $.ajax({
+                async: asyncIndicator,
+                method: 'POST',
+                url: "http://localhost:5419/Api/Enrollment/InstructorCourses?id=" + id,
+                data: "",
+                dataType: "json",
+                success: function (message) {
+                    callback(message);
+                },
+                error: function () {
+                    callback('Error while loading courses');
+                }
+            });
+        };
     }
 
     this.GetYears = function (callback) {

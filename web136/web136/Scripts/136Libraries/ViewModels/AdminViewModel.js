@@ -18,12 +18,12 @@ define(['Models/AdminModel'], function (adminModel) {
                     email: ko.observable(result.Email),
                     password: ko.observable(result.Password),
                     id: result.Id,
-                    update: function() {
+                    update: function () {
                         self.UpdateAdmin(this);
                     }
                 }
 
-                ko.applyBindings(viewModel , document.getElementById("divAdminEdit"));
+                ko.applyBindings(viewModel, document.getElementById("divAdminEdit"));
             });
         };
 
@@ -53,7 +53,7 @@ define(['Models/AdminModel'], function (adminModel) {
             });
 
         };
-        
+
         this.GetAllSchedules = function () {
             var adminModelObj = new adminModel();
             var scheduleListViewModel = ko.observableArray();
@@ -83,7 +83,7 @@ define(['Models/AdminModel'], function (adminModel) {
             var yearListViewModel = ko.observableArray();
             adminModelObj.GetYears(function (yearList) {
                 yearListViewModel.removeAll();
-                yearListViewModel.push({year: "All Years"});
+                yearListViewModel.push({ year: "All Years" });
                 for (var i = 0; i < yearList.length; i++) {
                     yearListViewModel.push({
                         year: yearList[i]
@@ -244,7 +244,7 @@ define(['Models/AdminModel'], function (adminModel) {
             var adminModelObj = new adminModel();
             var announcement_id = window.location.search.substring(4);
             adminModelObj.GetAnnouncementById(announcement_id, function (announcement) {
-                
+
                 var announcementViewModel = {
                     id: announcement.ID,
                     text: announcement.Text,

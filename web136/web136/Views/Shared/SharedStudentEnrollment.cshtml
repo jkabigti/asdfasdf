@@ -39,12 +39,12 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		require(['ViewModels/StudentViewModel'], function (studentViewModel) {
-			var studentViewModelObj = new studentViewModel();
-			studentViewModelObj.GetEnrolledSchedules("@id");
-		});
-	});
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.GetEnrolledSchedules("@id");
+        });
+    });
 </script>
 
 <script type="text/html" id="action-template">
