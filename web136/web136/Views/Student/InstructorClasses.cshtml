@@ -32,14 +32,14 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		require(['ViewModels/StudentViewModel'], function (studentViewModel) {
-			var studentViewModelObj = new studentViewModel();
-			studentViewModelObj.InstructorCourses("@id");
-		});
-	});
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.InstructorCourses("@id");
+        });
+    });
 </script>
 
-<script type=" = "contextmenu="/html" id="action-template">
-    <a data-bind="attr: { href: '/Student/?scheduleId=' + schedule_id(), title: 'view' }">View Requests</a>
+<script type=" = " contextmenu="/html" id="action-template">
+    <a data-bind="attr: { href: '/Instructor/GetRequests?scheduleId=' + schedule_id(), title: 'view' }">View Requests</a>
 </script>

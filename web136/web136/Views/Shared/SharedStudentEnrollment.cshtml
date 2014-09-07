@@ -35,7 +35,7 @@
             </tr>
         </tbody>
     </table>
-	<a data-bind="attr: { href : '/Admin/EnrollClass?id=@ViewBag.Id', title: 'enroll' }">Enroll a Course</a>
+    <a data-bind="attr: { href : '/Admin/EnrollClass?id=@ViewBag.Id', title: 'enroll' }">Enroll a Course</a>
 </div>
 
 <script type="text/javascript">
@@ -47,8 +47,8 @@
 	});
 </script>
 
-<script type = "text/html" id="action-template">
+<script type="text/html" id="action-template">
     <a data-bind="attr: { href : '/Student/ViewGrade?id=' + id + '&scheduleid=', title: 'view' }">View Grade</a>
-	<a data-bind="attr: { href : '/Student/AddRequest?id=@ViewBag.Id&scheduleId=' + schedule_id(), title: 'create' }">Request Grade Change</a>
-	<input type="button" data-bind="value: 'Drop', click: $data.drop">
+    <a data-bind="attr: { href : '/Student/AddRequest?id=@ViewBag.Id&scheduleId=' + schedule_id(), title: 'create' }">Request Grade Change</a>
+    <input type="button" data-bind="value: 'Drop', click: $data.drop">
 </script>
