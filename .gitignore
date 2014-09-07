@@ -100,3 +100,9 @@ web136/web136.v12.suo
 *.suo
 *.dll
 *.pdb
+*.suo
+*.dll
+*.pdb
+*.cache
+web136/web136/obj/Debug/web136.csproj.FileListAbsolute.txt
+*.config

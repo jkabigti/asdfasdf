@@ -216,5 +216,58 @@
 
             return enrollmentList;
         }
+
+        public List<Enrollment> InstructorCourses(string id, ref List<string> errors)
+        {
+            var conn = new SqlConnection(ConnectionString);
+            var instructorClasses = new List<Enrollment>();
+
+            try
+            {
+                var adapter = new SqlDataAdapter(GetEnrolledSchedulesProcedure, conn);
+
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@instructor_id", SqlDbType.VarChar, 20));
+
+                adapter.SelectCommand.Parameters["@instructor_id"].Value = id;
+
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                for (var i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    var enrollment = new Enrollment
+                    {
+                        ScheduleId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["schedule_id"].ToString()),
+                        Grade = dataSet.Tables[0].Rows[i]["grade"].ToString(),
+                        CourseId = (int)dataSet.Tables[0].Rows[i]["course_id"],
+                        CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
+                        Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
+                        InstructorId = (int)dataSet.Tables[0].Rows[i]["instructor_id"],
+                        TAId = (int)dataSet.Tables[0].Rows[i]["ta_id"]
+                    };
+                    instructorClasses.Add(enrollment);
+                }
+            }
+            catch (Exception e)
+            {
+                errors.Add("Error: " + e);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+
+            return instructorClasses;
+        }
     }
 }

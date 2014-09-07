@@ -1,0 +1,39 @@
+﻿@{
+    var id = ViewBag.Id;
+}
+
+<h3>Instructor Class:</h3>
+
+<div id="en_courseSchedule">
+    <table border="1">
+        <thead>
+            <tr>
+                <th align="center">Title</th>
+                <th align="center">Description</th>
+                <th align="center">Quarter</th>
+                <th align="center">Year</th>
+                <th align="center">Session</th>
+                <th align="center">TA</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: viewModel">
+            <tr>
+                <td align="center" data-bind="text: course_title"></td>
+                <td align="center" data-bind="text: course_description"></td>
+                <td align="center" data-bind="text: quarter"></td>
+                <td align="center" data-bind="text: year"></td>
+                <td align="center" data-bind="text: session"></td>
+                <td align="center" data-bind="text: ta_id"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.InstructorSchedules("@id");
+        });
+    });
+</script>

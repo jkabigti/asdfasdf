@@ -15,5 +15,7 @@
         int GetCourse(int sch_id, ref List<string> errors);
 
         List<Enrollment> GetEnrolledSchedules(string id, ref List<string> errors);
+
+        List<Enrollment> InstructorCourses(string id, ref List<string> errors);
     }
 }

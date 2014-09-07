@@ -1,11 +1,12 @@
 ﻿@{
     ViewBag.Title = "Instructor";
+    var id = ViewBag.Id;
 }
 
 <h2>Instructor</h2>
 
 <p>What do you want to do professor?</p>
 <ul>
-    <li><a href="~/Instructor/CourseList">Course List</a></li>
+    <a href="/Student/InstructorClasses?id=@ViewBag.id">View Courses</a>
 	<li><a href="~/Instructor/GetRequests">View Student Requests</a></li>
 </ul>
