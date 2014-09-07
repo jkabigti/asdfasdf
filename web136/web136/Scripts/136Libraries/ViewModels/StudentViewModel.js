@@ -275,19 +275,19 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         this.EnrollCourse = function (viewModel) {
             var studentModelObj = new StudentModel();
-<<<<<<< HEAD
             var studentId = window.location.search.substring(4,11);
-=======
-            var studentId = window.location.search.substring(4, 11);
->>>>>>> origin/master
             var scheduleId = window.location.search.substring(23);
             studentModelObj.Enroll(studentId, scheduleId, function (message) {
                 $('#divAddMessage').html(message);
             });
-<<<<<<< HEAD
-        }
-=======
         };
+
+        this.GradeRequest = function (viewModel) {
+            var studentModelObj = new StudentModel();
+            var studentId = window.location.search.substring(4, 11);
+            var scheduleId = window.location.search.substring(23);
+            studentModelObj.GradeRequest()
+        }
 
         this.DropCourse = function (viewModel) {
             var studentModelObj = new StudentModel();
@@ -297,7 +297,6 @@ define(['Models/StudentModel'], function (StudentModel) {
                 $('#divAddMessage').html(message);
             })
         };
->>>>>>> origin/master
     }
 
     return StudentViewModel;
