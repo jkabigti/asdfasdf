@@ -9,8 +9,9 @@
     <br />
     Date : <input type="text" data-bind="value: $data.date" />(YYYY-MM-dd HH:mm:ss)<br />
     <br />
-    <input type="button" value="Update" style="margin-left:80px" />
+    <input type="button" data-bind="value: 'Update', click: $data.update" style="margin-left:80px" />
     <br /><br />
+    <div id="divEditMessage"></div>
 </div>
 
 <script type="text/javascript">
