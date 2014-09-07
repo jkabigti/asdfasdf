@@ -50,5 +50,5 @@
 <script type = "text/html" id="action-template">
     <a data-bind="attr: { href : '/Student/ViewGrade?id=' + id + '&scheduleid=', title: 'view' }">View Grade</a>
 	<a data-bind="attr: { href : '/Student/AddRequest?id=' + id + '&scheduleid=', title: 'create' }">Request Grade Change</a>
-	<a data-bind="attr: { href : '/Instructor/DropStudent?id=' +id, title: 'drop' }">Drop Course</a>
+	<input type="button" data-bind="value: 'Drop', click: $data.drop">
 </script>
