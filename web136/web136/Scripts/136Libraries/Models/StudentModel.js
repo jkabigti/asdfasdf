@@ -80,7 +80,7 @@
         this.Drop = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',
-                url: "http://localhost:5419/Api/Student/Drop?id=" + studentId + "&scheduleId=" + scheduleId,
+                url: "http://localhost:5419/Api/Enrollment/DropEnrolledSchedule?studentId=" + studentId + "&scheduleId=" + scheduleId,
                 data: "",
                 dataType: "json",
                 success: function (result) {

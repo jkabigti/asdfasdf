@@ -103,7 +103,10 @@ define(['Models/StudentModel'], function (StudentModel) {
 						course_description: ko.observable(enrollmentList[i].CourseDescription),
 						course_id: ko.observable(enrollmentList[i].CourseId),
                         grade: ko.observable(enrollmentList[i].Grade),
-						schedule_id: ko.observable(enrollmentList[i].ScheduleId)
+                        schedule_id: ko.observable(enrollmentList[i].ScheduleId),
+                        drop: function () {
+                            that.DropCourse(this);
+                        }
 					});
 				}
 				var node = document.getElementById("divEnrollmentListContent");
@@ -149,7 +152,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                     ssn: ko.observable(result.SSN),
                     update: function () {
                         that.UpdateStudent(this);
-                    }
+                    }              
                 }
                 ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
             });
@@ -190,12 +193,21 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         this.EnrollCourse = function (viewModel) {
             var studentModelObj = new StudentModel();
-            var studentId = window.location.search.substring(4,11);
+            var studentId = window.location.search.substring(4, 11);
             var scheduleId = window.location.search.substring(23);
             studentModelObj.Enroll(studentId, scheduleId, function (message) {
                 $('#divAddMessage').html(message);
             });
-        }
+        };
+
+        this.DropCourse = function (viewModel) {
+            var studentModelObj = new StudentModel();
+            var studentId = window.location.search.substring(4);
+            var scheduleId = viewModel.schedule_id();
+            studentModelObj.Drop(studentId, scheduleId, function (message) {
+                $('#divAddMessage').html(message);
+            })
+        };
     }
 
     return StudentViewModel;
