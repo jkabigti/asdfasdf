@@ -34,6 +34,16 @@
             return this.repository.GetEnrolledSchedules(id, ref errors);
         }
 
+        public List<Enrollment> InstructorCourses(string id, ref List<string> errors)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                errors.Add("Invalid student id.");
+            }
+
+            return this.repository.InstructorCourses(id, ref errors);
+        }
+
         public void EnrollSchedule(string studentId, int scheduleId, ref List<string> errors)
         {
             if (string.IsNullOrEmpty(studentId) || scheduleId < 0)

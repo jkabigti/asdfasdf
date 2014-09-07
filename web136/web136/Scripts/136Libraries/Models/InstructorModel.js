@@ -135,5 +135,5 @@
 
     }
 
-    return AdminModel;
+    return InstructorModel;
 });

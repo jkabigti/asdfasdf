@@ -170,6 +170,22 @@
 				}
 			});
 		};
+
+		this.InstructorCourses = function (id, callback) {
+		    $.ajax({
+		        async: asyncIndicator,
+		        method: 'POST',
+		        url: "http://localhost:5419/Api/Enrollment/InstructorCourses?id=" + id,
+		        data: "",
+		        dataType: "json",
+		        success: function (message) {
+		            callback(message);
+		        },
+		        error: function () {
+		            callback('Error while updating studentinfo');
+		        }
+		    });
+		};
     }
 
     this.GetYears = function (callback) {
