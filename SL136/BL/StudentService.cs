@@ -150,13 +150,13 @@
                 return;
             }
 
-            if (string.IsNullOrEmpty(request.Text))
+            if (string.IsNullOrEmpty(request.RequestMessage))
             {
                 errors.Add("Invalid request.");
                 return;
             }
 
-            this.repository.SendStudentRequest(request.StudentId, request.ScheduleId, request.Text, ref errors);
+            this.repository.SendStudentRequest(request.StudentId, request.ScheduleId, request.RequestMessage, ref errors);
         }
 
         private bool ValidateStudent(Student s, ref List<string> errors)

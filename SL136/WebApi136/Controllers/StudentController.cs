@@ -52,10 +52,11 @@
         }
 
         [HttpPost]
-        public void SendStudentRequest(Request request)
+        public string SendStudentRequest(Request request)
         {
             List<string> errors = new List<string>();
             this.service.SendStudentRequest(request, ref errors);
+            return errors.Count == 0 ? "ok" : "Error Occured: " + errors[errors.Count - 1].ToString();
         }
     }
 }

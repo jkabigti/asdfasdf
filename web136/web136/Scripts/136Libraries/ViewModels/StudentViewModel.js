@@ -285,12 +285,30 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
-        this.GradeRequest = function (viewModel) {
-            var studentModelObj = new StudentModel();
+        this.LoadRequest = function () {
             var studentId = window.location.search.substring(4, 11);
             var scheduleId = window.location.search.substring(23);
-            studentModelObj.GradeRequest()
-        }
+            var viewModel = {
+                student_id: studentId,
+                schedule_id: scheduleId,
+                send: function () {
+                    that.RequestChange(this);
+                }
+            }
+            ko.applyBindings(viewModel, document.getElementById("divRequestForm"));
+        };
+
+        this.RequestChange = function (viewModel) {
+            var studentModelObj = new StudentModel();
+            var data = {
+                StudentId: viewModel.student_id,
+                ScheduleId: viewModel.schedule_id,
+                RequestMessage: viewModel.requestMessage
+            };
+            studentModelObj.RequestChange(data, function (message) {
+                $('#divRequestMessage').html(message);
+            });
+        };
 
         this.DropCourse = function (viewModel) {
             var studentModelObj = new StudentModel();

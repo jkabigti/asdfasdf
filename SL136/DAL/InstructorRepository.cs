@@ -81,7 +81,7 @@ namespace Repository
                                       {
                                           StudentId = dataSet.Tables[0].Rows[i]["student_id"].ToString(),
                                           ScheduleId = (int)dataSet.Tables[0].Rows[i]["schedule_id"],
-                                          Text = dataSet.Tables[0].Rows[i]["request"].ToString(),
+                                          RequestMessage = dataSet.Tables[0].Rows[i]["request"].ToString(),
                                       };
                     requestList.Add(request);
                 }

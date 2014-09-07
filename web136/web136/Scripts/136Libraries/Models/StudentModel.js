@@ -109,6 +109,22 @@
             });
         };
 
+        this.RequestChange = function (requestData, callback) {
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:5419/Api/Student/SendStudentRequest",
+                data: requestData,
+                dataType: "json",
+                success: function (result) {
+                    callback(result);
+                },
+                error: function () {
+                    alert('Error while requesting a grade change.');
+                    callback("Error while requesting a grade change.")
+                }
+            });
+        };
+
         this.ViewGrade = function (studentId, scheduleId, callback) {
             $.ajax({
                 method: 'POST',

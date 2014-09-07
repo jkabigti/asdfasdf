@@ -39,13 +39,21 @@
 
     <br />
     <br />
-
-    <div id="requestForm">
-        <em>Your Reason for the Request:</em> <br />
-        <textarea id="textareaBox" rows="6" cols="50" data-bind="value: $data.text"></textarea>
-        <br /> <br />
-        <input type="button" data-bind="value:'Submit', click: $data.submit" style="margin-left: 80px"/>
-        <br /><br />
-        <div id="divRequestMessage"></div>
-    </div>
 </div>
+<div id="divRequestForm">
+    Your Reason for the Request:<br />
+    <textarea rows="5" type="text" data-bind="value: $data.requestMessage"></textarea>
+    <br /><br />
+    <input type="button" value="Send Request" data-bind="click: $data.send"/>
+    <br /><br />
+    <div id="divRequestMessage"></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        require(['ViewModels/StudentViewModel'], function (studentViewModel) {
+            var studentViewModelObj = new studentViewModel();
+            studentViewModelObj.LoadRequest();
+        });
+    });
+</script>

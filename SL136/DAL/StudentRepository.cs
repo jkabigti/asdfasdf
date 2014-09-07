@@ -348,7 +348,7 @@
                 };
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@student_id", SqlDbType.VarChar, 20));
                 adapter.SelectCommand.Parameters.Add(new SqlParameter("@schedule_id", SqlDbType.Int));
-                adapter.SelectCommand.Parameters.Add(new SqlParameter("@request", SqlDbType.VarChar, -1));
+                adapter.SelectCommand.Parameters.Add(new SqlParameter("@request", SqlDbType.VarChar, 600));
 
                 adapter.SelectCommand.Parameters["@student_id"].Value = studentId;
                 adapter.SelectCommand.Parameters["@schedule_id"].Value = scheduleId;

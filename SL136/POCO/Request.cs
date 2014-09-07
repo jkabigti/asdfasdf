@@ -6,6 +6,6 @@
 
         public int ScheduleId { get; set; }
 
-        public string Text { get; set; }
+        public string RequestMessage { get; set; }
     }
 }
