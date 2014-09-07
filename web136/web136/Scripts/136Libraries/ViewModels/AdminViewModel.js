@@ -67,9 +67,7 @@ define(['Models/AdminModel'], function (adminModel) {
                         course_title: scheduleList[i].CourseTitle,
                         course_description: scheduleList[i].CourseDescription,
                         course_id: scheduleList[i].CourseId,
-                        schedule_id: scheduleList[i].ScheduleId,
-                        instructor_id: scheduleList[i].InstructorId,
-                        ta_id: scheduleList[i].TAId
+                        schedule_id: scheduleList[i].ScheduleId
                     });
                 }
 
@@ -128,8 +126,9 @@ define(['Models/AdminModel'], function (adminModel) {
                         course_description: scheduleList[i].CourseDescription,
                         course_id: scheduleList[i].CourseId,
                         schedule_id: scheduleList[i].ScheduleId,
-                        instructor_id: scheduleList[i].InstructorId,
-                        ta_id: scheduleList[i].TAId
+                        enroll: function () {
+                            self.EnrollCourse(this);
+                        }
                     });
                 }
                 var node = document.getElementById("divScheduleListContent");
@@ -155,9 +154,7 @@ define(['Models/AdminModel'], function (adminModel) {
                         course_title: scheduleList[i].CourseTitle,
                         course_description: scheduleList[i].CourseDescription,
                         course_id: scheduleList[i].CourseId,
-                        schedule_id: scheduleList[i].ScheduleId,
-                        instructor_id: scheduleList[i].InstructorId,
-                        ta_id: scheduleList[i].TAId
+                        schedule_id: scheduleList[i].ScheduleId
                     });
                 }
             });

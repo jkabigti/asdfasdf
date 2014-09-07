@@ -203,33 +203,6 @@ define(['Models/StudentModel'], function (StudentModel) {
             });
         };
 
-        this.InstructorSchedules = function (id) {
-            var studentModelObj = new StudentModel();
-            studentModelObj.GetEnrolledSchedules(id, function (enrollmentList) {
-                enrollmentListViewModel.removeAll();
-                for (var i = 0; i < enrollmentList.length; i++) {
-                    enrollmentListViewModel.push({
-                        id: enrollmentList[i].InstructorId,
-                        year: ko.observable(enrollmentList[i].Year),
-                        quarter: ko.observable(enrollmentList[i].Quarter),
-                        session: ko.observable(enrollmentList[i].Session),
-                        course_title: ko.observable(enrollmentList[i].CourseTitle),
-                        course_description: ko.observable(enrollmentList[i].CourseDescription),
-                        course_id: ko.observable(enrollmentList[i].CourseId),
-                        grade: ko.observable(enrollmentList[i].Grade),
-                        schedule_id: ko.observable(enrollmentList[i].ScheduleId),
-                        ta_id: ko.observable(enrollmentList[i].TAId)
-                    });
-                }
-                var node = document.getElementById("divEnrollmentListContent");
-                //console.log('test: ', JSON.stringify(enrollmentListViewModel()));
-
-                if (initialBind) {
-                    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
-                }
-            });
-        };
-
         this.GetDetail = function (id) {
 
             StudentModelObj.GetDetail(id, function (result) {

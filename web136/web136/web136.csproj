@@ -161,7 +161,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Views\Admin\EnrollClass.cshtml" />
     <Content Include="Views\Student\Confirmation.cshtml" />
-    <Content Include="Views\Student\InstructorClass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\136.css">
