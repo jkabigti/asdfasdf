@@ -107,7 +107,7 @@ define(['Models/StudentModel'], function (StudentModel) {
 					});
 				}
 				var node = document.getElementById("divEnrollmentListContent");
-				console.log('test: ', JSON.stringify(enrollmentListViewModel()));
+				//console.log('test: ', JSON.stringify(enrollmentListViewModel()));
 
 				if (initialBind) {
 				    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
