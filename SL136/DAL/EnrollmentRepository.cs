@@ -200,7 +200,9 @@
                         CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
                         Year = dataSet.Tables[0].Rows[i]["year"].ToString(),
                         Quarter = dataSet.Tables[0].Rows[i]["quarter"].ToString(),
-                        Session = dataSet.Tables[0].Rows[i]["session"].ToString()
+                        Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
+                        InstructorId = (int)dataSet.Tables[0].Rows[i]["instructor_id"],
+                        TAId = (int)dataSet.Tables[0].Rows[i]["ta_id"]
                     };
                     enrollmentList.Add(enrollment);
                 }

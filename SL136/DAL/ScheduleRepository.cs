@@ -70,7 +70,9 @@
                         Session = dataSet.Tables[0].Rows[i]["session"].ToString(),
                         CourseId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["course_id"].ToString()),
                         CourseTitle = dataSet.Tables[0].Rows[i]["course_title"].ToString(),
-                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString()
+                        CourseDescription = dataSet.Tables[0].Rows[i]["course_description"].ToString(),
+                        InstructorId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["instructor_id"].ToString()),
+                        TAId = Convert.ToInt32(dataSet.Tables[0].Rows[i]["ta_id"].ToString())
                     };
                     scheduleList.Add(schedule);
                 }

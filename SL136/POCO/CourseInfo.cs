@@ -17,5 +17,9 @@
         public string Quarter { get; set; }
 
         public string Session { get; set; }
+
+        public int InstructorId { get; set; }
+
+        public int TAId { get; set; }
     }
 }
