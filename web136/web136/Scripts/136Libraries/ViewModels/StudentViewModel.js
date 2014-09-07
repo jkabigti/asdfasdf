@@ -269,6 +269,15 @@ define(['Models/StudentModel'], function (StudentModel) {
                 });
             }
         }
+
+        this.EnrollCourse = function (viewModel) {
+            var studentModelObj = new StudentModel();
+            var studentId = window.location.search.substring(4,11);
+            var scheduleId = window.location.search.substring(23);
+            studentModelObj.Enroll(studentId, scheduleId, function (message) {
+                $('#divAddMessage').html(message);
+            });
+        }
     }
 
     return StudentViewModel;

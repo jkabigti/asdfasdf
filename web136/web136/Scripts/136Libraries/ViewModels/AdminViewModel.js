@@ -185,6 +185,26 @@ define(['Models/AdminModel'], function (adminModel) {
             //});
         };
 
+        this.LoadSharedAnnouncements = function () {
+            var adminModelObj = new adminModel();
+            var aViewModel = new ko.observableArray();
+            adminModelObj.GetAnnouncements(function (announcementList) {
+                aViewModel.removeAll();
+                for (var i = 0; i < announcementList.length; i++) {
+                    aViewModel.push({
+                        text: announcementList[i].Text,
+                        date: announcementList[i].Date,
+                        id: announcementList[i].ID
+                    });
+                }
+
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: aViewModel }, document.getElementById("divSharedAnnouncementContent"));
+                    initialBind = false;
+                }
+            });
+        };
+
         this.LoadAnnouncements = function () {
             var adminModelObj = new adminModel();
             var announcementViewModel = ko.observableArray();
@@ -213,10 +233,25 @@ define(['Models/AdminModel'], function (adminModel) {
                 var announcementViewModel = {
                     id: announcement.ID,
                     text: announcement.Text,
-                    date: announcement.Date
+                    date: announcement.Date,
+                    update: function () {
+                        self.EditAnnouncement(this);
+                    }
                 };
                 //alert(announcement.Text);
                 ko.applyBindings(announcementViewModel, document.getElementById("divAnnouncementEdit"));
+            });
+        };
+
+        this.EditAnnouncement = function (viewModel) {
+            var adminModelObj = new adminModel();
+            var announcement = {
+                ID: viewModel.id,
+                Text: viewModel.text,
+                Date: viewModel.date
+            };
+            adminModelObj.EditAnnouncement(announcement, function (message) {
+                $('#divEditMessage').html(message);
             });
         };
     }
