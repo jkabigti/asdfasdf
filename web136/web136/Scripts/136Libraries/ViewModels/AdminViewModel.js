@@ -185,6 +185,26 @@ define(['Models/AdminModel'], function (adminModel) {
             //});
         };
 
+        this.LoadSharedAnnouncements = function () {
+            var adminModelObj = new adminModel();
+            var aViewModel = new ko.observableArray();
+            adminModelObj.GetAnnouncements(function (announcementList) {
+                aViewModel.removeAll();
+                for (var i = 0; i < announcementList.length; i++) {
+                    aViewModel.push({
+                        text: announcementList[i].Text,
+                        date: announcementList[i].Date,
+                        id: announcementList[i].ID
+                    });
+                }
+
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: aViewModel }, document.getElementById("divSharedAnnouncementContent"));
+                    initialBind = false;
+                }
+            });
+        };
+
         this.LoadAnnouncements = function () {
             var adminModelObj = new adminModel();
             var announcementViewModel = ko.observableArray();
