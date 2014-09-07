@@ -6,7 +6,7 @@ define(['Models/StudentModel'], function (StudentModel) {
         var that = this;
         var initialBind = true;
         var studentListViewModel = ko.observableArray();
-		var enrollmentListViewModel = ko.observableArray();
+        var enrollmentListViewModel = ko.observableArray();
 
         this.Initialize = function () {
 
@@ -173,32 +173,35 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         this.GetEnrolledSchedules = function (id) {
             var studentModelObj = new StudentModel();
-		    studentModelObj.GetEnrolledSchedules(id, function (enrollmentList) {
-		        enrollmentListViewModel.removeAll();
-				for (var i = 0; i < enrollmentList.length; i++) {
-				    enrollmentListViewModel.push({
+            studentModelObj.GetEnrolledSchedules(id, function (enrollmentList) {
+                enrollmentListViewModel.removeAll();
+                for (var i = 0; i < enrollmentList.length; i++) {
+                    enrollmentListViewModel.push({
                         id: enrollmentList[i].StudentId,
-						year: ko.observable(enrollmentList[i].Year),
-						quarter: ko.observable(enrollmentList[i].Quarter),
-						session: ko.observable(enrollmentList[i].Session),
-						course_title: ko.observable(enrollmentList[i].CourseTitle),
-						course_description: ko.observable(enrollmentList[i].CourseDescription),
-						course_id: ko.observable(enrollmentList[i].CourseId),
+                        year: ko.observable(enrollmentList[i].Year),
+                        quarter: ko.observable(enrollmentList[i].Quarter),
+                        session: ko.observable(enrollmentList[i].Session),
+                        course_title: ko.observable(enrollmentList[i].CourseTitle),
+                        course_description: ko.observable(enrollmentList[i].CourseDescription),
+                        course_id: ko.observable(enrollmentList[i].CourseId),
                         grade: ko.observable(enrollmentList[i].Grade),
                         schedule_id: ko.observable(enrollmentList[i].ScheduleId),
                         drop: function () {
                             that.DropCourse(this);
+                        },
+                        enroll: function () {
+                            that.EnrollCourse(this);
                         }
-					});
-				}
-				var node = document.getElementById("divEnrollmentListContent");
-				//console.log('test: ', JSON.stringify(enrollmentListViewModel()));
+                    });
+                }
+                var node = document.getElementById("divEnrollmentListContent");
+                //console.log('test: ', JSON.stringify(enrollmentListViewModel()));
 
-				if (initialBind) {
-				    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
-				}
-			});
-		};
+                if (initialBind) {
+                    ko.applyBindings({ viewModel: enrollmentListViewModel }, document.getElementById("divEnrollmentListContent"));
+                }
+            });
+        };
 
         this.GetDetail = function (id) {
 
@@ -234,7 +237,7 @@ define(['Models/StudentModel'], function (StudentModel) {
                     ssn: ko.observable(result.SSN),
                     update: function () {
                         that.UpdateStudent(this);
-                    }              
+                    }
                 }
                 ko.applyBindings(viewModel, document.getElementById("divEditStudentRecord"));
             });
@@ -275,7 +278,7 @@ define(['Models/StudentModel'], function (StudentModel) {
 
         this.EnrollCourse = function (viewModel) {
             var studentModelObj = new StudentModel();
-            var studentId = window.location.search.substring(4,11);
+            var studentId = window.location.search.substring(4, 11);
             var scheduleId = window.location.search.substring(23);
             studentModelObj.Enroll(studentId, scheduleId, function (message) {
                 $('#divAddMessage').html(message);
@@ -298,7 +301,6 @@ define(['Models/StudentModel'], function (StudentModel) {
             })
         };
     }
-
     return StudentViewModel;
 }
 );

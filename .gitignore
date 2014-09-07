@@ -88,3 +88,15 @@ SL136/WebApi136/Web.config
 *.cache
 web136/web136.v12.suo
 >>>>>>> origin/master
+*.dll
+*.pdb
+*.cache
+*.config
+*.suo
+*.dll
+*.pdb
+*.cache
+*.config
+*.suo
+*.dll
+*.pdb

@@ -41,19 +41,18 @@
                 errors.Add("Invalid student id or schedule id.");
             }
 
-            List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
-            int courseId = this.repository.GetCourse(scheduleId, ref errors);
+            //List<Enrollment> enrolled = this.repository.GetEnrolledSchedules(studentId, ref errors);
+            //int courseId = this.repository.GetCourse(scheduleId, ref errors);
 
-            foreach (Enrollment e in enrolled)
-            {
-                int id = this.repository.GetCourse(e.ScheduleId, ref errors);
-                if (courseId == id)
-                {
-                    this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
-                }
-            }
-
-            errors.Add("Student does not have required prereq.");
+            //foreach (Enrollment e in enrolled)
+            //{
+            //    int id = this.repository.GetCourse(e.ScheduleId, ref errors);
+            //    if (courseId == id)
+            //    {
+            //        this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
+            //    }
+            //}
+            this.repository.EnrollSchedule(studentId, scheduleId, ref errors);
         }
 
         public void DropEnrolledSchedule(string studentId, int scheduleId, ref List<string> errors)
